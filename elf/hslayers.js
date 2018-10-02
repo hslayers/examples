@@ -1,6 +1,6 @@
 'use strict';
 
-var hsl_path = '../../';
+var hsl_path = '../../hslayers-ng/';
 var allowWFS2 = true;
 var gitsha = $.ajax({
     type: "GET",
