@@ -7,7 +7,7 @@ require(['clipboard'], function(clipboard) {
     window.Clipboard = clipboard;
   });
 
-define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'map', 'query', 'search', 'measure', 'permalink', 'core', 'datasource_selector', 'api', 'compositions', 'ows','angular-gettext', 'bootstrap', 'translations', 'ngMaterial', 'mdColorPicker', 'ngclipboard', 'matCore','matSearch','mainToolbar', 'bottomToolbar', 'sidepanel', 'matAddLayer', 'matBasemap', 'matLayerManager', 'matShareMap', 'matMeasure', 'matQuery', 'matComposition', 'matStatusCreator', 'matDatasource'],
+define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'map', 'query', 'search', 'measure', 'permalink', 'core', 'datasource_selector', 'api', 'compositions', 'ows','angular-gettext', 'bootstrap.bundle', 'translations', 'ngMaterial', 'mdColorPicker', 'ngclipboard', 'matCore','matSearch','mainToolbar', 'bottomToolbar', 'sidepanel', 'matAddLayer', 'matBasemap', 'matLayerManager', 'matShareMap', 'matMeasure', 'matQuery', 'matComposition', 'matStatusCreator', 'matDatasource'],
 
     function (angular, ol, toolbar, layermanager) {
         var module = angular.module('hs', [
@@ -42,9 +42,9 @@ define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'map', 'query', '
             'hs.material.datasourceBrowser'
         ]);
 
-        module.directive('hs', ['hs.map.service', 'Core', '$timeout', function (OlMap, Core, $timeout) {
+        module.directive('hs', ['config', 'Core', '$timeout', function (config, Core, $timeout) {
             return {
-                templateUrl: hsl_path + 'materialComponents/skeleton.html',
+                templateUrl: config.hsl_path + 'materialComponents/skeleton.html',
                 link: function (scope, element) {
                     Core.init(element, {
                         innerElement: '#map-container'

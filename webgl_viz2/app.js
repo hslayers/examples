@@ -10,7 +10,7 @@ define(['ol',
         'api',
         'glutils', 'WGL', 'wglinit', 'mapConf', 'manager', 'mapcontroller', 'dataloader', 'd3', 'dimension',
         'heatmapdimension', 'heatmaprenderer', 'heatmaplegend', 'maxcalculator', 'chart_panel', 'stackedbarchart', 'histogramdimension', 'mapdimension', 'floatreaderhistogram',
-        'floatrasterreader', 'linearfilter', 'filter', 'bootstrap', 'multibrush', 'extentfilter', 'mappolyfilter', 'mapcolorfilter', 'parallelcoordinates'
+        'floatrasterreader', 'linearfilter', 'filter', 'bootstrap.bundle', 'multibrush', 'extentfilter', 'mappolyfilter', 'mapcolorfilter', 'parallelcoordinates'
     ],
 
     function(ol, layermanager, sidebar, poly2tri) {
@@ -24,9 +24,9 @@ define(['ol',
             'hs.widgets.chart_panel'
         ]);
 
-        module.directive('hs', ['hs.map.service', 'Core', '$compile', 'webgl_viz', function(OlMap, Core, $compile, webgl_viz) {
+        module.directive('hs', ['config', 'Core', '$compile', 'webgl_viz', function(config, Core, $compile, webgl_viz) {
             return {
-                templateUrl: hsl_path + 'hslayers.html',
+                templateUrl: config.hsl_path + 'hslayers.html',
                 link: function(scope, element) {
                     Core.fullScreenMap(element);
                     $(".panelspace", element).append($compile('<div chartpanel ng-controller="ChartPanel"></div>')(scope));

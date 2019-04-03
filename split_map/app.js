@@ -9,7 +9,7 @@ define(['ol',
         'print',
         'permalink',
         'measure',
-        'bootstrap',
+        'bootstrap.bundle',
         'geolocation',
         'api',
         'drag',
@@ -30,11 +30,10 @@ define(['ol',
         ]);
 
         module.directive(
-            'hs', [
-                'hs.map.service', 'Core',
-                function(OlMap, Core) {
+            'hs', ['config', 'Core',
+                function(config, Core) {
                     return {
-                        templateUrl: hsl_path + 'hslayers.html',
+                        templateUrl: config.hsl_path + 'hslayers.html',
                         link: function(scope, element) {
                             Core.fullScreenMap(element);
                         }
@@ -76,7 +75,7 @@ define(['ol',
                         if ($scope.split_y == 0) $scope.split_y = 250;
 
 
-                        var slider_button = angular.element('<span class="glyphicon glyphicon-move" hs.draggable iswindow="false" hs-draggable-onmove="split_moved" style="z-index: 10001; font-size:1.5em; position:absolute; left:' + ($scope.split_x - 10) + 'px; top:' + ($scope.split_y - 10) + 'px" aria-hidden="true"></span>');
+                        var slider_button = angular.element('<span class="icon-move" hs.draggable iswindow="false" hs-draggable-onmove="split_moved" style="z-index: 10001; font-size:1.5em; position:absolute; left:' + ($scope.split_x - 10) + 'px; top:' + ($scope.split_y - 10) + 'px" aria-hidden="true"></span>');
 
                         angular.element('#map').append(slider_button);
                         $compile(slider_button)($scope);

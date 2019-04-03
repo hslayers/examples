@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular', 'ol', 'toolbar', 'layermanager', 'sidebar', 'map', 'ows', 'query', 'search', 'print', 'permalink', 'measure', 'bootstrap', 'legend', 'panoramio', 'geolocation', 'core', 'wirecloud', 'angular-gettext', 'translations'],
+define(['angular', 'ol', 'toolbar', 'layermanager', 'sidebar', 'map', 'ows', 'query', 'search', 'print', 'permalink', 'measure', 'bootstrap.bundle', 'legend', 'panoramio', 'geolocation', 'core', 'wirecloud', 'angular-gettext', 'translations'],
 
     function(angular, ol, toolbar, layermanager) {
         var modules_to_load = [
@@ -19,9 +19,9 @@ define(['angular', 'ol', 'toolbar', 'layermanager', 'sidebar', 'map', 'ows', 'qu
 
         var module = angular.module('hs', modules_to_load);
 
-        module.directive('hs', ['hs.map.service', 'Core', function(OlMap, Core) {
+        module.directive('hs', ['config', 'Core', function(config, Core) {
             return {
-                templateUrl: hsl_path + 'hslayers.html',
+                templateUrl: config.hsl_path + 'hslayers.html',
                 link: function(scope, element) {
                     Core.fullScreenMap(element);
                 }

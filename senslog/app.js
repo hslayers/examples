@@ -9,7 +9,7 @@ define(['ol',
         'print',
         'permalink',
         'measure',
-        'bootstrap',
+        'bootstrap.bundle',
         'geolocation',
         'api',
         'senslog',
@@ -35,11 +35,10 @@ define(['ol',
         ]);
 
         module.directive(
-            'hs', [
-                'hs.map.service', 'Core',
-                function(OlMap, Core) {
+            'hs', ['config', 'Core',
+                function(config, Core) {
                     return {
-                        templateUrl: hsl_path + 'hslayers.html',
+                        templateUrl: config.hsl_path + 'hslayers.html',
                         link: function(scope, element) {
                             Core.fullScreenMap(element);
                         }
@@ -79,7 +78,7 @@ define(['ol',
                         $compile(toolbar_button)(event.targetScope);
                     }
                     if (args == 'LayerManager') {
-                        var add_button = angular.element('<button class="btn btn-default" style="float:right; margin-top:1em" ng-click="toggleAddSenslogDataset()" translate=""><span class="menu-icon glyphicon glyphicon-plus" data-toggle="tooltip" data-container="body" data-placement="auto" title="Add external data"></span></button>');
+                        var add_button = angular.element('<button class="btn btn-secondary" style="float:right; margin-top:1em" ng-click="toggleAddSenslogDataset()" translate=""><span class="menu-icon icon-refresh" data-toggle="tooltip" data-container="body" data-placement="auto" title="Add external data"></span></button>');
                         angular.element('.hs-lm-panel').append(add_button);
                         $compile(add_button)(event.targetScope);
                         var add_dataset_panel = angular.element('<panel class="panel" ng-show="add_dataset_panel_visible"><form> <div class="form-group"><label translate>Dataset name</label><input type="text" class="form-control" ng-model="dataset_name"/></div> <div class="form-group"><label translate>Description</label><textarea class="form-control" ng-model="dataset_description"/></div><button class="btn btn-primary" ng-click="addSenslogDataset()">Save</button> </form></panel>');

@@ -1,6 +1,6 @@
 'use strict';
 
-define(['ol', 'toolbar', 'layermanager', 'geojson', 'sidebar', 'query', 'search', 'print', 'permalink', 'measure', 'geolocation', 'api', 'hscesium', 'ows', 'datasource_selector', 'bootstrap'],
+define(['ol', 'toolbar', 'layermanager', 'geojson', 'sidebar', 'query', 'search', 'print', 'permalink', 'measure', 'geolocation', 'api', 'hscesium', 'ows', 'datasource_selector', 'bootstrap.bundle'],
 
     function(ol, toolbar, layermanager, geojson) {
         var module = angular.module('hs', [
@@ -15,9 +15,9 @@ define(['ol', 'toolbar', 'layermanager', 'geojson', 'sidebar', 'query', 'search'
             'hs.ows'
         ]);
 
-        module.directive('hs', ['hs.map.service', 'Core', '$compile', '$timeout', function(OlMap, Core, $compile, $timeout) {
+        module.directive('hs', ['config', 'Core', '$compile', '$timeout', function(config, Core, $compile, $timeout) {
             return {
-                templateUrl: hsl_path + 'hslayers.html',
+                templateUrl: config.hsl_path + 'hslayers.html',
                 link: function(scope, element) {
                     $timeout(function(){Core.fullScreenMap(element)}, 0);
                 }
