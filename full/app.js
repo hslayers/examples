@@ -165,14 +165,6 @@ define(['angular', 'ol', 'toolbar', 'layermanager', 'sidebar', 'map', 'ows', 'qu
                 zoom: 4,
                 units: "m"
             }),
-            hostname: {
-                "default": {
-                    "title": "Default",
-                    "type": "default",
-                    "editable": false,
-                    "url": 'http://ng.hslayers.org'
-                }
-            },
             compositions_catalogue_url: '/php/catalogue/libs/cswclient/cswClientRun.php',
             status_manager_url: '/wwwlibs/statusmanager2/index.php',
             datasources: [{
