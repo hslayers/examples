@@ -24,14 +24,7 @@ define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'hs.source.Sparql
             };
         }])
         
-        .directive('hs.pilsentraffic.roadworkInfoDirective', ['config', function (config) {
-            return {
-                templateUrl: './roadwork_info.html',
-                link: function(scope, element, attrs) {
-                    $('#roadwork-info-dialog').modal('show');
-                }
-            };
-        }]).directive('description', ['$compile', 'hs.utils.service', function($compile, utils) {
+       .directive('description', ['$compile', 'hs.utils.service', function($compile, utils) {
             return {
                 templateUrl: './description.html',
                 scope: {

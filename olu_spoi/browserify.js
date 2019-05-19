@@ -13,7 +13,6 @@ bundleFs.on('finish', function () {
 b.pipeline.on('file', function (file, id, parent) {
     console.log(file, id, parent);
 })
-
 b.add(__dirname + '/app.js')
 b.transform('deamdify');
 b.bundle()
