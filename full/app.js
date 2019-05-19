@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular', 'ol', 'toolbar', 'layermanager', 'sidebar', 'map', 'ows', 'query', 'search', 'print', 'permalink', 'measure', 'legend', 'bootstrap.bundle', 'geolocation', 'core', 'datasource_selector', 'api', 'angular-gettext', 'translations', 'compositions', 'status_creator', 'info'],
+define(['angular', 'ol', 'toolbar', 'layermanager', 'sidebar', 'map', 'ows', 'query', 'search', 'print', 'permalink', 'measure', 'legend', 'geolocation', 'core', 'datasource_selector', 'api', 'angular-gettext', 'translations', 'compositions', 'status_creator', 'info'],
 
     function(angular, ol, toolbar, layermanager) {
         var module = angular.module('hs', [
@@ -32,6 +32,8 @@ define(['angular', 'ol', 'toolbar', 'layermanager', 'sidebar', 'map', 'ows', 'qu
         module.value('config', {
             open_lm_after_comp_loaded: true,
             layer_order: '-position',
+            useIsolatedBootstrap: true,
+            search_provider: ['geonames', 'sdi4apps_openapi'],
             box_layers: [
                 new ol.layer.Group({
                     'img': 'osm.png',
