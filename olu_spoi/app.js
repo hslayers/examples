@@ -23,6 +23,15 @@ define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'hs.source.Sparql
                 }
             };
         }])
+
+        .directive('infoDirective', function() {
+            return {
+                templateUrl: './info.html?bust=' + gitsha,
+                link: function(scope, element, attrs) {
+                    $('#info-dialog').modal('show');
+                }
+            }
+        })
         
        .directive('description', ['$compile', 'hs.utils.service', function($compile, utils) {
             return {
@@ -312,29 +321,29 @@ define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'hs.source.Sparql
                 
                 /*Popups*/
                 function initInfoDirective(){
-                    var el = angular.element('<div hs.pilsentraffic.roadwork-info-directive></div>');
+                    var el = angular.element('<div info-directive></div>');
                     $("#hs-dialog-area").append(el)
                     $compile(el)($scope);
                 }                
                    
                 var popup;
                 
-                function showPopup(roadwork){
+                function showPopup(){
                     if (angular.isUndefined(popup)) createPopup();
                     if (!$scope.$$phase) $scope.$apply(); 
-                    var html = $('#roadwork-info-offline')[0];
+                    var html = $('#info-offline')[0];
                     popup.show(query_service.last_coordinate_clicked, html);
                     $rootScope.$broadcast('popupOpened','inside');
                 }
                 
-                $scope.showRoadworkInfo = function(roadwork) {
-                    $scope.roadwork = {
-                        id: $sce.trustAsHtml(roadwork.get('parcel')), 
+                $scope.showParcelInfo = function(parcel) {
+                    $scope.parcel = {
+                        id: $sce.trustAsHtml(parcel.get('parcel')), 
                         attributes: [],
                         pois: []
                     };
-                    describeOlu(roadwork.get('parcel'), function(){
-                        showPopup(roadwork);
+                    describeOlu(parcel.get('parcel'), function(){
+                        showPopup(parcel);
                     });  
                 }
                 
@@ -350,7 +359,7 @@ define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'hs.source.Sparql
                                 var short_name = b.p.value;
                                 if(short_name.indexOf('#')>-1) 
                                     short_name = short_name.split('#')[1];
-                                $scope.roadwork.attributes.push({short_name: short_name, value: b.o.value});
+                                $scope.parcel.attributes.push({short_name: short_name, value: b.o.value});
                             }
                             getLinksTo(id, callback);
                         })
@@ -364,7 +373,7 @@ define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'hs.source.Sparql
                         .done(function(response) {
                                 for (var i = 0; i < response.results.bindings.length; i++) {    
                                     var b = response.results.bindings[i];
-                                    $scope.roadwork.pois.push({url: b.poi.value});
+                                    $scope.parcel.pois.push({url: b.poi.value});
                                 }
                                 callback();
                         })
@@ -405,7 +414,7 @@ define(['angular', 'ol', 'sidebar', 'toolbar', 'layermanager', 'hs.source.Sparql
                 }
                 
                 $scope.$on('vectorQuery.featureSelected', function(event, feature) {
-                    $scope.showRoadworkInfo(feature);
+                    $scope.showParcelInfo(feature);
                 })
                 
                 $scope.$on('popupOpened', function(e,source){
