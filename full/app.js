@@ -43,7 +43,7 @@ module.directive('hs', ['config', 'Core', function (config, Core) {
 }]);
 
 module.value('config', {
-    importCss: false,
+    importCss: true,
     open_lm_after_comp_loaded: true,
     layer_order: '-position',
     box_layers: [
