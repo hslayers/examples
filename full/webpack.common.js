@@ -33,10 +33,9 @@ module.exports = {
       // index.html template file location
       template: 'src/index.html',
       // We manually inject css and js files in our template
-      inject: true
+      inject: false
       // favicon: 'assets/img/favicon.ico'
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ],
   module: {
     rules: [

@@ -23,15 +23,6 @@ module.exports = merge(common, {
       "../../"    
     ].concat(common_paths.paths)
   },
-  devServer: {
-    publicPath: "../",
-    historyApiFallback: true,
-    inline: true,
-    contentBase: path.join(__dirname, '..'),
-    compress: true,
-    hot: true,
-    port: 9000
-  },
   optimization: {
     // see https://webpack.js.org/guides/build-performance#avoid-extra-optimization-steps
     removeAvailableModules: false,
