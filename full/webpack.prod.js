@@ -19,16 +19,17 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const hslPaths = require(path.join( __dirname, '../../hslayers-ng/common_paths'));
+const hslPaths = require(path.join(__dirname, '../../hslayers-ng/common_paths'));
 
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
   output: {
     // Add a chunkhash to file name so it will not be cached by browsers when content changed
-    filename: '[name].[chunkhash].bundle.js'
+    filename: '[name].[hash].bundle.js'
   },
-  resolve: { symlinks: false,  
+  resolve: {
+    symlinks: false,
     modules: [
       path.join(__dirname),
       "node_modules",
@@ -39,7 +40,7 @@ module.exports = merge(common, {
     // Extract CSS into separated css files
     new MiniCssExtractPlugin({
       // Add a chunkhash to file name so it will not be cached by browsers when content changed
-      filename: '[name].[contenthash].bundle.css'
+      filename: '[name].[hash].bundle.css'
     }),
     // see https://webpack.js.org/guides/caching#module-identifiers
     new webpack.HashedModuleIdsPlugin()
@@ -78,6 +79,7 @@ module.exports = merge(common, {
       {
         test: /\.css$/,
         use: [
+          'style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
             options: { publicPath: '' }
@@ -88,24 +90,15 @@ module.exports = merge(common, {
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-            loader: 'file-loader',
-            options: {
-                name: '[name].[ext]',
-                outputPath: 'fonts/'
-            }
-        }]
+        use: {
+          loader: 'url-loader'
+        }
       },
       // Load images as URLs
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: {
-          loader: 'file-loader',
-          options: {
-            // Add content hash so if image content change, browsers will not serve one it cached
-            name: '[name].[contenthash].[ext]',
-            outputPath: 'images'
-          }
+          loader: 'url-loader'
         }
       },
       // Load locales files
@@ -129,20 +122,7 @@ module.exports = merge(common, {
         include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, '../../')],
         exclude: path.resolve(__dirname, 'src/index.html'),
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              outputPath: 'partials'
-            }
-          },
-          /*
-          {
-            loader: 'ngtemplate-loader',
-            options: {
-              relativeTo: path.resolve(__dirname, 'src')
-            }
-          },*/
+          'ng-cache-loader?prefix=[dir]/[dir]',
           'extract-loader',
           {
             loader: 'html-loader',
