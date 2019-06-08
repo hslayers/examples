@@ -1,2 +1,4 @@
 node_modules
-olu_spoi/bundle.min.js
+**/static/*
+stats.json
+full/index.html

@@ -1,21 +1,4 @@
 'use strict';
-import toolbar from 'toolbar';
-import print from 'print';
-import query from 'query';
-import search from 'search';
-import measure from 'measure';
-import permalink from 'permalink';
-import info from 'info';
-import ds from 'datasource_selector';
-import sidebar from 'sidebar';
-import ows from 'ows';
-import bootstrapBundle from 'bootstrap/dist/js/bootstrap.bundle';
-import { Tile, Group } from 'ol/layer';
-import { TileWMS, WMTS, OSM, XYZ } from 'ol/source';
-import {ImageWMS, ImageArcGISRest} from 'ol/source';
-import View from 'ol/View';
-import {transform, transformExtent} from 'ol/proj';
-
 var module = angular.module('hs', [
     'hs.sidebar',
     'hs.toolbar',
@@ -43,45 +26,44 @@ module.directive('hs', ['config', 'Core', function (config, Core) {
 }]);
 
 module.value('config', {
-    importCss: false,
     open_lm_after_comp_loaded: true,
     layer_order: '-position',
     box_layers: [
-        new Group({
+        new ol.layer.Group({
             'img': 'osm.png',
             title: 'Base layer',
             layers: [
-                new Tile({
-                    source: new OSM(),
+                new ol.layer.Tile({
+                    source: new ol.source.OSM(),
                     title: "OpenStreetMap",
                     base: true,
                     visible: true,
                     removable: false
                 }),
-                new Tile({
+                new ol.layer.Tile({
                     title: "OpenCycleMap",
                     visible: false,
                     base: true,
-                    source: new OSM({
+                    source: new ol.source.OSM({
                         url: 'http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png'
                     })
                 }),
-                new Tile({
+                new ol.layer.Tile({
                     title: "Satellite",
                     visible: false,
                     base: true,
-                    source: new XYZ({
+                    source: new ol.source.XYZ({
                         url: 'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g'
                     })
                 })
             ],
-        }), new Group({
+        }), new ol.layer.Group({
             'img': 'armenia.png',
             title: 'WMS layers',
             layers: [
-                new Tile({
+                new ol.layer.Tile({
                     title: "Swiss",
-                    source: new TileWMS({
+                    source: new ol.source.TileWMS({
                         url: 'http://wms.geo.admin.ch/',
                         params: {
                             LAYERS: 'ch.swisstopo.pixelkarte-farbe-pk1000.noscale',
@@ -91,9 +73,9 @@ module.value('config', {
                         crossOrigin: "anonymous"
                     }),
                 }),
-                new Tile({
+                new ol.layer.Tile({
                     title: "Ilida plastics kg/ha per year",
-                    source: new TileWMS({
+                    source: new ol.source.TileWMS({
                         url: 'http://gis.lesprojekt.cz/cgi-bin/mapserv?map=/home/dima/maps/ilida/ilida.map',
                         params: {
                             LAYERS: 'ilida_cultivation_plastics',
@@ -107,9 +89,9 @@ module.value('config', {
                     visible: true,
                     opacity: 0.8
                 }),
-                new Tile({
+                new ol.layer.Tile({
                     title: "Výnosový potenciál",
-                    source: new TileWMS({
+                    source: new ol.source.TileWMS({
                         url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
                         params: {
                             LAYERS: 'kojcice_vynospot_5m_poly',
@@ -123,9 +105,9 @@ module.value('config', {
                     visible: true,
                     opacity: 0.5
                 }),
-                new Tile({
+                new ol.layer.Tile({
                     title: "Aplikační pásma dle výnosového potenciálu",
-                    source: new TileWMS({
+                    source: new ol.source.TileWMS({
                         url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
                         params: {
                             LAYERS: 'kojcice_vra_n1_pole_viper',
@@ -139,9 +121,9 @@ module.value('config', {
                     visible: true,
                     opacity: 0.5
                 }),
-                new Tile({
+                new ol.layer.Tile({
                     title: "Půdní typ",
-                    source: new TileWMS({
+                    source: new ol.source.TileWMS({
                         url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
                         params: {
                             LAYERS: 'pudni_typy_verze3',
@@ -155,9 +137,9 @@ module.value('config', {
                     visible: true,
                     opacity: 0.5
                 }),
-                new Tile({
+                new ol.layer.Tile({
                     title: "LPIS",
-                    source: new TileWMS({
+                    source: new ol.source.TileWMS({
                         url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
                         params: {
                             LAYERS: 'lpis_zdkojcice',
@@ -174,8 +156,8 @@ module.value('config', {
             ]
         })
     ],
-    default_view: new View({
-        center: transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
+    default_view: new ol.View({
+        center: ol.proj.transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
         zoom: 4,
         units: "m"
     }),
