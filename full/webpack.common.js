@@ -12,6 +12,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: { app: 'app.js' },
@@ -32,9 +33,10 @@ module.exports = {
       // index.html template file location
       template: 'src/index.html',
       // We manually inject css and js files in our template
-      inject: false
+      inject: true
       // favicon: 'assets/img/favicon.ico'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [

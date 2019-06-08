@@ -23,6 +23,15 @@ module.exports = merge(common, {
       "../../"    
     ].concat(common_paths.paths)
   },
+  devServer: {
+    publicPath: "../",
+    historyApiFallback: true,
+    inline: true,
+    contentBase: path.join(__dirname, '..'),
+    compress: true,
+    hot: true,
+    port: 9000
+  },
   optimization: {
     // see https://webpack.js.org/guides/build-performance#avoid-extra-optimization-steps
     removeAvailableModules: false,
@@ -58,17 +67,11 @@ module.exports = merge(common, {
         test: /\.html$/,
         include: [path.resolve(__dirname), path.resolve(__dirname, '../../')],
         exclude: path.resolve(__dirname, 'src/index.html'),
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              outputPath: 'partials'
-            }
-          },
-          'extract-loader',
-          'html-loader'
-        ]
+          use: [
+            'ng-cache-loader?prefix=[dir]/[dir]',
+            'extract-loader',
+            'html-loader'
+          ]
       },
       // Load images as URLs
       {

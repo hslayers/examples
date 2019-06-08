@@ -19,10 +19,10 @@
   },
   "dependencies": {
     "cesium": "^1.49.0",
-    "jquery": "^3.3.1",
-    "requirejs": "^2.3.5"
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
+    "webpack-dev-server": "^3.5.1",
     "@babel/core": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "babel-loader": "^8.0.5",
@@ -34,6 +34,7 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.6.0",
+    "ng-cache-loader": "0.0.26",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.30.0",

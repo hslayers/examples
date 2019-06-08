@@ -1,3 +1,4 @@
 node_modules
 **/static/*
 stats.json
+full/index.html

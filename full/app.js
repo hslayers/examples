@@ -1,12 +1,4 @@
 'use strict';
-require.context('hslayers-ng/components/', true, /\.html$/);
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'openlayers/css/ol.css';
-import 'hslayers-ng/css/app.css';
-import 'hslayers-ng/css/whhg-font/css/whhg.css';
-
-import ol from 'ol';
 import toolbar from 'toolbar';
 import print from 'print';
 import query from 'query';
@@ -18,6 +10,11 @@ import ds from 'datasource_selector';
 import sidebar from 'sidebar';
 import ows from 'ows';
 import bootstrapBundle from 'bootstrap/dist/js/bootstrap.bundle';
+import { Tile, Group } from 'ol/layer';
+import { TileWMS, WMTS, OSM, XYZ } from 'ol/source';
+import {ImageWMS, ImageArcGISRest} from 'ol/source';
+import View from 'ol/View';
+import {transform, transformExtent} from 'ol/proj';
 
 var module = angular.module('hs', [
     'hs.sidebar',
@@ -38,7 +35,7 @@ var module = angular.module('hs', [
 
 module.directive('hs', ['config', 'Core', function (config, Core) {
     return {
-        templateUrl: config.hsl_path + 'hslayers.html',
+        template: Core.hslayersNgTemplate,
         link: function (scope, element) {
             Core.fullScreenMap(element);
         }
@@ -46,46 +43,45 @@ module.directive('hs', ['config', 'Core', function (config, Core) {
 }]);
 
 module.value('config', {
-    hsl_path: '../../hslayers-ng/',
     importCss: false,
     open_lm_after_comp_loaded: true,
     layer_order: '-position',
     box_layers: [
-        new ol.layer.Group({
+        new Group({
             'img': 'osm.png',
             title: 'Base layer',
             layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.OSM(),
+                new Tile({
+                    source: new OSM(),
                     title: "OpenStreetMap",
                     base: true,
                     visible: true,
                     removable: false
                 }),
-                new ol.layer.Tile({
+                new Tile({
                     title: "OpenCycleMap",
                     visible: false,
                     base: true,
-                    source: new ol.source.OSM({
+                    source: new OSM({
                         url: 'http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png'
                     })
                 }),
-                new ol.layer.Tile({
+                new Tile({
                     title: "Satellite",
                     visible: false,
                     base: true,
-                    source: new ol.source.XYZ({
+                    source: new XYZ({
                         url: 'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g'
                     })
                 })
             ],
-        }), new ol.layer.Group({
+        }), new Group({
             'img': 'armenia.png',
             title: 'WMS layers',
             layers: [
-                new ol.layer.Tile({
+                new Tile({
                     title: "Swiss",
-                    source: new ol.source.TileWMS({
+                    source: new TileWMS({
                         url: 'http://wms.geo.admin.ch/',
                         params: {
                             LAYERS: 'ch.swisstopo.pixelkarte-farbe-pk1000.noscale',
@@ -95,9 +91,9 @@ module.value('config', {
                         crossOrigin: "anonymous"
                     }),
                 }),
-                new ol.layer.Tile({
+                new Tile({
                     title: "Ilida plastics kg/ha per year",
-                    source: new ol.source.TileWMS({
+                    source: new TileWMS({
                         url: 'http://gis.lesprojekt.cz/cgi-bin/mapserv?map=/home/dima/maps/ilida/ilida.map',
                         params: {
                             LAYERS: 'ilida_cultivation_plastics',
@@ -111,9 +107,9 @@ module.value('config', {
                     visible: true,
                     opacity: 0.8
                 }),
-                new ol.layer.Tile({
+                new Tile({
                     title: "Výnosový potenciál",
-                    source: new ol.source.TileWMS({
+                    source: new TileWMS({
                         url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
                         params: {
                             LAYERS: 'kojcice_vynospot_5m_poly',
@@ -127,9 +123,9 @@ module.value('config', {
                     visible: true,
                     opacity: 0.5
                 }),
-                new ol.layer.Tile({
+                new Tile({
                     title: "Aplikační pásma dle výnosového potenciálu",
-                    source: new ol.source.TileWMS({
+                    source: new TileWMS({
                         url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
                         params: {
                             LAYERS: 'kojcice_vra_n1_pole_viper',
@@ -143,9 +139,9 @@ module.value('config', {
                     visible: true,
                     opacity: 0.5
                 }),
-                new ol.layer.Tile({
+                new Tile({
                     title: "Půdní typ",
-                    source: new ol.source.TileWMS({
+                    source: new TileWMS({
                         url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
                         params: {
                             LAYERS: 'pudni_typy_verze3',
@@ -159,9 +155,9 @@ module.value('config', {
                     visible: true,
                     opacity: 0.5
                 }),
-                new ol.layer.Tile({
+                new Tile({
                     title: "LPIS",
-                    source: new ol.source.TileWMS({
+                    source: new TileWMS({
                         url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
                         params: {
                             LAYERS: 'lpis_zdkojcice',
@@ -178,8 +174,8 @@ module.value('config', {
             ]
         })
     ],
-    default_view: new ol.View({
-        center: ol.proj.transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
+    default_view: new View({
+        center: transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
         zoom: 4,
         units: "m"
     }),
