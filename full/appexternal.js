@@ -10,7 +10,7 @@ var module = angular.module('hs', [
     'hs.datasource_selector',
     'hs.status_creator',
     'hs.api',
-    'hs.ows',
+    'hs.addLayers',
     'gettext',
     'hs.compositions',
     'hs.info'

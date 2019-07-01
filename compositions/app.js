@@ -8,7 +8,7 @@ import permalink from 'permalink';
 import info from 'info';
 import ds from 'datasource_selector';
 import sidebar from 'sidebar';
-import ows from 'ows';
+import 'add-layers.module';
 import bootstrapBundle from 'bootstrap/dist/js/bootstrap.bundle';
 import { Tile, Group, Image as ImageLayer } from 'ol/layer';
 import { TileWMS, WMTS, OSM, XYZ } from 'ol/source';
@@ -27,7 +27,7 @@ var module = angular.module('hs', [
     'hs.search', 'hs.print', 'hs.permalink', 'hs.measure',
     'hs.legend', 'hs.geolocation', 'hs.core',
     'hs.api',
-    'hs.ows',
+    'hs.addLayers',
     'hs.feature_filter',
     'gettext',
     'hs.compositions', 'hs.status_creator',

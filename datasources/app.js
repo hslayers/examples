@@ -8,7 +8,7 @@ import permalink from 'permalink';
 import info from 'info';
 import ds from 'datasource_selector';
 import sidebar from 'sidebar';
-import ows from 'ows';
+import 'add-layers.module';
 import bootstrapBundle from 'bootstrap/dist/js/bootstrap.bundle';
 import { ImageWMS, ImageArcGISRest } from 'ol/source';
 import View from 'ol/View';
@@ -28,7 +28,7 @@ var module = angular.module('hs', [
     'hs.status_creator',
     'hs.measure',
     'hs.api',
-    'hs.ows'
+    'hs.addLayers'
 ]);
 
 module.directive('hs', ['config', 'Core', function (config, Core) {
