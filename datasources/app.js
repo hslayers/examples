@@ -9,7 +9,6 @@ import info from 'info';
 import ds from 'datasource_selector';
 import sidebar from 'sidebar';
 import 'add-layers.module';
-import bootstrapBundle from 'bootstrap/dist/js/bootstrap.bundle';
 import { ImageWMS, ImageArcGISRest } from 'ol/source';
 import View from 'ol/View';
 import { transform, transformExtent } from 'ol/proj';
