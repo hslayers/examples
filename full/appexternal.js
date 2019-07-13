@@ -172,13 +172,13 @@ module.value('config', {
     }]
 });
 
-module.controller('Main', ['$scope', 'Core', 'hs.ows.wms.service_layer_producer', 'hs.compositions.service_parser', 'config',
-    function ($scope, Core, srv_producer, composition_parser, config) {
+module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config',
+    function ($scope, Core, layerAdderService, composition_parser, config) {
         $scope.hsl_path = hsl_path; //Get this from hslayers.js file
         $scope.Core = Core;
         Core.sidebarRight = false;
         Core.singleDatasources = true;
-        srv_producer.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
+        layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
     }
 ]);
 
