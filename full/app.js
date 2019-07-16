@@ -1,15 +1,14 @@
 'use strict';
-import toolbar from 'toolbar';
-import print from 'print';
-import query from 'query';
-import search from 'search';
-import measure from 'measure';
-import permalink from 'permalink';
-import info from 'info';
-import ds from 'datasource_selector';
-import sidebar from 'sidebar';
+import 'toolbar.module';
+import 'print.module';
+import 'query.module';
+import 'search.module';
+import 'measure.module';
+import 'permalink.module';
+import 'info.module';
+import 'datasource-selector.module';
+import 'sidebar.module';
 import 'add-layers.module';
-import bootstrapBundle from 'bootstrap/dist/js/bootstrap.bundle';
 import { Tile, Group } from 'ol/layer';
 import { TileWMS, WMTS, OSM, XYZ } from 'ol/source';
 import {ImageWMS, ImageArcGISRest} from 'ol/source';
@@ -25,7 +24,7 @@ var module = angular.module('hs', [
     'hs.search', 'hs.print', 'hs.permalink', 'hs.measure',
     'hs.legend', 'hs.geolocation', 'hs.core',
     'hs.datasource_selector',
-    'hs.status_creator',
+    'hs.save-map',
     'hs.api',
     'hs.addLayers',
     'gettext',
@@ -48,7 +47,6 @@ module.value('config', {
     layer_order: '-position',
     box_layers: [
         new Group({
-            'img': 'osm.png',
             title: 'Base layer',
             layers: [
                 new Tile({
@@ -76,7 +74,6 @@ module.value('config', {
                 })
             ],
         }), new Group({
-            'img': 'armenia.png',
             title: 'WMS layers',
             layers: [
                 new Tile({
@@ -192,7 +189,6 @@ module.value('config', {
 
 module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config',
     function ($scope, Core, layerAdderService, composition_parser, config) {
-        $scope.hsl_path = hsl_path; //Get this from hslayers.js file
         $scope.Core = Core;
         Core.sidebarRight = false;
         Core.singleDatasources = true;

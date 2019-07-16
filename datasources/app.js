@@ -1,13 +1,14 @@
 'use strict';
-import toolbar from 'toolbar';
-import print from 'print';
-import query from 'query';
-import search from 'search';
-import measure from 'measure';
-import permalink from 'permalink';
-import info from 'info';
-import ds from 'datasource_selector';
-import sidebar from 'sidebar';
+import 'toolbar.module';
+import 'print.module';
+import 'query.module';
+import 'search.module';
+import 'add-layers.module';
+import 'measure.module';
+import 'permalink.module';
+import 'info.module';
+import 'datasource-selector.module';
+import 'sidebar.module';
 import 'add-layers.module';
 import { ImageWMS, ImageArcGISRest } from 'ol/source';
 import View from 'ol/View';
@@ -122,7 +123,6 @@ module.value('config', {
 
 module.controller('Main', ['$scope', 'Core', 'hs.map.service',
     function ($scope, Core, OlMap) {
-        $scope.hsl_path = hsl_path; //Get this from hslayers.js file
         $scope.Core = Core;
         $scope.Core.sidebarRight = false;
         //$scope.Core.sidebarToggleable = false;
