@@ -1,22 +1,21 @@
 'use strict';
-import toolbar from 'toolbar';
-import print from 'print';
-import query from 'query';
-import search from 'search';
-import measure from 'measure';
-import permalink from 'permalink';
-import info from 'info';
-import ds from 'datasource_selector';
-import sidebar from 'sidebar';
+import 'toolbar.module';
+import 'print.module';
+import 'query.module';
+import 'search.module';
 import 'add-layers.module';
-import bootstrapBundle from 'bootstrap/dist/js/bootstrap.bundle';
+import 'measure.module';
+import 'permalink.module';
+import 'info.module';
+import 'datasource-selector.module';
+import 'sidebar.module';
+import 'feature-filter.module';
+import 'angular-material';
 import { Tile, Group, Image as ImageLayer } from 'ol/layer';
 import { TileWMS, WMTS, OSM, XYZ } from 'ol/source';
 import { ImageWMS, ImageArcGISRest } from 'ol/source';
 import View from 'ol/View';
 import { transform, transformExtent } from 'ol/proj';
-import ff from 'feature_filter';
-import 'angular-material';
 
 var module = angular.module('hs', [
     'hs.toolbar',
@@ -28,9 +27,9 @@ var module = angular.module('hs', [
     'hs.legend', 'hs.geolocation', 'hs.core',
     'hs.api',
     'hs.addLayers',
-    'hs.feature_filter',
+    'hs.featureFilter',
     'gettext',
-    'hs.compositions', 'hs.status_creator',
+    'hs.compositions', 'hs.save-map',
     'hs.sidebar'
 ]);
 
@@ -228,7 +227,6 @@ module.value('config', {
 
 module.controller('Main', ['$scope', 'Core', 'hs.query.baseService', 'hs.compositions.service_parser', 'hs.map.service', '$rootScope',
     function ($scope, Core, QueryService, composition_parser, hsMap, $rootScope) {
-        $scope.hsl_path = hsl_path; //Get this from hslayers.js file
         $scope.Core = Core;
         Core.setMainPanel('composition_browser');
         //composition_parser.load('http://www.whatstheplan.eu/wwwlibs/statusmanager2/index.php?request=load&id=972cd7d1-e057-417b-96a7-e6bf85472b1e');
