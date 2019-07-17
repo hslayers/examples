@@ -1,6 +1,6 @@
 'use strict';
 
-var hsl_path = '../../hslayers-ng/';
+var hsl_path = '../node_modules/hslayers-ng/';
 var gitsha;
 $.ajax({
     type: "GET",

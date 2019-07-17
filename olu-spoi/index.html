@@ -7,11 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <style>
+    .ol-popup-content {
+        max-height: 800px !important;
+    }
+    .table {background-color: #eaeaea;}
+    .table .table {
+        background-color: rgba(120, 120, 120, 0.2) !important;
+    }
+  </style>
 </head>
 <body >
     <div hs ng-app="hs" ng-controller="Main" style="position: relative;"></div>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/requirejs/require.js"></script>    
+    <script>var hsl_path = '../node_modules/hslayers-ng/'; var gitsha = Math.random()</script>
+    <script src="bundle.min.js"></script>    
     <script src="hslayers.js"></script> 
 </body>
 </html>

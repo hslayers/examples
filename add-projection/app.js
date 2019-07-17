@@ -50,7 +50,7 @@ define(['angular', 'ol', 'proj4', 'sidebar', 'toolbar', 'layermanager', 'map', '
 								},
 								crossOrigin: null
 							}),
-							title: "VojMap"
+							title: "Old military map of Czechia"
 						}),
 					],
 				}),
