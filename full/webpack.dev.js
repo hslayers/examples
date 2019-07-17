@@ -10,7 +10,7 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 const path = require('path');
-const common_paths = require(path.join( __dirname, '../../hslayers-ng/common_paths'));
+const common_paths = require(path.join( __dirname, '../node_modules/hslayers-ng/common_paths'));
 
 module.exports = merge(common, {
   mode: 'development',

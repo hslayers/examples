@@ -18,8 +18,8 @@
     "protractor": "protractor test/protractor-conf.js"
   },
   "dependencies": {
-    "browserify": "^16.2.3",
-    "cesium": "^1.49.0",
+    "cesium": "^1.59.0",
+    "hslayers-ng": "^1.1.3",
     "jquery": "^3.4.1"
   },
   "devDependencies": {

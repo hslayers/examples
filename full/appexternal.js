@@ -174,7 +174,6 @@ module.value('config', {
 
 module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config',
     function ($scope, Core, layerAdderService, composition_parser, config) {
-        $scope.hsl_path = hsl_path; //Get this from hslayers.js file
         $scope.Core = Core;
         Core.sidebarRight = false;
         Core.singleDatasources = true;
