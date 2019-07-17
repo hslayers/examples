@@ -2,3 +2,6 @@ node_modules
 **/static/*
 stats.json
 full/index.html
+datasources/index.html
+compositions/index.html
+olu-spoi/index.html
