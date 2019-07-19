@@ -9,7 +9,6 @@ import 'permalink.module';
 import 'info.module';
 import 'datasource-selector.module';
 import 'sidebar.module';
-import 'add-layers.module';
 import { ImageWMS, ImageArcGISRest } from 'ol/source';
 import View from 'ol/View';
 import { transform, transformExtent } from 'ol/proj';
@@ -25,7 +24,7 @@ var module = angular.module('hs', [
     'hs.search', 'hs.print', 'hs.permalink',
     'hs.geolocation',
     'hs.datasource_selector',
-    'hs.status_creator',
+    'hs.save-map',
     'hs.measure',
     'hs.api',
     'hs.addLayers'
