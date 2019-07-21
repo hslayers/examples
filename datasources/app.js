@@ -18,6 +18,7 @@ import {Style, Icon, Stroke, Fill, Circle} from 'ol/style';
 
 var module = angular.module('hs', [
     'hs.sidebar',
+    'hs.info',
     'hs.toolbar',
     'hs.layermanager',
     'hs.query',
