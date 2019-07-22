@@ -25,7 +25,6 @@ var module = angular.module('hs', [
     'ngMaterial',
     'hs.search', 'hs.print', 'hs.permalink', 'hs.measure',
     'hs.legend', 'hs.geolocation', 'hs.core',
-    'hs.api',
     'hs.addLayers',
     'hs.featureFilter',
     'gettext',

@@ -29,7 +29,6 @@ var module = angular.module('hs', [
     'hs.query',
     'hs.search', 'hs.permalink', 'hs.measure',
     'hs.geolocation', 'hs.core',
-    'hs.api',
     'gettext',
     'hs.sidebar'
 ]);

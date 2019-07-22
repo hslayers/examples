@@ -27,7 +27,6 @@ var module = angular.module('hs', [
     'hs.datasource_selector',
     'hs.save-map',
     'hs.measure',
-    'hs.api',
     'hs.addLayers'
 ]);
 
