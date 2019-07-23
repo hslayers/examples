@@ -22,7 +22,7 @@ var module = angular.module('hs', [
     'hs.map',
     'hs.query',
     'hs.search', 'hs.print', 'hs.permalink', 'hs.measure',
-    'hs.legend', 'hs.geolocation', 'hs.core',
+    'hs.legend', 'hs.core',
     'hs.datasource_selector',
     'hs.save-map',
     'hs.addLayers',
@@ -86,86 +86,6 @@ module.value('config', {
                         },
                         crossOrigin: "anonymous"
                     }),
-                }),
-                new Tile({
-                    title: "Ilida plastics kg/ha per year",
-                    source: new TileWMS({
-                        url: 'http://gis.lesprojekt.cz/cgi-bin/mapserv?map=/home/dima/maps/ilida/ilida.map',
-                        params: {
-                            LAYERS: 'ilida_cultivation_plastics',
-                            INFO_FORMAT: undefined,
-                            FORMAT: "image/png",
-                            ABSTRACT: "Plastic waste in Ilida municipality"
-                        },
-                        crossOrigin: "anonymous"
-                    }),
-                    path: 'Ilida Thematic Data',
-                    visible: true,
-                    opacity: 0.8
-                }),
-                new Tile({
-                    title: "Výnosový potenciál",
-                    source: new TileWMS({
-                        url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
-                        params: {
-                            LAYERS: 'kojcice_vynospot_5m_poly',
-                            //INFO_FORMAT: undefined,
-                            INFO_FORMAT: 'text/html',
-                            FORMAT: "image/png"
-                        },
-                        crossOrigin: "anonymous"
-                    }),
-                    path: 'Kojčice',
-                    visible: true,
-                    opacity: 0.5
-                }),
-                new Tile({
-                    title: "Aplikační pásma dle výnosového potenciálu",
-                    source: new TileWMS({
-                        url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
-                        params: {
-                            LAYERS: 'kojcice_vra_n1_pole_viper',
-                            //INFO_FORMAT: undefined,
-                            INFO_FORMAT: 'text/html',
-                            FORMAT: "image/png"
-                        },
-                        crossOrigin: "anonymous"
-                    }),
-                    path: 'Kojčice',
-                    visible: true,
-                    opacity: 0.5
-                }),
-                new Tile({
-                    title: "Půdní typ",
-                    source: new TileWMS({
-                        url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
-                        params: {
-                            LAYERS: 'pudni_typy_verze3',
-                            //INFO_FORMAT: undefined,
-                            INFO_FORMAT: 'text/html',
-                            FORMAT: "image/png"
-                        },
-                        crossOrigin: "anonymous"
-                    }),
-                    path: 'Kojčice',
-                    visible: true,
-                    opacity: 0.5
-                }),
-                new Tile({
-                    title: "LPIS",
-                    source: new TileWMS({
-                        url: 'http://foodie-data.wirelessinfo.cz/geoserver-hsl/kojcice/wms?',
-                        params: {
-                            LAYERS: 'lpis_zdkojcice',
-                            //INFO_FORMAT: undefined,
-                            INFO_FORMAT: 'text/html',
-                            FORMAT: "image/png"
-                        },
-                        crossOrigin: "anonymous"
-                    }),
-                    path: 'Kojčice',
-                    visible: true,
-                    opacity: 0.5
                 })
             ]
         })
@@ -191,7 +111,7 @@ module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 
         $scope.Core = Core;
         Core.sidebarRight = false;
         Core.singleDatasources = true;
-        layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
+        //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
     }
 ]);
 
