@@ -85,14 +85,14 @@ module.value('config', {
             title: "Datatank",
             url: "http://ewi.mmlab.be/otn/api/info",
             type: "datatank"
-        },*/
+        },
         {
             title: "Datasets",
             url: "http://otn-dev.intrasoft-intl.com/otnServices-1.0/platform/ckanservices/datasets",
             language: 'eng',
             type: "ckan",
             download: true
-        }, {
+        }, */{
             title: "Services",
             url: "http://cat.ccss.cz/csw/",
             language: 'eng',
