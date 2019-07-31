@@ -93,13 +93,20 @@ module.value('config', {
             type: "ckan",
             download: true
         }, */{
-            title: "Services",
+            title: "SuperCAT",
             url: "http://cat.ccss.cz/csw/",
             language: 'eng',
             type: "micka",
             code_list_url: 'http://www.whatstheplan.eu/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D'
-        }, {
-            title: "Hub layers",
+        }, 
+        {
+            title: "Layman",
+            url: `${window.location.protocol}//${window.location.hostname}:8000`,
+            user: 'browser',
+            type: "layman"
+        },
+        {
+            title: "OTN Hub",
             url: "http://opentnet.eu/php/metadata/csw/",
             language: 'eng',
             type: "micka",
