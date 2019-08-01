@@ -80,6 +80,7 @@ module.value('config', {
         zoom: 4,
         units: "m"
     }),
+    advanced_form: true,
     datasources: [
         /*{
             title: "Datatank",
@@ -101,7 +102,7 @@ module.value('config', {
         }, 
         {
             title: "Layman",
-            url: `${window.location.protocol}//${window.location.hostname}:8000`,
+            url: `${window.location.protocol}//${window.location.hostname}/layman`,
             user: 'browser',
             type: "layman"
         },
