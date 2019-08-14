@@ -19,7 +19,6 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const hslPaths = require(path.join(__dirname, '../node_modules/hslayers-ng/common_paths'));
 
 module.exports = merge(common, {
   mode: 'production',
@@ -27,14 +26,6 @@ module.exports = merge(common, {
   output: {
     // Add a chunkhash to file name so it will not be cached by browsers when content changed
     filename: '[name].[hash].bundle.js'
-  },
-  resolve: {
-    symlinks: false,
-    modules: [
-      path.join(__dirname),
-      "node_modules",
-      "../../"
-    ].concat(hslPaths.paths)
   },
   plugins: [
     // Extract CSS into separated css files
@@ -86,8 +77,7 @@ module.exports = merge(common, {
             options: { publicPath: '' }
           },
           'css-loader'
-        ],
-        include: [path.resolve(__dirname), path.resolve(__dirname, '../../')]
+        ]
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,

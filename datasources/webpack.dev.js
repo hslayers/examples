@@ -10,19 +10,11 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 const path = require('path');
-const common_paths = require(path.join( __dirname, '../node_modules/hslayers-ng/common_paths'));
 
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
   watchOptions: { ignored: /node_modules/ },
-  resolve: { symlinks: false,  
-    modules: [
-      path.join(__dirname),
-      "node_modules",
-      "../../"    
-    ].concat(common_paths.paths)
-  },
   optimization: {
     // see https://webpack.js.org/guides/build-performance#avoid-extra-optimization-steps
     removeAvailableModules: false,
@@ -40,8 +32,7 @@ module.exports = merge(common, {
       // Load css files which will be injected in html page at startup <style>...</style>)
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ],
-        include: [path.resolve(__dirname), path.resolve(__dirname, '../../')]
+        use: [ 'style-loader', 'css-loader' ]
       },
       {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
@@ -56,7 +47,6 @@ module.exports = merge(common, {
       // Load angularJS partials HTML file as URL
       {
         test: /\.html$/,
-        include: [path.resolve(__dirname), path.resolve(__dirname, '../../')],
         exclude: path.resolve(__dirname, 'src/index.html'),
           use: [
             'ng-cache-loader?prefix=[dir]/[dir]',
