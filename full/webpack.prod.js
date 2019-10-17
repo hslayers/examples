@@ -77,7 +77,6 @@ module.exports = merge(common, {
           },
           'css-loader'
         ],
-        include: [path.resolve(__dirname), path.resolve(__dirname, '../../')]
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
@@ -110,7 +109,6 @@ module.exports = merge(common, {
       // AngularJS templates are cached using cache template
       {
         test: /\.html$/,
-        include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, '../../')],
         exclude: path.resolve(__dirname, 'src/index.html'),
         use: [
           'ng-cache-loader?prefix=[dir]/[dir]',

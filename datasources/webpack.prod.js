@@ -110,7 +110,6 @@ module.exports = merge(common, {
       // AngularJS templates are cached using cache template
       {
         test: /\.html$/,
-        include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, '../../')],
         exclude: path.resolve(__dirname, 'src/index.html'),
         use: [
           'ng-cache-loader?prefix=[dir]/[dir]',
