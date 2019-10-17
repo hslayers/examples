@@ -10,9 +10,20 @@
   <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
     <% } %>
+    <style>
+      #hs-app {
+        position: relative; 
+        height: 100vh
+      }
+      @media only screen and (max-width: 600px) {
+      #hs-app {
+        height: calc(100vh - 96px)
+      }
+    }
+    </style>
 </head>
 <body >
-    <div hs ng-app="hs" ng-controller="Main" style="position: relative;"></div>
+    <div hs ng-app="hs" ng-controller="Main" id="hs-app"></div>
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
       <script type="application/javascript" src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>
