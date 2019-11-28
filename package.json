@@ -18,13 +18,13 @@
     "protractor": "protractor test/protractor-conf.js"
   },
   "dependencies": {
-    "cesium": "^1.62.0",
-    "hslayers-ng": "^1.7.2",
+    "cesium": "^1.63.1",
+    "hslayers-ng": "^1.9.0",
     "jquery": "^3.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "babel-loader": "^8.0.6",
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "clean-webpack-plugin": "^2.0.2",
@@ -37,10 +37,10 @@
     "ng-cache-loader": "0.0.26",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "style-loader": "^0.23.1",
-    "url-loader": "^2.2.0",
+    "url-loader": "^2.3.0",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2"
   }
 }
