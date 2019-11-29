@@ -9,15 +9,19 @@ import 'info.module';
 import 'datasource-selector.module';
 import 'sidebar.module';
 import 'add-layers.module';
+import 'draw.module';
 import { Tile, Group } from 'ol/layer';
 import { TileWMS, WMTS, OSM, XYZ } from 'ol/source';
 import {ImageWMS, ImageArcGISRest} from 'ol/source';
 import View from 'ol/View';
 import {transform, transformExtent} from 'ol/proj';
+import VectorLayer from 'ol/layer/Vector';
+import { Vector as VectorSource } from 'ol/source';
 
 var module = angular.module('hs', [
     'hs.sidebar',
     'hs.toolbar',
+    'hs.draw',
     'hs.layermanager',
     'hs.map',
     'hs.query',
@@ -90,6 +94,22 @@ module.value('config', {
             ]
         })
     ],
+    default_layers: [
+        new VectorLayer({
+            title: 'Bookmarks',
+            synchronize: true,
+            editor: {
+                editable: true,
+                defaultAttributes: {
+                    name: 'New bookmark',
+                    description: 'none'
+                }
+            },
+            path: 'User generated',
+            source: new VectorSource({})
+            //declutter: true
+        })
+    ],
     default_view: new View({
         center: transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
         zoom: 4,
@@ -106,11 +126,12 @@ module.value('config', {
     }]
 });
 
-module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config',
-    function ($scope, Core, layerAdderService, composition_parser, config) {
+module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config', 'hs.layout.service',
+    function ($scope, Core, layerAdderService, composition_parser, config, layoutService) {
         $scope.Core = Core;
         Core.sidebarRight = false;
         Core.singleDatasources = true;
+        layoutService.sidebarRight = false;
         //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
     }
 ]);
