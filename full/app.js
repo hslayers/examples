@@ -107,7 +107,6 @@ module.value('config', {
             },
             path: 'User generated',
             source: new VectorSource({})
-            //declutter: true
         })
     ],
     default_view: new View({
