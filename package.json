@@ -18,7 +18,6 @@
     "protractor": "protractor test/protractor-conf.js"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
     "hslayers-ng": "^1.9.1",
     "cesium": "^1.63.1",
     "http-server": "^0.12.0",
