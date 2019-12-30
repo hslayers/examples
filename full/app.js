@@ -17,6 +17,8 @@ import View from 'ol/View';
 import {transform, transformExtent} from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
 import { Vector as VectorSource } from 'ol/source';
+import Feature from 'ol/Feature';
+import Point from 'ol/geom/Point';
 
 var module = angular.module('hs', [
     'hs.sidebar',
@@ -43,6 +45,14 @@ module.directive('hs', ['config', 'Core', function (config, Core) {
         }
     };
 }]);
+
+var count = 20000;
+var features = new Array(count);
+var e = 4500000;
+for (var i = 0; i < count; ++i) {
+  var coordinates = [2 * e * Math.random() - e, 2 * e * Math.random() - e];
+  features[i] = new Feature({geometry: new Point(coordinates), name: 'test'});
+}
 
 module.value('config', {
     importCss: true,
@@ -97,7 +107,8 @@ module.value('config', {
     default_layers: [
         new VectorLayer({
             title: 'Bookmarks',
-            synchronize: true,
+            synchronize: false,
+            cluster: true,
             editor: {
                 editable: true,
                 defaultAttributes: {
@@ -106,7 +117,7 @@ module.value('config', {
                 }
             },
             path: 'User generated',
-            source: new VectorSource({})
+            source: new VectorSource({features})
         })
     ],
     default_view: new View({
