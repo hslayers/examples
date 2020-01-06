@@ -140,9 +140,8 @@ module.value('config', {
 module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config', 'hs.layout.service',
     function ($scope, Core, layerAdderService, composition_parser, config, layoutService) {
         $scope.Core = Core;
-        Core.sidebarRight = false;
         Core.singleDatasources = true;
-        layoutService.sidebarRight = false;
+        layoutService.sidebarRight = true;
         //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
     }
 ]);
