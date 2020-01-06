@@ -56,6 +56,7 @@ for (var i = 0; i < count; ++i) {
 
 module.value('config', {
     importCss: true,
+    proxyPrefix: '/proxy/',
     open_lm_after_comp_loaded: true,
     layer_order: '-position',
     box_layers: [
