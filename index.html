@@ -9,18 +9,18 @@
 
 <script type="text/javascript">
 
-  $( document ).ready(function() 
+  $( document ).ready(function()
   {
     var links = {
-                //"3d-fatima":{name:"Soil visualization", description: "3D visualization of soil data for Fatima project"},          
-                //"3d-olu":{name:"Open land use in 3D", description: "3D visualization land use parcels"},          
-                "datasources":{name:"Data sources", description: "Datatank integration and GetCapabilities request demo."},
+                //"3d-fatima":{name:"Soil visualization", description: "3D visualization of soil data for Fatima project"},
+                //"3d-olu":{name:"Open land use in 3D", description: "3D visualization land use parcels"},
+                "datasources":{name:"Data sources", description: "Datatank integration and GetCapabilities request demo"},
                 //"compositions":{name:"Thematic maps", description: "Thematic maps and loading of map compositions"},
                 //"eurostat":{name:"Eurostat", description: "Eurostat data visualization for NUTS2 regions."},
-                "full":{name:"Full functionality", description: "Multiple hslayers features combined in one example"},    
-                "clustering-decluttering":{name:"Feature clustering,decluttering functionality", description: "Feature clustering and decluttering for vector layer"},             
-                //"geosparql":{name:"Smart Tourist Data", description: "Integration with Virtuoso SPARQL endpoint which contains points of interest linked open data in europe + Panoramio images and Czech forest roads"}, 
-                //"forestry":{name:"Forest statistics", description: "Integration with Virtuoso SPARQL endpoint which contains statistics about forestry"}, 
+                "full":{name:"Full functionality", description: "Multiple HSLayers-NG features combined in one example"},
+                "clustering-decluttering":{name:"Feature clustering, decluttering functionality", description: "Feature clustering and decluttering for vector layer"},
+                //"geosparql":{name:"Smart Tourist Data", description: "Integration with Virtuoso SPARQL endpoint which contains points of interest linked open data in europe + Panoramio images and Czech forest roads"},
+                //"forestry":{name:"Forest statistics", description: "Integration with Virtuoso SPARQL endpoint which contains statistics about forestry"},
                 //"wfs_crossfilter":{name:"Feature crossfiltering", description: "Demonstration of dynamic feature filtering using Crossfilter and D3 libraries"},
                 //"routing":{name:"SDI4Apps OpenAPI routing", description: "Calculate shortest routes, optimize multi destination routes as well as calculate reachable areas on road networks"},
                 //"tracking":{name:"SDI4Apps OpenAPI tracking", description: "Demonstrate how SensLog may be used to track mobile sensors"},
@@ -35,11 +35,11 @@
     for (var key in links)
     {
       $( "#examples" ).append('<div class="example">'+
-             '<a class="mainlink" href="'+key+'">'+
+              '<a class="mainlink" href="'+key+'">'+
                 '<strong>'+links[key].name.charAt(0).toUpperCase() + links[key].name.substring(1)+'</strong><br>'+
                 '<small>('+key.toLowerCase()+'/)</small>'+
               '</a>'+
-              '<p></p><div>'+links[key].description+'</div><p></p>'+ 
+              '<p></p><div>'+links[key].description+'</div><p></p>'+
           '</div>');
     };
   });
