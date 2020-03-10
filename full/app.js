@@ -126,6 +126,7 @@ module.value('config', {
         zoom: 4,
         units: "m"
     }),
+    allowAddExternalDatasets: true,
     compositions_catalogue_url: '/php/catalogue/libs/cswclient/cswClientRun.php',
     status_manager_url: '/wwwlibs/statusmanager2/index.php',
     datasources: [{
@@ -139,8 +140,6 @@ module.value('config', {
 
 module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config', 'hs.layout.service',
     function ($scope, Core, layerAdderService, composition_parser, config, layoutService) {
-        $scope.Core = Core;
-        Core.singleDatasources = true;
         layoutService.sidebarRight = true;
         //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
     }
