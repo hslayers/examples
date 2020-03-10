@@ -230,7 +230,7 @@ module.controller('Main', ['$scope', 'Core', 'hs.query.baseService', 'hs.composi
         Core.setMainPanel('composition_browser');
         //composition_parser.load('http://www.whatstheplan.eu/wwwlibs/statusmanager2/index.php?request=load&id=972cd7d1-e057-417b-96a7-e6bf85472b1e');
         $scope.$on('query.dataUpdated', function (event) {
-            if (console) console.log('Attributes', QueryService.data.attributes, 'Groups', QueryService.data.groups);
+            if (console) console.log('Attributes', QueryService.data.attributes, 'Features', QueryService.data.features);
         });
 
         $rootScope.$on('map.loaded', function () {
