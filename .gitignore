@@ -1,8 +1,3 @@
 node_modules
 **/static/*
 stats.json
-clustering-decluttering/index.html
-full/index.html
-datasources/index.html
-compositions/index.html
-olu-spoi/index.html
