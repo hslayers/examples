@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HS Layers</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
+    <style>
+      #hs-app {
+        position: relative; 
+        height: 100vh
+      }
+      @media only screen and (max-width: 600px) {
+      #hs-app {
+        height: calc(100vh - 96px)
+      }
+    }
+    </style>
+</head>
+<body >
+    <div hs ng-app="hs" ng-controller="MainController" id="hs-app"></div>
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+      <script type="application/javascript" src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% } %>
+</body>
+</html>
