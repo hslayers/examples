@@ -69,7 +69,7 @@ angular.module('hs', [
       drawToolbar: true,
       searchToolbar: true,
       measureToolbar: true,
-      golocationButton: false
+      geolocationButton: false
     },
     mapInteractionsEnabled: true,
     mapControlsEnabled: false,
