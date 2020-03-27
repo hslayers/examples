@@ -14,7 +14,7 @@ const path = require('path');
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
-  watchOptions: { ignored: /node_modules/ },
+  watchOptions: {ignored: ['node_modules', '!node_modules/hslayers/**']},
   optimization: {
     // see https://webpack.js.org/guides/build-performance#avoid-extra-optimization-steps
     removeAvailableModules: false,
@@ -32,27 +32,27 @@ module.exports = merge(common, {
       // Load css files which will be injected in html page at startup <style>...</style>)
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ['style-loader', 'css-loader']
       },
       {
-          test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-          use: [{
-              loader: 'file-loader',
-              options: {
-                  name: '[name].[ext]',
-                  outputPath: 'fonts/'
-              }
-          }]
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'
+          }
+        }]
       },
       // Load angularJS partials HTML file as URL
       {
         test: /\.html$/,
         exclude: path.resolve(__dirname, 'src/index.html'),
-          use: [
-            'ng-cache-loader?prefix=[dir]/[dir]',
-            'extract-loader',
-            'html-loader'
-          ]
+        use: [
+          'ng-cache-loader?prefix=[dir]/[dir]',
+          'extract-loader',
+          'html-loader'
+        ]
       },
       // Load images as URLs
       {
