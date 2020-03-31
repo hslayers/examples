@@ -69,10 +69,10 @@ angular.module('hs', [
       drawToolbar: true,
       searchToolbar: true,
       measureToolbar: true,
-      geolocationButton: false
+      golocationButton: false,
+      mapControls: false
     },
     mapInteractionsEnabled: true,
-    mapControlsEnabled: false,
     default_view: new View({
       center: transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
       zoom: 4,
