@@ -1,147 +1,147 @@
 'use strict';
-import 'toolbar.module';
-import 'print.module';
-import 'query.module';
-import 'search.module';
-import 'measure.module';
-import 'permalink.module';
-import 'info.module';
-import 'datasource-selector.module';
-import 'sidebar.module';
-import 'add-layers.module';
-import 'draw.module';
-import { Tile, Group } from 'ol/layer';
-import { TileWMS, WMTS, OSM, XYZ } from 'ol/source';
-import {ImageWMS, ImageArcGISRest} from 'ol/source';
+import 'hslayers-ng/components/toolbar/toolbar.module';
+import 'hslayers-ng/components/print/print.module';
+import 'hslayers-ng/components/query/query.module';
+import 'hslayers-ng/components/search/search.module';
+import 'hslayers-ng/components/measure/measure.module';
+import 'hslayers-ng/components/permalink/permalink.module';
+import 'hslayers-ng/components/info/info.module';
+import 'hslayers-ng/components/datasource-selector/datasource-selector.module';
+import 'hslayers-ng/components/sidebar/sidebar.module';
+import 'hslayers-ng/components/add-layers/add-layers.module';
+import 'hslayers-ng/components/draw/draw.module';
+import {Tile, Group} from 'ol/layer';
+import {TileWMS, OSM, XYZ} from 'ol/source';
 import View from 'ol/View';
-import {transform, transformExtent} from 'ol/proj';
+import {transform} from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
-import { Vector as VectorSource } from 'ol/source';
+import {Vector as VectorSource} from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 
-var module = angular.module('hs', [
-    'hs.sidebar',
-    'hs.toolbar',
-    'hs.draw',
-    'hs.layermanager',
-    'hs.map',
-    'hs.query',
-    'hs.search', 'hs.print', 'hs.permalink', 'hs.measure',
-    'hs.legend', 'hs.core',
-    'hs.datasource_selector',
-    'hs.save-map',
-    'hs.addLayers',
-    'gettext',
-    'hs.compositions',
-    'hs.info'
-]);
-
-module.directive('hs', ['config', 'Core', function (config, Core) {
-    return {
-        template: Core.hslayersNgTemplate,
-        link: function (scope, element) {
-            Core.fullScreenMap(element);
-        }
-    };
-}]);
-
-var count = 20000;
-var features = new Array(count);
-var e = 4500000;
-for (var i = 0; i < count; ++i) {
-  var coordinates = [2 * e * Math.random() - e, 2 * e * Math.random() - e];
+const count = 20000;
+const features = new Array(count);
+const e = 4500000;
+for (let i = 0; i < count; ++i) {
+  const coordinates = [2 * e * Math.random() - e, 2 * e * Math.random() - e];
   features[i] = new Feature({geometry: new Point(coordinates), name: 'test'});
 }
 
-module.value('config', {
+angular.module('hs', [
+  'hs.sidebar',
+  'hs.toolbar',
+  'hs.draw',
+  'hs.layermanager',
+  'hs.map',
+  'hs.query',
+  'hs.search', 'hs.print', 'hs.permalink', 'hs.measure',
+  'hs.legend', 'hs.core',
+  'hs.datasource_selector',
+  'hs.save-map',
+  'hs.addLayers',
+  'gettext',
+  'hs.compositions',
+  'hs.info'
+])
+
+
+  .directive('hs', ['config', 'Core', function (config, Core) {
+    return {
+      template: Core.hslayersNgTemplate,
+      link: function (scope, element) {
+        Core.fullScreenMap(element);
+      }
+    };
+  }])
+
+  .value('config', {
     importCss: true,
-    proxyPrefix: '/proxy/',
+    proxyPrefix: window.location.hostname.indexOf('app.hslayers') == -1 ? `${window.location.protocol}//${window.location.hostname}:8085/` : '/proxy/',
     open_lm_after_comp_loaded: true,
     layer_order: '-position',
     box_layers: [
-        new Group({
-            title: 'Base layer',
-            layers: [
-                new Tile({
-                    source: new OSM(),
-                    title: "OpenStreetMap",
-                    base: true,
-                    visible: true,
-                    removable: false
-                }),
-                new Tile({
-                    title: "OpenCycleMap",
-                    visible: false,
-                    base: true,
-                    source: new OSM({
-                        url: 'http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png'
-                    })
-                }),
-                new Tile({
-                    title: "Satellite",
-                    visible: false,
-                    base: true,
-                    source: new XYZ({
-                        url: 'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g'
-                    })
-                })
-            ],
-        }), new Group({
-            title: 'WMS layers',
-            layers: [
-                new Tile({
-                    title: "Swiss",
-                    source: new TileWMS({
-                        url: 'http://wms.geo.admin.ch/',
-                        params: {
-                            LAYERS: 'ch.swisstopo.pixelkarte-farbe-pk1000.noscale',
-                            INFO_FORMAT: undefined,
-                            FORMAT: "image/png; mode=8bit"
-                        },
-                        crossOrigin: "anonymous"
-                    }),
-                })
-            ]
-        })
+      new Group({
+        title: 'Base layer',
+        layers: [
+          new Tile({
+            source: new OSM(),
+            title: 'OpenStreetMap',
+            base: true,
+            visible: true,
+            removable: false
+          }),
+          new Tile({
+            title: 'OpenCycleMap',
+            visible: false,
+            base: true,
+            source: new OSM({
+              url: 'http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png'
+            })
+          }),
+          new Tile({
+            title: 'Satellite',
+            visible: false,
+            base: true,
+            source: new XYZ({
+              url: 'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g'
+            })
+          })
+        ]
+      }), new Group({
+        title: 'WMS layers',
+        layers: [
+          new Tile({
+            title: 'Swiss',
+            source: new TileWMS({
+              url: 'http://wms.geo.admin.ch/',
+              params: {
+                LAYERS: 'ch.swisstopo.pixelkarte-farbe-pk1000.noscale',
+                INFO_FORMAT: undefined,
+                FORMAT: 'image/png; mode=8bit'
+              },
+              crossOrigin: 'anonymous'
+            })
+          })
+        ]
+      })
     ],
     default_layers: [
-        new VectorLayer({
-            title: 'Bookmarks',
-            synchronize: false,
-            cluster: true,
-            editor: {
-                editable: true,
-                defaultAttributes: {
-                    name: 'New bookmark',
-                    description: 'none'
-                }
-            },
-            path: 'User generated',
-            source: new VectorSource({features})
-        })
+      new VectorLayer({
+        title: 'Bookmarks',
+        synchronize: false,
+        cluster: true,
+        editor: {
+          editable: true,
+          defaultAttributes: {
+            name: 'New bookmark',
+            description: 'none'
+          }
+        },
+        path: 'User generated',
+        source: new VectorSource({features})
+      })
     ],
     default_view: new View({
-        center: transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
-        zoom: 4,
-        units: "m"
+      center: transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
+      zoom: 4,
+      units: 'm'
     }),
     allowAddExternalDatasets: true,
     compositions_catalogue_url: '/php/catalogue/libs/cswclient/cswClientRun.php',
     status_manager_url: '/wwwlibs/statusmanager2/index.php',
     datasources: [{
-        title: "SuperCAT",
-        url: "http://cat.ccss.cz/csw/",
-        language: 'eng',
-        type: "micka",
-        code_list_url: '/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D'
+      title: 'SuperCAT',
+      url: 'http://cat.ccss.cz/csw/',
+      language: 'eng',
+      type: 'micka',
+      code_list_url: '/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D'
     }]
-});
+  })
 
-module.controller('Main', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config', 'hs.layout.service',
+  .controller('MainController', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config', 'hs.layout.service',
     function ($scope, Core, layerAdderService, composition_parser, config, layoutService) {
-        layoutService.sidebarRight = true;
-        //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
+      layoutService.sidebarRight = true;
+    //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
     }
-]);
+  ]);
 

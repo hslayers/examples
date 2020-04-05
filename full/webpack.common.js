@@ -16,7 +16,7 @@ const webpack = require('webpack');
 const hslPaths = require(path.join(__dirname, '../node_modules/hslayers-ng/common_paths'));
 
 module.exports = {
-  entry: { app: 'app.js' },
+  entry: {app: 'app.js'},
   output: {
     // Path where bundled files will be output
     path: path.resolve(__dirname, 'static'),
@@ -24,11 +24,11 @@ module.exports = {
     publicPath: 'static/'
   },
   // Just for build speed improvement
-  resolve: { symlinks: true,
+  resolve: {symlinks: true,
     modules: [
       path.join(__dirname),
-      path.join(__dirname, "../node_modules"),
-      path.resolve(path.join(__dirname, "../node_modules", "hslayers-ng"))
+      path.join(__dirname, '../node_modules'),
+      path.resolve(path.join(__dirname, '../node_modules', 'hslayers-ng'))
     ].concat(hslPaths.paths)},
   plugins: [
     // Clean before build

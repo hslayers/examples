@@ -54,12 +54,12 @@ module.exports = merge(common, {
       new TerserPlugin({
         parallel: true,
         // Remove comments as well
-        terserOptions: { output: { comments: false } }
+        terserOptions: {output: {comments: false}}
       }),
       // CSS minifier
       new OptimizeCSSAssetsPlugin({
         cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }]
+          preset: ['default', {discardComments: {removeAll: true}}]
         }
       })
     ]
@@ -73,10 +73,10 @@ module.exports = merge(common, {
           'style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: '' }
+            options: {publicPath: ''}
           },
           'css-loader'
-        ],
+        ]
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
@@ -115,7 +115,7 @@ module.exports = merge(common, {
           'extract-loader',
           {
             loader: 'html-loader',
-            options: { minimize: true }
+            options: {minimize: true}
           }
         ]
       }
