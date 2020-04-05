@@ -56,7 +56,7 @@ angular.module('hs', [
 
   .value('config', {
     importCss: true,
-    proxyPrefix: window.location.hostname.indexOf('app.hslayers') == -1 ? `${window.location.protocol}//${window.location.hostname}:8085/` : '/proxy/',
+    proxyPrefix: window.location.hostname.indexOf('ng.hslayers') == -1 ? `${window.location.protocol}//${window.location.hostname}:8085/` : '/proxy/',
     open_lm_after_comp_loaded: true,
     layer_order: '-position',
     box_layers: [
