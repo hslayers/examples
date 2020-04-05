@@ -23,7 +23,7 @@
     "eslint-config-openlayers": "^13.0.0",
     "eslint-plugin-angular": "^4.0.1",
     "eslint-plugin-import": "^2.20.1",
-    "hslayers-ng": "^1.11.0",
+    "hslayers-ng": "^1.15.1",
     "jquery": "^3.4.1"
   },
   "devDependencies": {
