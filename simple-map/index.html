@@ -1,0 +1,29 @@
+<html>
+<head>
+    <script>
+        function hslayersNgConfig(ol) {
+            return {
+                default_layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM(),
+                        title: "OpenStreetMap",
+                        base: true,
+                        visible: true,
+                        removable: false
+                    })
+                ],
+
+                default_view: new ol.View({
+                    center: ol.proj.fromLonLat([17.474129, 52.574000]),
+                    zoom: 4,
+                    units: "m"
+                })
+            }
+        }
+    </script>
+    <script src="node_modules/hslayers-ng/dist/hslayers-ng.js"></script>
+</head>
+<body>
+    <div hs ng-app="hs" ng-controller="Main" style="position: relative;"></div>
+</body>
+</html>
