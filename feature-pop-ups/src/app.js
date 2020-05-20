@@ -10,20 +10,54 @@ import 'datasource-selector.module';
 import 'sidebar.module';
 import 'add-layers.module';
 import 'draw.module';
-import { Tile, Group } from 'ol/layer';
-import { OSM } from 'ol/source';
+import {Tile} from 'ol/layer';
+import {OSM} from 'ol/source';
 import View from 'ol/View';
 import {transform} from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
-import { Vector as VectorSource } from 'ol/source';
-import Feature from 'ol/Feature';
-import Point from 'ol/geom/Point';
+import {Vector as VectorSource} from 'ol/source';
 import GeoJSON from 'ol/format/GeoJSON';
+import {Style, Stroke, Fill, Circle} from 'ol/style';
 
 const geodata = new VectorSource({
   format: new GeoJSON(),
   url: require('./pasport.geojson')
 });
+
+window.getLRUser = function() {
+  return (0);
+};
+
+function styleFunction(feature, resolution) {
+  //console.log(feature);
+  if (feature.get('isFounder') && feature.get('isFounder') === 'yes') { // je zakladajici clen
+    return new Style({
+      image: new Circle({
+        fill: new Fill({
+          color: 'rgba(128, 255, 128, 0.2)'
+        }),
+        stroke: new Stroke({
+          color: '#77e405',
+          width: 4
+        }),
+        radius: 6
+      })
+    });
+  } else { //neni zakladajici clen
+    return new Style({
+      image: new Circle({
+        fill: new Fill({
+          color: 'rgba(255, 128, 128, 0.2)'
+        }),
+        stroke: new Stroke({
+          color: '#e49905',
+          width: 4
+        }),
+        radius: 6
+      })
+    });
+  }
+}
 
 angular.module('hs', [
   'hs.sidebar',
@@ -40,60 +74,86 @@ angular.module('hs', [
   'gettext',
   'hs.compositions',
   'hs.info'
-]).directive('hs', ['config', 'Core', function (config, Core) {
+]).directive('hs', ['HsConfig', 'HsCore', function (config, Core) {
   return {
     template: Core.hslayersNgTemplate,
     link: function (scope, element) {
       Core.fullScreenMap(element);
     }
   };
-}]).value('config', {
+}]).value('HsConfig', {
+  sizeMode: 'container',
+  sidebarClosed: true,
+  //useIsolatedBootstrap: true,
+  useProxy: true,
+  //proxyPrefix: "/proxy/",
+  //componentsEnabled: {},
   panelsEnabled: {
     composition_browser: false,
     toolbar: false,
-    mobile_settings: false,
+    mobile_settings: true,
     draw: false,
-    datasource_selector: true,
+    datasource_selector: false,
     layermanager: true,
     print: true,
     saveMap: false,
-    language: true,
-    permalink: true,
+    language: false,
+    permalink: false,
     feature_crossfilter: false,
     compositionLoadingProgress: false
   },
-  proxyPrefix: '/proxy/',
-  box_layers: [
-    new Group({
-      title: 'Base layer',
-      layers: [
-        new Tile({
-          source: new OSM(),
-          title: 'OpenStreetMap',
-          base: true,
-          visible: true,
-          removable: false
-        })
-      ]
-    })
-  ],
   default_layers: [
+    new Tile({
+      source: new OSM({
+        url: 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png'
+      }),
+      title: 'Wikimedia Map',
+      base: true,
+      visible: true,
+      removable: false
+    }),
+    new VectorLayer({
+      title: 'Partners',
+      style: styleFunction,
+      hoveredKeys: ['Name', 'description'],
+      hoveredKeysTranslations: {'description': 'popisek'},
+      popUp: {
+        display: 'hover',
+        attributes: [
+          {
+            attribute: 'logo', displayFunction: x => {
+              return '<img src=\"https://www.plan4all.eu/wp-content/uploads/' + x + '\" width=\"100rem\" >';
+            }
+          },
+          {
+            attribute: 'website', label: 'web', displayFunction: x => {
+              return '<a href=\"' + x + '\" target=\"_blank">' + x + '</a>';
+            }
+          }
+        ]
+      },
+      source: new VectorSource({
+        format: new GeoJSON(),
+        url: require('./Plan4All_Members.geojson')//'https://raw.githubusercontent.com/jmacura/testing/master/Plan4All_Members.geojson'
+      }),
+      //cluster: true
+    }),
     new VectorLayer({
       title: 'Street light',
       source: geodata
     })
   ],
   default_view: new View({
-    center: transform([13.40, 49.74], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
-    zoom: 15,
+    center: transform([17.474129, 52.574000], 'EPSG:4326', 'EPSG:3857'),
+    zoom: 4,
     units: 'm'
-  })
-}).controller('MainController', ['$scope', 'Core', 'hs.addLayersWms.addLayerService', 'hs.compositions.service_parser', 'config', 'hs.layout.service',
+  }),
+  locationButtonVisible: false
+}).controller('MainController', ['$scope', 'HsCore', 'HsAddLayersWmsAddLayerService', 'HsCompositionsParserService', 'HsConfig', 'HsLayoutService',
   function ($scope, Core, layerAdderService, composition_parser, config, layoutService) {
     $scope.Core = Core;
     Core.singleDatasources = true;
     layoutService.sidebarRight = true;
-    //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
   }
 ]);
 

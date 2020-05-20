@@ -1,0 +1,556 @@
+{
+  "type": "FeatureCollection",
+  "name": "Plan4All Members",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of West Bohemia",
+        "logo": "2020/05/kgm-zcu.jpg",
+        "website": "https://kgm.zcu.cz",
+        "isFounder": "yes"
+      },
+      "geometry": { "type": "Point", "coordinates": [13.3519468, 49.7266047] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "HELP SERVICE – REMOTE SENSING s.r.o.",
+        "logo": "2020/05/hs-rs.png",
+        "website": "http://www.bnhelp.cz/",
+        "isFounder": "yes"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.6870478, 49.781285] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Czech Centre for Science and Society",
+        "logo": "2020/05/ccss.png",
+        "website": "http://www.ccss.cz",
+        "isFounder": "yes"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.4017795, 50.0681129] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stepim s.a.s ",
+        "logo": "2020/05/stepim-1.gif",
+        "website": "http://www.stepim.it/"
+      },
+      "geometry": { "type": "Point", "coordinates": [15.0597113, 37.5705317] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hyperborea",
+        "logo": "2020/05/hyperborea.png",
+        "website": "https://www.hyperborea.com/"
+      },
+      "geometry": { "type": "Point", "coordinates": [10.4880088, 43.6853004] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Asplan Viak AS",
+        "logo": "2020/05/AviNet.jpg",
+        "website": "https://www.avinet.no/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.77409850000004, 58.4607494]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Aforti IT S.r.o.",
+        "logo": "2020/05/AFORTI.png",
+        "website": "http://aforti.cz/"
+      },
+      "geometry": { "type": "Point", "coordinates": [16.9580886, 49.9697842] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "MAC The National Microelectronics Appications Centre Ltd",
+        "logo": "2020/05/MAC.gif",
+        "website": "http://www.mac.ie/"
+      },
+      "geometry": { "type": "Point", "coordinates": [-8.5479299, 52.6713861] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ISOCARP Institute – Centre of Urban Excellence",
+        "logo": "2020/05/isocarp-institute.png",
+        "website": "https://isocarp.org/institute/about-institute/"
+      },
+      "geometry": { "type": "Point", "coordinates": [4.2949883, 52.0847454] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Baltic Open Solutions Center Ltd. ",
+        "logo": "2020/05/bosc.jpg",
+        "website": "https://bosc.lv/"
+      },
+      "geometry": { "type": "Point", "coordinates": [24.1242575, 56.952479] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "TeamDEV s.r.l.",
+        "logo": "2020/05/teamDev.png",
+        "website": "http://www.teamdev.it/"
+      },
+      "geometry": { "type": "Point", "coordinates": [12.367883, 43.086113] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "WIRELESSINFO",
+        "logo": "2020/05/WirelessInfo.png",
+        "website": "http://www.wirelessinfo.cz/en"
+      },
+      "geometry": { "type": "Point", "coordinates": [17.069787, 49.6892041] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Czech Open Solutions Center",
+        "logo": "2020/05/COSC.png",
+        "website": "http://www.cosc.cz/"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.4017795, 50.0681129] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lesprojekt služby s.r.o.",
+        "logo": "2020/05/Lesprojekt.png",
+        "website": "http://www.lesprojekt.cz/en"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.6326285, 50.2141452] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "IS-practice BVBA",
+        "logo": "2020/05/is-practice.png",
+        "website": "http://www.is-practice.eu/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.37075860000004, 50.8676043]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Edip s.r.o.",
+        "logo": "2020/05/edip.png",
+        "website": "http://www.edip.cz/cs/"
+      },
+      "geometry": { "type": "Point", "coordinates": [13.3831284, 49.7431516] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "CORP – Consulting Research Projects",
+        "logo": "2020/05/CORP.png",
+        "website": "https://conference.corp.at/"
+      },
+      "geometry": { "type": "Point", "coordinates": [16.4637526, 48.1294958] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "21C Consultancy",
+        "logo": "2020/05/21cconsultacy.png",
+        "website": "https://www.21cconsultancy.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.265074899999945, 51.508611]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Technology Development Forum",
+        "logo": "2020/05/TechnologyDevelopmentForum.png",
+        "website": null
+      },
+      "geometry": { "type": "Point", "coordinates": [24.603189, 56.879635] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ukrainian Land and Resource Management Center",
+        "logo": "2020/05/UkrainianLandAndResourceManagement.png",
+        "website": "http://www.ulrmc.org.ua/"
+      },
+      "geometry": { "type": "Point", "coordinates": [30.4559234, 50.429611] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PCSS",
+        "logo": "2020/05/Institute of Bioorganic Chemistry of the Polish Academy of Sciences, Poznan Supercomputing and Networking Center ",
+        "website": "http://www.man.poznan.pl/online/en/"
+      },
+      "geometry": { "type": "Point", "coordinates": [16.9177731, 52.4113511] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Department of Land Surveying and Geomatics",
+        "logo": "",
+        "website": "http://kgsz.mapa.net.pl/"
+      },
+      "geometry": { "type": "Point", "coordinates": [19.145136, 51.919438] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cen Group Ltd",
+        "logo": "2020/05/CenGlobal.jpg",
+        "website": "http://www.cenglobal.com/"
+      },
+      "geometry": { "type": "Point", "coordinates": [-1.8942602, 52.525076] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Institute of Spatial Planning",
+        "logo": "2020/05/AMMK-KEPA.jpg",
+        "website": "http://www.ammk-rks.net/?page=1,94"
+      },
+      "geometry": { "type": "Point", "coordinates": [21.1558573, 42.6596113] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "InnoConnect s.r.o.",
+        "logo": "2020/05/InnoConnect.png",
+        "website": "http://innoconnect.net/"
+      },
+      "geometry": { "type": "Point", "coordinates": [13.4140478, 49.7061399] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sant’Anna School of Advanced Studies ",
+        "logo": "2020/05/SantaAnnaPisa.png",
+        "website": "https://www.santannapisa.it/it"
+      },
+      "geometry": { "type": "Point", "coordinates": [10.4027859, 43.7209661] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Department of Spatial Economy of the Wroclaw University of Environmental and Life Sciences ",
+        "logo": "2020/05/kgp-wuels.png",
+        "website": "http://www.org.up.wroc.pl/kgp/"
+      },
+      "geometry": { "type": "Point", "coordinates": [17.0631784, 51.1141615] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Maxsoft",
+        "logo": "2020/05/maxsoft.png",
+        "website": "http://www.maxsoft.co.il/?lang=en"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [35.584055555555601, 32.705944444444398]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lahti University of Applied Sciences",
+        "logo": "2020/05/LAMK.png",
+        "website": "https://www.lahti.fi/en"
+      },
+      "geometry": { "type": "Point", "coordinates": [25.665356, 61.0054554] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Progis Software GmbH",
+        "logo": "2020/05/progis.png",
+        "website": "http://www.progis.com/"
+      },
+      "geometry": { "type": "Point", "coordinates": [13.808756, 46.572914] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Geospatial Research and Education Lab",
+        "logo": "2020/05/GREL.jpg",
+        "website": "http://grel.ist.edu.pk/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [73.175052699999895, 33.520201]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Zemgale Planning Region ",
+        "logo": "2020/05/zemgale.jpg",
+        "website": "https://www.zemgale.lv/en/"
+      },
+      "geometry": { "type": "Point", "coordinates": [23.7213541, 56.6511091] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Úhlava, o. p. s.",
+        "logo": "2020/05/uhlava.jpg",
+        "website": "http://www.uhlava.cz/"
+      },
+      "geometry": { "type": "Point", "coordinates": [13.2953588, 49.3942629] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vidzeme Planning Region",
+        "logo": "2020/05/vidzeme.png",
+        "website": "http://www.vidzeme.lv/"
+      },
+      "geometry": { "type": "Point", "coordinates": [25.386355, 57.543505] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bente Lilja Bye",
+        "logo": "2020/05/Bente.jpg",
+        "website": "https://blb.as/"
+      },
+      "geometry": { "type": "Point", "coordinates": [8.468946, 60.472024] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mahatma Education Society",
+        "logo": "2020/05/MahatmaEducationSociety.png",
+        "website": "https://uxo.mes.ac.in/"
+      },
+      "geometry": { "type": "Point", "coordinates": [72.8936833, 19.0535972] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "World from Space s.r.o.",
+        "logo": "2020/05/WorldFromSpace.png",
+        "website": "http://worldfrom.space/cs/domu/"
+      },
+      "geometry": { "type": "Point", "coordinates": [16.6040312, 49.1927088] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Research Institute of Geodesy, Topography and Cartography, v.v.i.",
+        "logo": "2020/05/vugtk.png",
+        "website": "https://www.vugtk.cz/"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.4506641, 50.1713308] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ashoka Trust For Research In Ecology And The Environment",
+        "logo": "2020/05/ATREE.jpg",
+        "website": "http://atree.org/"
+      },
+      "geometry": { "type": "Point", "coordinates": [77.6202119, 13.0642087] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "CSITA z. s.",
+        "logo": "2020/05/CSITA.png",
+        "website": "https://www.csita.cz/cs//?lang=en"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.3706667, 50.1321216] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Department of Information Technologies of Faculty of Economics and Management, Czech University of Life Sciences Prague",
+        "logo": "2020/05/kit-pef-czu.png",
+        "website": "https://kit.pef.czu.cz/"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.3735981, 50.1299943] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Institute of Geoinformation & Earth Observation, PMAS Arid Agriculture University",
+        "logo": "rawalpindi.png",
+        "website": "http://www.uaar.edu.pk/igeo/index.php?dept_id=50"
+      },
+      "geometry": { "type": "Point", "coordinates": [73.0815435, 33.6491528] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of Novi Sad, Faculty of technical Science, Geoinformatics Laboratory",
+        "logo": "2020/05/GeoinformatikaNoviSad.jpg",
+        "website": "http://geoinformatika.uns.ac.rs/"
+      },
+      "geometry": { "type": "Point", "coordinates": [19.8516968, 45.2461012] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Metcenas, O.p.s.",
+        "logo": "2020/05/metcenas.png",
+        "website": "https://www.metcenas.cz/"
+      },
+      "geometry": { "type": "Point", "coordinates": [13.3545957, 49.7690318] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Smart & Lean",
+        "logo": "2020/05/SmartAndLean.png",
+        "website": "https://www.smartlean.fi/#home"
+      },
+      "geometry": { "type": "Point", "coordinates": [25.6612096, 60.9826749] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "KAJO s. r. o.",
+        "logo": "2020/05/KAJO.jpg",
+        "website": "http://www.kajoservices.com/"
+      },
+      "geometry": { "type": "Point", "coordinates": [18.56295, 49.2202709] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Women Development Association in Zimbabwe",
+        "logo": "2020/05/WomenDevelopmentAssociationZimbabwe.jpg",
+        "website": ""
+      },
+      "geometry": { "type": "Point", "coordinates": [29.154857, -19.015438] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Big Terra Alpha s.r.o.",
+        "logo": "2020/05/BigTerra.png",
+        "website": "http://www.bigterra.com/"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.4221402, 50.0824808] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kazakh State Agrotechnical University",
+        "logo": "2020/05/kazatu.jpg",
+        "website": "http://www.kazatu.kz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [71.409038199999898, 51.1871859]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Crehan, Kusano and Associates SPRL",
+        "logo": "2020/05/CKA.png",
+        "website": "http://www.cka.be/index.html"
+      },
+      "geometry": { "type": "Point", "coordinates": [4.3671101, 50.8334426] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Geo - SEE Institute",
+        "logo": "2020/05/SEEResearchInstituteGeosciences.png",
+        "website": "http://geo-see.org/"
+      },
+      "geometry": { "type": "Point", "coordinates": [21.4356619, 42.0129948] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "FlowerChecker s.r.o.",
+        "logo": "2020/05/flowerchecker.png",
+        "website": "http://www.flowerchecker.com/cs"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.5835328000001, 49.1991804]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Experimental Civics, LLC \n",
+        "logo": "2020/05/ExperimentalCivics.png",
+        "website": "https://experimentalcivics.io/"
+      },
+      "geometry": { "type": "Point", "coordinates": [-97.6005786, 30.4332061] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "ISFOR z.ú. ",
+        "logo": "2020/05/ISFOR.jpg",
+        "website": "https://www.isfor.ai/"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.2200233, 50.1427219] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "CENIA, Czech Environmental Information Agency",
+        "logo": "2020/05/CENIA.png",
+        "website": "https://www.cenia.cz/#_o-cenia"
+      },
+      "geometry": { "type": "Point", "coordinates": [14.4678598, 50.0695487] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "European Regional Framework for Cooperation ",
+        "logo": "2020/05/ERFC.png",
+        "website": "https://www.erfc.gr/"
+      },
+      "geometry": { "type": "Point", "coordinates": [23.019646, 40.5485201] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Innopolis Centre for Innovation and Culture ",
+        "logo": "2020/05/innopolis.jpg",
+        "website": "http://www.innopolis.org/"
+      },
+      "geometry": { "type": "Point", "coordinates": [23.0280768, 40.522512] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Club of Ossiach",
+        "logo": "2020/05/ClubOfOssiach.png",
+        "website": "https://coo.wirelessinfo.cz/"
+      },
+      "geometry": { "type": "Point", "coordinates": [13.8087564, 46.572914] }
+    }
+  ]
+}
