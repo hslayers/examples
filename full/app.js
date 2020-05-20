@@ -50,8 +50,8 @@ angular
   ])
 
   .directive('hs', [
-    'config',
-    'Core',
+    'HsConfig',
+    'HsCore',
     function (config, Core) {
       return {
         template: Core.hslayersNgTemplate,
@@ -62,7 +62,7 @@ angular
     },
   ])
 
-  .value('config', {
+  .value('HsConfig', {
     importCss: true,
     proxyPrefix:
       window.location.hostname.indexOf('ng.hslayers') == -1
@@ -157,11 +157,11 @@ angular
 
   .controller('MainController', [
     '$scope',
-    'Core',
-    'hs.addLayersWms.addLayerService',
-    'hs.compositions.service_parser',
-    'config',
-    'hs.layout.service',
+    'HsCore',
+    'HsAddLayersWmsAddLayerService',
+    'HsCompositionsParserService',
+    'HsConfig',
+    'HsLayoutService',
     function (
       $scope,
       Core,

@@ -21,8 +21,8 @@ var module = angular.module('hs', [
 ]);
 
 module.directive('hs', [
-  'config',
-  'Core',
+  'HsConfig',
+  'HsCore',
   function (config, Core) {
     return {
       template: Core.hslayersNgTemplate,
@@ -33,7 +33,7 @@ module.directive('hs', [
   },
 ]);
 
-module.value('config', {
+module.value('HsConfig', {
   open_lm_after_comp_loaded: true,
   layer_order: '-position',
   box_layers: [
@@ -192,10 +192,10 @@ module.value('config', {
 
 module.controller('Main', [
   '$scope',
-  'Core',
+  'HsCore',
   'hs.addLayersWms.addLayerService',
   'hs.compositions.service_parser',
-  'config',
+  'HsConfig',
   function ($scope, Core, layerAdderService, composition_parser, config) {
     $scope.Core = Core;
     Core.sidebarRight = false;

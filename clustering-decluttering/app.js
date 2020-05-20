@@ -43,8 +43,8 @@ angular
     'hs.info',
   ])
   .directive('hs', [
-    'config',
-    'Core',
+    'HsConfig',
+    'HsCore',
     function (config, Core) {
       return {
         template: Core.hslayersNgTemplate,
@@ -54,7 +54,7 @@ angular
       };
     },
   ])
-  .value('config', {
+  .value('HsConfig', {
     proxyPrefix: '/proxy/',
     default_layers: [
       new Tile({
@@ -97,6 +97,7 @@ angular
       units: 'm',
     }),
     advanced_form: true,
+    allowAddExternalDatasets: false,
     panelWidths: {
       sensors: 600,
     },
@@ -108,10 +109,10 @@ angular
   })
   .controller('MainController', [
     '$scope',
-    'Core',
+    'HsCore',
     function ($scope, Core) {
       $scope.Core = Core;
       Core.sidebarRight = false;
-      Core.singleDatasources = true;
+      //Core.singleDatasources = true;
     },
   ]);

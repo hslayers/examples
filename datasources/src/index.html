@@ -12,7 +12,7 @@
     <% } %>
     <style>
       #hs-app {
-        position: relative; 
+        position: relative;
         height: 100vh
       }
       @media only screen and (max-width: 600px) {
@@ -23,7 +23,7 @@
     </style>
 </head>
 <body >
-    <div hs ng-app="hs" ng-controller="Main" id="hs-app"></div>
+    <div hs ng-app="hs" ng-controller="MainController" id="hs-app"></div>
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
       <script type="application/javascript" src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>

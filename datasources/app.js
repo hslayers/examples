@@ -38,8 +38,8 @@ angular
     'hs.addLayers',
   ])
   .directive('hs', [
-    'config',
-    'Core',
+    'HsConfig',
+    'HsCore',
     function (config, Core) {
       return {
         template: Core.hslayersNgTemplate,
@@ -49,7 +49,7 @@ angular
       };
     },
   ])
-  .value('config', {
+  .value('HsConfig', {
     default_layers: [
       new Tile({
         source: new OSM(),
@@ -65,6 +65,7 @@ angular
       units: 'm',
     }),
     advanced_form: true,
+    allowAddExternalDatasets: true,
     datasources: [
       /*{
             title: "Datatank",
@@ -115,14 +116,14 @@ angular
   })
   .controller('MainController', [
     '$scope',
-    'Core',
-    'hs.map.service',
-    function ($scope, Core, service) {
+    'HsCore',
+    'HsMapService',
+    'HsLayoutService',
+    function ($scope, Core, mapService, layoutService) {
       $scope.Core = Core;
       $scope.Core.sidebarRight = false;
       //$scope.Core.sidebarToggleable = false;
-      Core.singleDatasources = true;
       $scope.Core.sidebarButtons = true;
-      $scope.Core.setDefaultPanel('layermanager');
+      layoutService.setDefaultPanel('layermanager');
     },
   ]);
