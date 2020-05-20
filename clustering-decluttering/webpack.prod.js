@@ -25,16 +25,16 @@ module.exports = merge(common, {
   devtool: false,
   output: {
     // Add a chunkhash to file name so it will not be cached by browsers when content changed
-    filename: '[name].[hash].bundle.js'
+    filename: '[name].[hash].bundle.js',
   },
   plugins: [
     // Extract CSS into separated css files
     new MiniCssExtractPlugin({
       // Add a chunkhash to file name so it will not be cached by browsers when content changed
-      filename: '[name].[hash].bundle.css'
+      filename: '[name].[hash].bundle.css',
     }),
     // see https://webpack.js.org/guides/caching#module-identifiers
-    new webpack.HashedModuleIdsPlugin()
+    new webpack.HashedModuleIdsPlugin(),
   ],
   optimization: {
     // See https://webpack.js.org/guides/caching
@@ -45,24 +45,24 @@ module.exports = merge(common, {
         vendor: {
           name: 'vendors',
           test: /node_modules/,
-          chunks: 'initial'
-        }
-      }
+          chunks: 'initial',
+        },
+      },
     },
     minimizer: [
       // JS minifier/uglifier
       new TerserPlugin({
         parallel: true,
         // Remove comments as well
-        terserOptions: { output: { comments: false } }
+        terserOptions: {output: {comments: false}},
       }),
       // CSS minifier
       new OptimizeCSSAssetsPlugin({
         cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }]
-        }
-      })
-    ]
+          preset: ['default', {discardComments: {removeAll: true}}],
+        },
+      }),
+    ],
   },
   module: {
     rules: [
@@ -73,23 +73,23 @@ module.exports = merge(common, {
           'style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: '' }
+            options: {publicPath: ''},
           },
-          'css-loader'
+          'css-loader',
         ],
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
-          loader: 'url-loader'
-        }
+          loader: 'url-loader',
+        },
       },
       // Load images as URLs
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: {
-          loader: 'url-loader'
-        }
+          loader: 'url-loader',
+        },
       },
       // Load locales files
       {
@@ -101,10 +101,10 @@ module.exports = merge(common, {
             loader: 'file-loader',
             options: {
               name: '[name].[contenthash].[ext]',
-              outputPath: 'locales'
-            }
-          }
-        ]
+              outputPath: 'locales',
+            },
+          },
+        ],
       },
       // AngularJS templates are cached using cache template
       {
@@ -115,10 +115,10 @@ module.exports = merge(common, {
           'extract-loader',
           {
             loader: 'html-loader',
-            options: { minimize: true }
-          }
-        ]
-      }
-    ]
-  }
+            options: {minimize: true},
+          },
+        ],
+      },
+    ],
+  },
 });

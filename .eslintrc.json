@@ -10,7 +10,7 @@
     "define": "readonly",
     "angular": "readonly",
     "stmPath": "readonly",
-    "hslMin": "readonly",
+    "hslMin": "readonly"
   },
   "parserOptions": {
     "ecmaVersion": 2018
@@ -40,7 +40,7 @@
     "angular/typecheck-function": "off",
     "angular/typecheck-number": "off",
     "angular/typecheck-object": "off",
-    "angular/typecheck-string": "off",
+    "angular/typecheck-string": "off"
   }
   /*"settings": {
     "import/resolver": "webpack"

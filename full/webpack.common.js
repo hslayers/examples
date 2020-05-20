@@ -12,8 +12,10 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const hslPaths = require(path.join(__dirname, '../node_modules/hslayers-ng/common_paths'));
+const hslPaths = require(path.join(
+  __dirname,
+  '../node_modules/hslayers-ng/common_paths'
+));
 
 module.exports = {
   entry: {app: 'app.js'},
@@ -21,15 +23,17 @@ module.exports = {
     // Path where bundled files will be output
     path: path.resolve(__dirname, 'static'),
     // Path at which output assets will be served
-    publicPath: 'static/'
+    publicPath: 'static/',
   },
   // Just for build speed improvement
-  resolve: {symlinks: true,
+  resolve: {
+    symlinks: true,
     modules: [
       path.join(__dirname),
       path.join(__dirname, '../node_modules'),
-      path.resolve(path.join(__dirname, '../node_modules', 'hslayers-ng'))
-    ].concat(hslPaths.paths)},
+      path.resolve(path.join(__dirname, '../node_modules', 'hslayers-ng')),
+    ].concat(hslPaths.paths),
+  },
   plugins: [
     // Clean before build
     new CleanWebpackPlugin(),
@@ -39,9 +43,9 @@ module.exports = {
       // index.html template file location
       template: 'src/index.html',
       // We manually inject css and js files in our template
-      inject: false
+      inject: false,
       // favicon: 'assets/img/favicon.ico'
-    })
+    }),
   ],
   module: {
     rules: [
@@ -57,11 +61,14 @@ module.exports = {
             options: {
               // Babel syntax dynamic import plugin allow babel to correctly parse js files
               // using webpack dynamic import expression (i.e import('angular').then(...))
-              plugins: ['angularjs-annotate', '@babel/plugin-syntax-dynamic-import']
-            }
-          }
-        ]
-      }
-    ]
-  }
+              plugins: [
+                'angularjs-annotate',
+                '@babel/plugin-syntax-dynamic-import',
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
 };

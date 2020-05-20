@@ -20,29 +20,31 @@ module.exports = merge(common, {
     removeAvailableModules: false,
     removeEmptyChunks: false,
     // In dev mode we simply want to get a big bundle containing all our js
-    splitChunks: false
+    splitChunks: false,
   },
   output: {
     // see https://webpack.js.org/guides/build-performance#output-without-path-info
     pathinfo: false,
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
       // Load css files which will be injected in html page at startup <style>...</style>)
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/'
-          }
-        }]
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
       // Load angularJS partials HTML file as URL
       {
@@ -51,8 +53,8 @@ module.exports = merge(common, {
         use: [
           'ng-cache-loader?prefix=[dir]/[dir]',
           'extract-loader',
-          'html-loader'
-        ]
+          'html-loader',
+        ],
       },
       // Load images as URLs
       {
@@ -61,9 +63,9 @@ module.exports = merge(common, {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'images'
-          }
-        }
+            outputPath: 'images',
+          },
+        },
       },
       // Load locales files
       {
@@ -75,11 +77,11 @@ module.exports = merge(common, {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'locales'
-            }
-          }
-        ]
-      }
-    ]
-  }
+              outputPath: 'locales',
+            },
+          },
+        ],
+      },
+    ],
+  },
 });
