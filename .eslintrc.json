@@ -11,8 +11,6 @@
     "angular": "readonly",
     "stmPath": "readonly",
     "hslMin": "readonly",
-    "gitsha": "readonly",
-    "hsl_path": "readonly"
   },
   "parserOptions": {
     "ecmaVersion": 2018
@@ -36,7 +34,13 @@
       {
         "matchNames": false
       }
-    ]
+    ],
+    "angular/typecheck-array": "off",
+    "angular/typecheck-date": "off",
+    "angular/typecheck-function": "off",
+    "angular/typecheck-number": "off",
+    "angular/typecheck-object": "off",
+    "angular/typecheck-string": "off",
   }
   /*"settings": {
     "import/resolver": "webpack"
