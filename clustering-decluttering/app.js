@@ -92,8 +92,8 @@ angular
     ],
     project_name: 'erra/map',
     default_view: new View({
-      center: transform([23.3885193, 56.4769034], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
-      zoom: 13,
+      center: transform([6, 20], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
+      zoom: 4,
       units: 'm',
     }),
     advanced_form: true,
