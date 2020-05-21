@@ -31,7 +31,7 @@ window.getLRUser = function () {
 function styleFunction(feature, resolution) {
   //console.log(feature);
   if (feature.get('isFounder') && feature.get('isFounder') === 'yes') {
-    // je zakladajici clen
+    // Green circle for founding members
     return new Style({
       image: new Circle({
         fill: new Fill({
@@ -45,7 +45,7 @@ function styleFunction(feature, resolution) {
       }),
     });
   } else {
-    //neni zakladajici clen
+    // Orange circle for regular members
     return new Style({
       image: new Circle({
         fill: new Fill({
@@ -126,16 +126,22 @@ angular
         removable: false,
       }),
       new VectorLayer({
+        // Layer with pop-ups
         title: 'Partners',
         style: styleFunction,
-        hoveredKeys: ['Name', 'description'],
-        hoveredKeysTranslations: {'description': 'popisek'},
+        hoveredKeys: ['name', 'description'], //<--- DELETE THIS ---
+        hoveredKeysTranslations: { 'description': 'popisek' }, //<--- DELETE THIS ---
         popUp: {
-          display: 'hover',
+          // Here you the settings of pop-up windows
+          display: 'hover', // Reserved for future use. Currently only 'hover' option is available
           attributes: [
+            // Array of attributes to show in the pop-up
+            'name', // Simplest option: only provide the name of the attribute
             {
-              attribute: 'logo',
+              // Advanced option: provide attribute definition as an object
+              attribute: 'logo', // Attribute name
               displayFunction: (x) => {
+                // A function which modifies the appearance of this attribute in the pop-up
                 return (
                   '<img src="https://www.plan4all.eu/wp-content/uploads/' +
                   x +
@@ -144,9 +150,10 @@ angular
               },
             },
             {
-              attribute: 'website',
-              label: 'web',
+              attribute: 'website', // Attribute name
+              label: 'web', // Label which will display in the pop-up instead of its name
               displayFunction: (x) => {
+                // A function which modifies the appearance of this attribute in the pop-up
                 return '<a href="' + x + '" target="_blank">' + x + '</a>';
               },
             },
@@ -159,7 +166,8 @@ angular
         //cluster: true
       }),
       new VectorLayer({
-        title: 'Street light',
+        // Layer without pop-ups
+        title: 'Street lights',
         source: geodata,
       }),
     ],
@@ -168,7 +176,8 @@ angular
       zoom: 4,
       units: 'm',
     }),
-    locationButtonVisible: false,
+    queryPoint: 'hidden',
+    locationButtonVisible: false, //<--- DELETE THIS ---
   })
   .controller('MainController', [
     '$scope',
@@ -178,7 +187,6 @@ angular
     'HsLayoutService',
     function ($scope, Core, layerAdderService, config, layoutService) {
       $scope.Core = Core;
-      Core.singleDatasources = true;
       layoutService.sidebarRight = true;
     },
   ]);
