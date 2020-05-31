@@ -20,7 +20,7 @@
                 //"eurostat":{name:"Eurostat", description: "Eurostat data visualization for NUTS2 regions."},
                 "full":{name:"Full functionality", description: "Multiple HSLayers-NG features combined in one example"},
                 "clustering-decluttering":{name:"Feature clustering, decluttering functionality", description: "Feature clustering and decluttering for vector layer"},
-                //"feature-pop-ups": { name: 'Feature pop-ups', description: 'Showcase of clickable feature pop-up cards' },
+                "feature-pop-ups": {name: "Feature pop-ups", description: "Showcase of clickable feature pop-up cards"},
                 //"geosparql":{name:"Smart Tourist Data", description: "Integration with Virtuoso SPARQL endpoint which contains points of interest linked open data in europe + Panoramio images and Czech forest roads"},
                 //"forestry":{name:"Forest statistics", description: "Integration with Virtuoso SPARQL endpoint which contains statistics about forestry"},
                 //"wfs_crossfilter":{name:"Feature crossfiltering", description: "Demonstration of dynamic feature filtering using Crossfilter and D3 libraries"},
@@ -32,7 +32,7 @@
                 };
 
     var exampleCount = Object.keys(links).length;
-    $( ".container h2").append("("+exampleCount+")");
+    $( ".container h2").append(" ("+exampleCount+")");
 
     for (var key in links)
     {
