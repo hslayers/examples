@@ -1,6 +1,12 @@
 <html>
 <head>
     <script>
+        // Required if the path to HSLayers bundles differ from default,
+        // where default is 'node_modules/hslayers-ng/dist/'
+        window.HSL_PATH = '../node_modules/hslayers-ng/dist/';
+
+        // Actual configuration object
+        // See https://github.com/hslayers/hslayers-ng/wiki/Config-parameters
         function hslayersNgConfig(ol) {
             return {
                 default_layers: [
@@ -21,7 +27,7 @@
             }
         }
     </script>
-    <script src="../node_modules/hslayers-ng/dist/hslayers-ng.js"></script>
+    <script src="../node_modules/hslayers-ng/dist/hslayers-ng.main.js"></script>
 </head>
 <body>
     <div hs ng-app="hs" ng-controller="Main" style="position: relative;"></div>

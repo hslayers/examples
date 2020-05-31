@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "cesium": "^1.65.0",
-    "hslayers-ng": "^1.22.0",
+    "hslayers-ng": "^1.23.0",
     "jquery": "^3.4.1"
   },
   "devDependencies": {
