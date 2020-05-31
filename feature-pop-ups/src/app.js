@@ -17,20 +17,19 @@ import {Circle, Fill, Stroke, Style} from 'ol/style';
 import {OSM} from 'ol/source';
 import {Tile} from 'ol/layer';
 import {Vector as VectorSource} from 'ol/source';
-import {transform} from 'ol/proj';
+import {fromLonLat} from 'ol/proj';
 
 const geodata = new VectorSource({
   format: new GeoJSON(),
   url: require('./pasport.geojson'),
 });
 
-window.getLRUser = function () {
-  return (0);
-};
-
 function styleFunction(feature, resolution) {
-  //console.log(feature);
-  if (feature.get('isFounder') && feature.get('isFounder') === 'yes') {
+  if (
+    feature &&
+    feature.get('isFounder') &&
+    feature.get('isFounder') === 'yes'
+  ) {
     // Green circle for founding members
     return new Style({
       image: new Circle({
@@ -97,28 +96,23 @@ angular
   .value('HsConfig', {
     sizeMode: 'container',
     sidebarClosed: true,
-    //useIsolatedBootstrap: true,
+    useIsolatedBootstrap: true,
     useProxy: true,
     //proxyPrefix: "/proxy/",
-    //componentsEnabled: {},
-    panelsEnabled: {
-      composition_browser: false,
+    popUpDisplay: 'click', // Other options are 'hover' and 'none'
+    componentsEnabled: {
+      sidebar: false,
       toolbar: false,
-      mobile_settings: true,
-      draw: false,
-      datasource_selector: false,
-      layermanager: true,
-      print: true,
-      saveMap: false,
-      language: false,
-      permalink: false,
-      feature_crossfilter: false,
-      compositionLoadingProgress: false,
+      geolocationButton: false,
     },
     default_layers: [
       new Tile({
         source: new OSM({
           url: 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png',
+          attributions: [
+            '<a href="https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use" target="_blank">Wikimedia Maps</a>',
+            '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
+          ],
         }),
         title: 'Wikimedia Map',
         base: true,
@@ -129,11 +123,8 @@ angular
         // Layer with pop-ups
         title: 'Partners',
         style: styleFunction,
-        hoveredKeys: ['name', 'description'], //<--- DELETE THIS ---
-        hoveredKeysTranslations: { 'description': 'popisek' }, //<--- DELETE THIS ---
         popUp: {
-          // Here you the settings of pop-up windows
-          display: 'hover', // Reserved for future use. Currently only 'hover' option is available
+          // Here you define the settings of pop-up windows
           attributes: [
             // Array of attributes to show in the pop-up
             'name', // Simplest option: only provide the name of the attribute
@@ -151,7 +142,7 @@ angular
             },
             {
               attribute: 'website', // Attribute name
-              label: 'web', // Label which will display in the pop-up instead of its name
+              label: 'web', // Label which will be displayed in the pop-up instead of its name
               displayFunction: (x) => {
                 // A function which modifies the appearance of this attribute in the pop-up
                 return '<a href="' + x + '" target="_blank">' + x + '</a>';
@@ -161,9 +152,9 @@ angular
         },
         source: new VectorSource({
           format: new GeoJSON(),
-          url: require('./Plan4All_Members.geojson'), //'https://raw.githubusercontent.com/jmacura/testing/master/Plan4All_Members.geojson'
+          url: require('./Plan4All_Members.geojson'),
         }),
-        //cluster: true
+        cluster: true,
       }),
       new VectorLayer({
         // Layer without pop-ups
@@ -172,12 +163,11 @@ angular
       }),
     ],
     default_view: new View({
-      center: transform([17.474129, 52.574], 'EPSG:4326', 'EPSG:3857'),
+      center: fromLonLat([17.474129, 52.574]),
       zoom: 4,
       units: 'm',
     }),
     queryPoint: 'hidden',
-    locationButtonVisible: false, //<--- DELETE THIS ---
   })
   .controller('MainController', [
     '$scope',
