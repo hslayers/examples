@@ -23,7 +23,7 @@
     </style>
 </head>
 <body >
-    <div hs ng-app="hs" ng-controller="MainController" id="hs-app"></div>
+    <hs ng-controller="MainController" id="hs-app"></hs>
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
       <script type="application/javascript" src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>

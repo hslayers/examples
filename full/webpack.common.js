@@ -18,7 +18,7 @@ const hslPaths = require(path.join(
 ));
 
 module.exports = {
-  entry: {app: 'app.js'},
+  entry: {app: 'main.ts'},
   output: {
     // Path where bundled files will be output
     path: path.resolve(__dirname, 'static'),
@@ -27,6 +27,7 @@ module.exports = {
   },
   // Just for build speed improvement
   resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
     symlinks: true,
     modules: [
       path.join(__dirname),
@@ -49,6 +50,11 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.ts?$/,
+        use: 'ts-loader',
+        exclude: /node_modules\/(?!(hslayers-ng)\/).*/,
+      },
       // Automatically generates $inject array for angularJS components annotated with:
       // 'ngInject';
       // or commented with /**@ngInject */
