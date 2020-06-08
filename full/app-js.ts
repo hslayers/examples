@@ -6,18 +6,19 @@ import 'hslayers-ng/components/info/info.module';
 import 'hslayers-ng/components/measure/measure.module';
 import 'hslayers-ng/components/permalink/permalink.module';
 import 'hslayers-ng/components/print/print.module';
-import 'hslayers-ng/components/query/query.module';
 import 'hslayers-ng/components/search/search.module';
+import 'hslayers-ng/components/query/query.module';
 import 'hslayers-ng/components/sidebar/sidebar.module';
 import 'hslayers-ng/components/toolbar/toolbar.module';
-import Feature from 'ol/Feature';
-import Point from 'ol/geom/Point';
 import VectorLayer from 'ol/layer/Vector';
 import View from 'ol/View';
 import {Group, Tile} from 'ol/layer';
 import {OSM, TileWMS, XYZ} from 'ol/source';
 import {Vector as VectorSource} from 'ol/source';
 import {transform} from 'ol/proj';
+import * as angular from "angular";
+import Feature from 'ol/Feature';
+import Point from 'ol/geom/Point';
 
 const count = 20000;
 const features = new Array(count);
@@ -27,7 +28,7 @@ for (let i = 0; i < count; ++i) {
   features[i] = new Feature({geometry: new Point(coordinates), name: 'test'});
 }
 
-angular
+export default angular
   .module('hs', [
     'hs.sidebar',
     'hs.toolbar',
@@ -47,9 +48,7 @@ angular
     'gettext',
     'hs.compositions',
     'hs.info',
-  ])
-
-  .directive('hs', [
+  ]).directive('hs', [
     'HsConfig',
     'HsCore',
     function (config, Core) {
@@ -174,3 +173,4 @@ angular
       //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
     },
   ]);
+
