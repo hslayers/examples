@@ -19,6 +19,7 @@ import {transform} from 'ol/proj';
 import * as angular from "angular";
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
+import {downgradedPrintModule} from 'hslayers-ng/components/print'
 
 const count = 20000;
 const features = new Array(count);
@@ -37,7 +38,7 @@ export default angular
     'hs.map',
     'hs.query',
     'hs.search',
-    'hs.print',
+    downgradedPrintModule,
     'hs.permalink',
     'hs.measure',
     'hs.legend',
