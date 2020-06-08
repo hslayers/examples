@@ -1,7 +1,10 @@
 'use strict';
+//import 'cesium/Build/CesiumUnminified/Cesium';
+import 'cesium/Build/Cesium/Widgets/widgets.css';
 import 'hslayers-ng/components/add-layers/add-layers.module';
 import 'hslayers-ng/components/datasource-selector/datasource-selector.module';
 import 'hslayers-ng/components/draw/draw.module';
+import 'hslayers-ng/components/hscesium/hscesium.module';
 import 'hslayers-ng/components/info/info.module';
 import 'hslayers-ng/components/measure/measure.module';
 import 'hslayers-ng/components/permalink/permalink.module';
@@ -37,6 +40,7 @@ angular
     'hs.permalink',
     'hs.measure',
     'hs.legend',
+    'hs.cesium',
     'hs.core',
     'hs.datasource_selector',
     'hs.save-map',
@@ -58,6 +62,21 @@ angular
     },
   ])
   .value('HsConfig', {
+    cesiumBase: '../node_modules/cesium/Build/Cesium/',
+    //cesiumAccessToken:
+    //  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZDk3ZmM0Mi01ZGFjLTRmYjQtYmFkNC02NTUwOTFhZjNlZjMiLCJpZCI6MTE2MSwiaWF0IjoxNTI3MTYxOTc5fQ.tOVBzBJjR3mwO3osvDVB_RwxyLX7W-emymTOkfz6yGA',
+    terrain_providers: [
+      {
+        title: 'Local terrain',
+        url: 'http://gis.lesprojekt.cz/cts/tilesets/rostenice_dmp1g/',
+        active: false,
+      },
+      {
+        title: 'EU-DEM',
+        url: 'https://assets.agi.com/stk-terrain/v1/tilesets/world/tiles',
+        active: true,
+      },
+    ],
     sizeMode: 'container',
     sidebarClosed: true,
     useIsolatedBootstrap: true,
