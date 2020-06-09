@@ -2,6 +2,7 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "allowJs": false,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "lib": ["esnext", "dom"]
     }
 }
