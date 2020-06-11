@@ -6,17 +6,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import app from './app-js';
-import { HsPrintModule } from 'hslayers-ng/components/print/print.module';
-import { HsMapServiceProvider } from 'hslayers-ng/ajs-upgraded-providers';
+import { HsMapServiceProvider, HsLayoutServiceProvider } from 'hslayers-ng/ajs-upgraded-providers';
 import { HsConfigProvider } from 'hslayers-ng/ajs-upgraded-providers';
+import { HsLayoutModule } from 'hslayers-ng/components/layout/layout.module';
 @NgModule({
     imports: [
         BrowserModule,
         UpgradeModule,
-        HsPrintModule
+        HsLayoutModule
     ],
     declarations: [
-        // ... existing declarations       
+        
     ],
     entryComponents: [
         
