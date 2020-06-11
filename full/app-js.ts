@@ -5,7 +5,7 @@ import 'hslayers-ng/components/draw/draw.module';
 import 'hslayers-ng/components/info/info.module';
 import 'hslayers-ng/components/measure/measure.module';
 import 'hslayers-ng/components/permalink/permalink.module';
-import 'hslayers-ng/components/print/print.module';
+import 'hslayers-ng/components/print';
 import 'hslayers-ng/components/search/search.module';
 import 'hslayers-ng/components/query/query.module';
 import 'hslayers-ng/components/sidebar/sidebar.module';
@@ -19,7 +19,6 @@ import {transform} from 'ol/proj';
 import * as angular from "angular";
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import {downgradedPrintModule} from 'hslayers-ng/components/print'
 
 const count = 20000;
 const features = new Array(count);
@@ -38,7 +37,7 @@ export default angular
     'hs.map',
     'hs.query',
     'hs.search',
-    downgradedPrintModule,
+    'hs.print',
     'hs.permalink',
     'hs.measure',
     'hs.legend',
