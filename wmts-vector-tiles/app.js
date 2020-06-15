@@ -49,6 +49,10 @@ proj4.defs('EPSG:5514', '+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alph
 register(proj4);
 const sjtskProjection = getProjection('EPSG:5514');
 
+var proxyPrefix = window.location.hostname.indexOf('ng.hslayers') == -1
+    ? `${window.location.protocol}//${window.location.hostname}:8085/`
+    : '/proxy/';
+
 module.directive('hs', function (HsCore, HsLayoutService) {
     'ngInject';
     return {
@@ -78,7 +82,7 @@ let vectorTiles = new VectorTileLayer({
  * @param {any} tileCoord Vector tile coordinates
  */
 function tileUrlFunction(tileCoord) {
-    return ('http://localhost:8085/http://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/{layer}/polygon/EPSG:5514_OGC/{z}/{x}/{y}?format={format}')
+    return (proxyPrefix + 'http://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/{layer}/polygon/EPSG:5514_OGC/{z}/{x}/{y}?format={format}')
         .replace('{layer}', 'S-JTSK:Rostenice_2020')
         .replace('{format}', 'application/json;type=geojson')
         .replace('{z}', 'S-JTSK:' + String(tileCoord[0]))
@@ -87,7 +91,7 @@ function tileUrlFunction(tileCoord) {
 }
 
 // Get WMTS Capabilities and create WMTS source base on it
-fetch('http://localhost:8085/https://gis.lesprojekt.cz/geoserver/gwc/service/wmts?REQUEST=getcapabilities').then(function (response) {
+fetch(proxyPrefix + 'https://gis.lesprojekt.cz/geoserver/gwc/service/wmts?REQUEST=getcapabilities').then(function (response) {
     return response.text();
 }).then(function (text) {
     //parse the XML response and create options object...
@@ -114,7 +118,7 @@ fetch('http://localhost:8085/https://gis.lesprojekt.cz/geoserver/gwc/service/wmt
         tileSize: 256,
         tileUrlFunction: tileUrlFunction, // overwrites the default url for featching single vector tile
         zDirection: 0,
-        url: 'http://localhost:8085/http://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/S-JTSK:Rostenice_2020/polygon/EPSG:5514_OGC/S-JTSK:{z}/{x}/{y}?format=application/json;type=topojson'
+        url: proxyPrefix + 'http://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/S-JTSK:Rostenice_2020/polygon/EPSG:5514_OGC/S-JTSK:{z}/{x}/{y}?format=application/json;type=topojson'
     });
 
     // set the data source for raster and vector tile layers
@@ -124,10 +128,7 @@ fetch('http://localhost:8085/https://gis.lesprojekt.cz/geoserver/gwc/service/wmt
 
 // map content and layout definition
 module.value('HsConfig', {
-    proxyPrefix:
-        window.location.hostname.indexOf('ng.hslayers') == -1
-            ? `${window.location.protocol}//${window.location.hostname}:8085/`
-            : '/proxy/',
+    proxyPrefix: proxyPrefix,
     box_layers: [
         new Group({
             title: 'Basemaps',
