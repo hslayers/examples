@@ -122,7 +122,7 @@ fetch(proxyPrefix + 'https://gis.lesprojekt.cz/geoserver/gwc/service/wmts?REQUES
 
     // set the data source for raster and vector tile layers
     vectorTiles.setSource(vtSource);
-    wmtsTest.setSource(wmtsSource);
+    rasterTiles.setSource(wmtsSource);
 });
 
 // map content and layout definition
