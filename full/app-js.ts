@@ -5,7 +5,6 @@ import 'hslayers-ng/components/draw/draw.module';
 import 'hslayers-ng/components/info/info.module';
 import 'hslayers-ng/components/measure/measure.module';
 import 'hslayers-ng/components/permalink/permalink.module';
-import 'hslayers-ng/components/print';
 import 'hslayers-ng/components/search/search.module';
 import 'hslayers-ng/components/query/query.module';
 import 'hslayers-ng/components/sidebar/sidebar.module';
@@ -37,10 +36,8 @@ export default angular
     'hs.map',
     'hs.query',
     'hs.search',
-    'hs.print',
     'hs.permalink',
     'hs.measure',
-    'hs.legend',
     'hs.core',
     'hs.datasource_selector',
     'hs.save-map',
@@ -122,6 +119,7 @@ export default angular
         title: 'Bookmarks',
         synchronize: false,
         cluster: true,
+        inlineLegend: true,
         editor: {
           editable: true,
           defaultAttributes: {
@@ -152,6 +150,7 @@ export default angular
           '/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D',
       },
     ],
+    inlineLegend: true
   })
 
   .controller('MainController', [
