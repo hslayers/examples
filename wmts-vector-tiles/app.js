@@ -40,8 +40,7 @@ var module = angular.module('hs', [
     'hs.save-map',
     'hs.addLayers',
     'gettext',
-    'hs.info',
-    'hs.custom-info'
+    'hs.info'
 ]);
 
 /* Define Czech coordinate system S-JTSK which will be used for the map as the raster tiles are optimized for it */
