@@ -1,7 +1,7 @@
 /**
  * Webpack common configuration.
  * it:
- * - Define the app entry point (./src) -> Where webpack will start compiling/bundling
+ * - Define the app entry point (./) -> Where webpack will start compiling/bundling
  * - Define where assets will be served at by our webserver  (static/)
  * - Clean previous build on each build
  * - Generates the index.html file automatically by injecting bundled assets in it (css, js)
@@ -41,7 +41,7 @@ module.exports = {
       // Path where the file will be generated (appended to output.path)
       filename: '../index.html',
       // index.html template file location
-      template: 'src/index.html',
+      template: 'index.html',
       // We manually inject css and js files in our template
       inject: false,
       // favicon: 'assets/img/favicon.ico'

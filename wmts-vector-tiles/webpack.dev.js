@@ -49,7 +49,7 @@ module.exports = merge(common, {
       // Load angularJS partials HTML file as URL
       {
         test: /\.html$/,
-        exclude: path.resolve(__dirname, 'src/index.html'),
+        exclude: path.resolve(__dirname, 'index.html'),
         use: [
           'ng-cache-loader?prefix=[dir]/[dir]',
           'extract-loader',
