@@ -124,7 +124,10 @@ fetch('http://localhost:8085/https://gis.lesprojekt.cz/geoserver/gwc/service/wmt
 
 // map content and layout definition
 module.value('HsConfig', {
-    proxyPrefix: 'http://localhost:8085/',
+    proxyPrefix:
+        window.location.hostname.indexOf('ng.hslayers') == -1
+            ? `${window.location.protocol}//${window.location.hostname}:8085/`
+            : '/proxy/',
     box_layers: [
         new Group({
             title: 'Basemaps',
