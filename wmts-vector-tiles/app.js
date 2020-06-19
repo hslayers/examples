@@ -64,10 +64,12 @@ module.directive('hs', function (HsCore, HsLayoutService) {
 
 // Define the tile layers so it can be added to the map, data source will be set after the request for GetCapabilities ends
 let rasterTiles = new TileLayer({
-    title: 'Raster Tiles'
+    title: 'Raster Tiles',
+    source: new WMTS({})  // just a 'placeholder', will be set after loading WMTS capabilities
 });
 let vectorTiles = new VectorTileLayer({
     title: 'Vector Tiles',
+    source: new VectorTileSource({}),  // just a 'placeholder', will be set after loading WMTS capabilities
     renderMode: 'image',
     // set symbology for the vector data
     style: new Style({
