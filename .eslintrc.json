@@ -32,7 +32,8 @@
       "error",
       "ignorePackages",
       {
-        "js": "never"
+        "js": "never",
+        "ts": "never"
       }
     ],
     "angular/di": [
@@ -45,8 +46,22 @@
     "angular/typecheck-number": "off",
     "angular/typecheck-object": "off",
     "angular/typecheck-string": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "webpack.*.js"
+      ],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
+  "settings": {
+    "import/extensions": [
+      ".js",
+      ".ts"
+    ]
+    //"import/resolver": "webpack"
   }
-  /*"settings": {
-    "import/resolver": "webpack"
-  }*/
 }
