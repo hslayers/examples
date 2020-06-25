@@ -111,8 +111,6 @@ module.exports = merge(common, {
         test: /\.html$/,
         exclude: path.resolve(__dirname, 'src/index.html'),
         use: [
-          'ng-cache-loader?prefix=[dir]/[dir]',
-          'extract-loader',
           {
             loader: 'html-loader',
             options: {minimize: true},
