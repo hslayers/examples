@@ -56,6 +56,7 @@
     "html-webpack-plugin": "^3.2.0",
     "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^0.6.0",
+    "ng-annotate-loader": "^0.7.0",
     "ng-cache-loader": "0.0.26",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-prefix-selector": "^1.7.2",
