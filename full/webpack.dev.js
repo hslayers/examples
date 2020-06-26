@@ -50,9 +50,7 @@ module.exports = merge(common, {
       {
         test: /\.html$/,
         exclude: path.resolve(__dirname, 'src/index.html'),
-        use: [
-          'html-loader',
-        ],
+        use: ['html-loader'],
       },
       // Load images as URLs
       {
