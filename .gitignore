@@ -2,3 +2,5 @@ node_modules
 **/static/*
 stats.json
 /.vs
+*.bat
+*.cmd
