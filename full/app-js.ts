@@ -3,7 +3,6 @@ import 'hslayers-ng/components/add-layers/add-layers.module';
 import 'hslayers-ng/components/datasource-selector/datasource-selector.module';
 import 'hslayers-ng/components/draw/draw.module';
 import 'hslayers-ng/components/info/info.module';
-import 'hslayers-ng/components/measure/measure.module';
 import 'hslayers-ng/components/permalink/permalink.module';
 import 'hslayers-ng/components/query/query.module';
 import 'hslayers-ng/components/search/search.module';
@@ -37,7 +36,6 @@ export default angular
     'hs.query',
     'hs.search',
     'hs.permalink',
-    'hs.measure',
     'hs.core',
     'hs.datasource_selector',
     'hs.save-map',
