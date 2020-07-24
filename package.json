@@ -27,7 +27,7 @@
     "@angular/platform-browser-dynamic": "^9.1.7",
     "@angular/upgrade": "^9.1.7",
     "cesium": "^1.65.0",
-    "hslayers-ng": "^1.24.0",
+    "hslayers-ng": "^2.1.1",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "jquery": "^3.4.1",
     "ol": "^6.3.1",
