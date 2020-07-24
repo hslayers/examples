@@ -52,7 +52,10 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: [{loader: 'ng-annotate-loader'}, 'ts-loader'],
+        use: [
+          {loader: 'ng-annotate-loader'},
+          {loader: 'ts-loader', options: {allowTsInNodeModules: true}},
+        ],
         exclude: /node_modules\/(?!(hslayers-ng)\/).*/,
       },
       // Automatically generates $inject array for angularJS components annotated with:
