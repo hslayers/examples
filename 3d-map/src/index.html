@@ -2,11 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>HSLayers-NG Feature Pop-ups Example</title>
+  <title>HSLayers-NG 3D Example</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
     <% } %>
@@ -22,9 +22,13 @@
     }
     </style>
 </head>
-<body >
+<body>
     <div hs ng-app="hs" ng-controller="MainController" id="hs-app"></div>
-    <script src="../../node_modules/cesium/Build/Cesium/Cesium.js"></script>
+    <!--Cesium can't be properly loaded because it is stored in ../node_modules,
+      which is one step under the root of this app, hence it's invisible for it.
+      Only possible solution is to upgrade hslayers-ng to ^2.2.x, where Cesium
+      is already bundled inside of HSL-->
+    <!--script src="../node_modules/cesium/Build/Cesium/Cesium.js"></script-->
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
       <script type="application/javascript" src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>
