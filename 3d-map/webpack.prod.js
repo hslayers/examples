@@ -56,6 +56,7 @@ module.exports = merge(common, {
       // JS minifier/uglifier
       new TerserPlugin({
         parallel: true,
+        sourceMap: true,
         // Remove comments as well
         terserOptions: {output: {comments: false}},
       }),
@@ -121,16 +122,16 @@ module.exports = merge(common, {
           }
         ]
       },*/
-      // AngularJS templates are cached using cache template
       {
         test: /\.html$/,
         exclude: path.resolve(__dirname, 'src/index.html'),
         use: [
-          'ng-cache-loader?prefix=[dir]/[dir]',
-          'extract-loader',
           {
             loader: 'html-loader',
-            options: {minimize: true},
+            options: {
+              minimize: true,
+              caseSensitive: true,
+            },
           },
         ],
       },

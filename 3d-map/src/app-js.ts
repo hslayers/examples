@@ -13,6 +13,7 @@ import 'hslayers-ng/components/query/query.module';
 import 'hslayers-ng/components/search/search.module';
 import 'hslayers-ng/components/sidebar/sidebar.module';
 import 'hslayers-ng/components/toolbar/toolbar.module';
+import * as angular from 'angular';
 import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 import View from 'ol/View';
@@ -27,7 +28,7 @@ const geodata = new VectorSource({
   url: require('./pasport.geojson'),
 });
 
-angular
+export default angular
   .module('hs', [
     'hs.sidebar',
     'hs.toolbar',
