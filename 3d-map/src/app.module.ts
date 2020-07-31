@@ -7,10 +7,11 @@ import {APP_BOOTSTRAP_LISTENER} from '@angular/core';
 import {ApplicationRef, ComponentRef, NgModule} from '@angular/core';
 import {BootstrapComponent} from 'hslayers-ng/bootstrap.component';
 import {BrowserModule} from '@angular/platform-browser';
+import {HsCesiumModule} from 'hslayers-ng/components/hscesium/hscesium.module';
 import {HsCoreModule} from 'hslayers-ng/components/core/core.module';
 import {UpgradeModule} from '@angular/upgrade/static';
 @NgModule({
-  imports: [BrowserModule, UpgradeModule, HsCoreModule],
+  imports: [BrowserModule, UpgradeModule, HsCoreModule, HsCesiumModule],
   declarations: [],
   entryComponents: [],
   providers: [

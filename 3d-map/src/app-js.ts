@@ -1,10 +1,8 @@
 'use strict';
-//import 'cesium/Build/CesiumUnminified/Cesium';
-import 'cesium/Build/Cesium/Widgets/widgets.css';
 import 'hslayers-ng/components/add-layers/add-layers.module';
 import 'hslayers-ng/components/datasource-selector/datasource-selector.module';
 import 'hslayers-ng/components/draw/draw.module';
-import 'hslayers-ng/components/hscesium/hscesium.module';
+import 'hslayers-ng/components/hscesium';
 import 'hslayers-ng/components/info/info.module';
 import 'hslayers-ng/components/measure/measure.module';
 import 'hslayers-ng/components/permalink/permalink.module';
@@ -13,6 +11,7 @@ import 'hslayers-ng/components/query/query.module';
 import 'hslayers-ng/components/search/search.module';
 import 'hslayers-ng/components/sidebar/sidebar.module';
 import 'hslayers-ng/components/toolbar/toolbar.module';
+
 import * as angular from 'angular';
 import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
@@ -63,7 +62,7 @@ export default angular
     },
   ])
   .value('HsConfig', {
-    cesiumBase: '../node_modules/cesium/Build/Cesium/',
+    cesiumBase: './',
     //cesiumAccessToken:
     //  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZDk3ZmM0Mi01ZGFjLTRmYjQtYmFkNC02NTUwOTFhZjNlZjMiLCJpZCI6MTE2MSwiaWF0IjoxNTI3MTYxOTc5fQ.tOVBzBJjR3mwO3osvDVB_RwxyLX7W-emymTOkfz6yGA',
     terrain_providers: [
