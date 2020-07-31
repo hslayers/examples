@@ -15,7 +15,9 @@ const hslPaths = require(path.join(
   __dirname,
   '../node_modules/hslayers-ng/common_paths'
 ));
-
+const cesiumSource = '../node_modules/cesium/Source';
+const cesiumWorkers = '../Build/Cesium/Workers';
+const CopywebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {app: './src/main.ts'},
   output: {
@@ -23,6 +25,7 @@ module.exports = {
     path: path.resolve(__dirname, 'static'),
     // Path at which output assets will be served
     //publicPath: 'static/'
+    sourcePrefix: '',
   },
   // Just for build speed improvement
   resolve: {
@@ -30,9 +33,9 @@ module.exports = {
     symlinks: true,
     modules: [
       path.join(__dirname),
-      path.join(__dirname, '../node_modules'),
+      path.resolve(path.join(__dirname, '../node_modules')),
       path.resolve(path.join(__dirname, '../node_modules', 'hslayers-ng')),
-    ].concat(hslPaths.paths),
+    ].concat(hslPaths.paths)
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -44,7 +47,18 @@ module.exports = {
       inject: false,
       // favicon: 'assets/img/favicon.ico'
     }),
+    new CopywebpackPlugin({ patterns: [{ from: path.resolve(path.join(cesiumSource, cesiumWorkers)), to: 'Workers' }] }),
+    new CopywebpackPlugin({ patterns: [{ from: path.join(cesiumSource, 'Assets'), to: 'Assets' }] }),
+    new CopywebpackPlugin({ patterns: [{ from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' }] })
   ],
+  amd: {
+    // Enable webpack-friendly use of require in Cesium
+    toUrlUndefined: true
+  },
+  node: {
+    // Resolve node module use of fs
+    fs: 'empty'
+  },
   module: {
     rules: [
       {

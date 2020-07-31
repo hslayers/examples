@@ -19,6 +19,8 @@ module.exports = merge(common, {
     contentBase: './static',
     hot: false,
     host: '0.0.0.0',
+    liveReload: true,
+    disableHostCheck: true,
     port: process.env.HTTP_PORT || 8080,
   },
   optimization: {
