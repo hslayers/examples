@@ -2,3 +2,4 @@ node_modules
 **/static/*
 stats.json
 /.vs
+olu_spoi/bundle.js
