@@ -153,18 +153,8 @@ export default angular
   })
 
   .controller('MainController', [
-    '$scope',
-    'HsCore',
-    'HsAddLayersWmsAddLayerService',
-    'HsCompositionsParserService',
-    'HsConfig',
     'HsLayoutService',
     function (
-      $scope,
-      Core,
-      layerAdderService,
-      composition_parser,
-      config,
       layoutService
     ) {
       layoutService.sidebarRight = true;
