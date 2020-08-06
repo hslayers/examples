@@ -16,7 +16,7 @@ import * as angular from 'angular';
 import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 import View from 'ol/View';
-//import {Circle, Fill, Stroke, Style} from 'ol/style';
+import {Circle, Fill, Stroke, Style} from 'ol/style';
 import {OSM} from 'ol/source';
 import {Tile} from 'ol/layer';
 import {Vector as VectorSource} from 'ol/source';
@@ -25,6 +25,19 @@ import {fromLonLat} from 'ol/proj';
 const geodata = new VectorSource({
   format: new GeoJSON(),
   url: require('./pasport.geojson'),
+});
+
+const layerStyle = new Style({
+  image: new Circle({
+    fill: new Fill({
+      color: 'rgba(128, 255, 128, 0.2)',
+    }),
+    stroke: new Stroke({
+      color: '#77e405',
+      width: 4,
+    }),
+    radius: 6,
+  }),
 });
 
 export default angular
@@ -84,8 +97,14 @@ export default angular
     //proxyPrefix: "/proxy/",
     panelsEnabled: {
       composition_browser: false,
+      datasource_selector: false,
+      routing: false,
       saveMap: false,
       language: false,
+      permalink: false,
+      tracking: false,
+      feature_crossfilter: false,
+      sensors: false,
     },
     default_layers: [
       new Tile({
@@ -102,9 +121,10 @@ export default angular
         removable: false,
       }),
       new VectorLayer({
-        // Layer without pop-ups
         title: 'Street lights',
         source: geodata,
+        // Layer must be styled to show up in 3D view
+        style: layerStyle,
       }),
     ],
     default_view: new View({
