@@ -4,6 +4,7 @@
         "allowJs": false,
         "target": "es5",
         "emitDecoratorMetadata": true,
-        "lib": ["esnext", "dom"]
+        "lib": ["esnext", "dom"],
+        "sourceMap": true
     }
 }
