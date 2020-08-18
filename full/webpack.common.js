@@ -12,10 +12,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const hslPaths = require(path.join(
-  __dirname,
-  '../node_modules/hslayers-ng/common_paths'
-));
 
 module.exports = {
   entry: {app: 'main.ts'},
@@ -33,7 +29,7 @@ module.exports = {
       path.join(__dirname),
       path.join(__dirname, '../node_modules'),
       path.resolve(path.join(__dirname, '../node_modules', 'hslayers-ng')),
-    ].concat(hslPaths.paths),
+    ],
   },
   plugins: [
     // Clean before build
