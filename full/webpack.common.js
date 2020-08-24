@@ -26,9 +26,17 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
     symlinks: true,
     modules: [
-      path.join(__dirname),
-      path.join(__dirname, '../node_modules'),
-      path.resolve(path.join(__dirname, '..', 'node_modules', 'hslayers-ng', 'node_modules')),
+      __dirname,
+      path.resolve(path.join(__dirname, '..', 'node_modules')),
+      path.resolve(
+        path.join(
+          __dirname,
+          '..',
+          'node_modules',
+          'hslayers-ng',
+          'node_modules'
+        )
+      ),
     ],
   },
   plugins: [
