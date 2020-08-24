@@ -28,7 +28,7 @@ module.exports = {
     modules: [
       path.join(__dirname),
       path.join(__dirname, '../node_modules'),
-      path.resolve(path.join(__dirname, '../node_modules', 'hslayers-ng')),
+      path.resolve(path.join(__dirname, '..', 'node_modules', 'hslayers-ng', 'node_modules')),
     ],
   },
   plugins: [
