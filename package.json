@@ -18,27 +18,11 @@
     "protractor": "protractor test/protractor-conf.js"
   },
   "dependencies": {
-    "@angular/cli": "^9.1.12",
-    "@angular/common": "^9.1.12",
-    "@angular/compiler": "^9.1.12",
-    "@angular/core": "^9.1.12",
-    "@angular/forms": "^9.1.12",
-    "@angular/platform-browser": "^9.1.12",
-    "@angular/platform-browser-dynamic": "^9.1.12",
-    "@angular/upgrade": "^9.1.12",
-    "@ng-bootstrap/ng-bootstrap": "^6.2.0",
-    "cesium": "^1.71.0",
-    "hslayers-ng": "git+https://github.com/hslayers/hslayers-ng.git#develop",
-    "jquery": "^3.4.1",
-    "ol": "^6.3.1",
-    "reflect-metadata": "^0.1.13",
-    "share-api-polyfill": "^1.0.18",
-    "ts-loader": "^7.0.5",
-    "ttf2eot": "^2.0.0",
-    "typescript": "^3.9.5",
-    "zone.js": "^0.10.3"
+    "hslayers-ng": "git+https://github.com/hslayers/hslayers-ng.git#develop"
   },
   "devDependencies": {
+    "typescript": "^3.9.5",
+    "ts-loader": "^8.0.0",
     "@babel/core": "^7.8.4",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
