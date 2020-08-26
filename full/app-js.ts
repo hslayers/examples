@@ -17,7 +17,7 @@ import {OSM, TileWMS, XYZ} from 'ol/source';
 import {Vector as VectorSource} from 'ol/source';
 import {transform} from 'ol/proj';
 
-const count = 20000;
+const count = 2000;
 const features = new Array(count);
 const e = 4500000;
 for (let i = 0; i < count; ++i) {
@@ -50,7 +50,6 @@ export default angular
       return {
         template: Core.hslayersNgTemplate,
         link: function (scope, element) {
-          Core.fullScreenMap(element);
         },
       };
     },
@@ -62,6 +61,7 @@ export default angular
       window.location.hostname.indexOf('ng.hslayers') == -1
         ? `${window.location.protocol}//${window.location.hostname}:8085/`
         : '/proxy/',
+    popUpDisplay: 'click',
     open_lm_after_comp_loaded: true,
     layer_order: '-position',
     box_layers: [
@@ -118,6 +118,9 @@ export default angular
         synchronize: false,
         cluster: true,
         inlineLegend: true,
+        popUp: {
+          attributes: ['name'],
+        },
         editor: {
           editable: true,
           defaultAttributes: {
