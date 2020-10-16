@@ -1,12 +1,5 @@
 'use strict';
 import 'hslayers-ng/components/add-layers/add-layers.module';
-import 'hslayers-ng/components/datasource-selector/datasource-selector.module';
-import 'hslayers-ng/components/info/info.module';
-import 'hslayers-ng/components/permalink/';
-import 'hslayers-ng/components/query/query.module';
-import 'hslayers-ng/components/search/search.module';
-import 'hslayers-ng/components/sidebar/sidebar.module';
-import 'hslayers-ng/components/toolbar/toolbar.module';
 import * as angular from 'angular';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
@@ -48,13 +41,10 @@ export default angular
     'HsCore',
     function (config, Core) {
       return {
-        template: Core.hslayersNgTemplate,
-        link: function (scope, element) {
-        },
+        template: Core.hslayersNgTemplate
       };
     },
   ])
-
   .value('HsConfig', {
     importCss: true,
     proxyPrefix:
