@@ -3,3 +3,4 @@ node_modules
 stats.json
 /.vs
 olu_spoi/bundle.js
+*.cmd
