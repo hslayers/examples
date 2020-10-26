@@ -1,5 +1,5 @@
 serve:
-	../node_modules/.bin/webpack-dev-server --config webpack.dev.js --progress --watch
+	../node_modules/.bin/webpack serve --config webpack.dev.js --progress --watch
 
 build:
 	../node_modules/.bin/webpack --config webpack.prod.js --progress
