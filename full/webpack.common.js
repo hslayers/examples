@@ -10,7 +10,7 @@
  *   `'ngInject';` or `@ngInject` in comments. See https://docs.angularjs.org/guide/di
  */
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
     // Path where bundled files will be output
     path: path.resolve(__dirname, 'static'),
     // Path at which output assets will be served
-    publicPath: 'static/',
+    publicPath: '',
   },
   // Just for build speed improvement
   resolve: {
@@ -44,7 +44,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       // Path where the file will be generated (appended to output.path)
-      filename: '../index.html',
+      filename: 'index.html',
       // index.html template file location
       template: 'src/index.html',
       // We manually inject css and js files in our template
