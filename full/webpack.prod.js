@@ -74,9 +74,18 @@ module.exports = merge(common, {
           'style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {publicPath: ''},
+            options: {
+              publicPath: '',
+              esModule: false,
+            },
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false,
+              modules: false,
+            },
+          },
         ],
       },
       {
@@ -114,8 +123,11 @@ module.exports = merge(common, {
           {
             loader: 'html-loader',
             options: {
-              minimize: true,
-              caseSensitive: true,
+              minimize: {
+                removeComments: false,
+                collapseWhitespace: false,
+                caseSensitive: true,
+              },
             },
           },
         ],
