@@ -141,6 +141,9 @@ export default angular
           '/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D',
       },
     ],
+    panelsEnabled: {
+      tripPlanner: true,
+    },
     inlineLegend: true,
   })
 
