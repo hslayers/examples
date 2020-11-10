@@ -19,7 +19,8 @@
     "isolate-bootstrap": "node node_modules/hslayers-ng/scripts/bootstrap-isolate.js"
   },
   "dependencies": {
-    "hslayers-ng": "git+https://github.com/hslayers/hslayers-ng.git#develop"
+    "hslayers-ng": "git+https://github.com/hslayers/hslayers-ng.git#develop",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "typescript": "^4.0.2",

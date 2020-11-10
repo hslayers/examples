@@ -1,5 +1,5 @@
 'use strict';
-import 'hslayers-ng/components/add-layers/add-layers.module';
+import 'hslayers-ng/components/core/';
 import * as angular from 'angular';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
