@@ -4,7 +4,7 @@
   <script>
     // Required if the path to HSLayers bundles differ from default,
     // where default is 'node_modules/hslayers-ng/dist/'
-    window.HSL_PATH = '../node_modules/hslayers-ng/dist/';
+    window.HSL_PATH = '../node_modules/hslayers-ng/bundle/';
     // Actual configuration object
     // See https://github.com/hslayers/hslayers-ng/wiki/Config-parameters
     function hslayersNgConfig(ol) {
@@ -29,6 +29,6 @@
 </head>
 <body>
   <hs ng-controller="Main" id="hs-app" style="position: relative;"></hs>
-  <script src="../node_modules/hslayers-ng/dist/hslayers-ng.main.js"></script>
+  <script src="../node_modules/hslayers-ng/bundle/hslayers-ng.main.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 'use strict';
-import 'hslayers-ng/components/add-layers/add-layers.module';
 import * as angular from 'angular';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
@@ -9,6 +8,7 @@ import {Group, Tile} from 'ol/layer';
 import {OSM, TileWMS, XYZ} from 'ol/source';
 import {Vector as VectorSource} from 'ol/source';
 import {transform} from 'ol/proj';
+import 'hslayers-ng/components/core/';
 
 const count = 2000;
 const features = new Array(count);
@@ -31,8 +31,6 @@ export default angular
     'hs.core',
     'hs.datasource_selector',
     'hs.save-map',
-    'hs.addLayers',
-    'gettext',
     'hs.compositions',
     'hs.info',
   ])
@@ -133,16 +131,36 @@ export default angular
     status_manager_url: '/wwwlibs/statusmanager2/index.php',
     datasources: [
       {
-        title: 'SuperCAT',
-        url: 'http://cat.ccss.cz/csw/',
-        language: 'eng',
-        type: 'micka',
-        code_list_url:
-          '/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D',
+          title: "Micka AgriHub",
+          url: "https://www.agrihub.cz/micka/csw",
+          language: 'eng',
+          type: "micka",
+          code_list_url: 'https://www.agrihub.cz/micka/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D'
       },
-    ],
+
+      {
+          title: "Micka",
+          url: "https://hub.lesprojekt.cz/micka/csw",
+          language: 'eng',
+          type: "micka",
+          code_list_url: 'https://hub.lesprojekt.cz/micka/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D'
+      },
+      // {
+      //     title: "Layman",
+      //     url: 'https://hub.lesprojekt.cz/client',
+      //     user: 'browser',
+      //     type: "layman",
+      //     liferayProtocol: 'https'
+
+      // }
+  ],
     panelsEnabled: {
       tripPlanner: true,
+      search: true
+    },
+    componentsEnabled: {
+      basemapGallery: true,
+      searchToolbar: false,
     },
     inlineLegend: true,
   })

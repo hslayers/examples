@@ -1,0 +1,19 @@
+//Mobile layout breakpoint
+$mobile-layout-breakpoint-value: 767;
+$mobile-layout-breakpoint: $mobile-layout-breakpoint-value +'px'; //this will be used in hsl styles
+
+//*****Sidebar*****//
+//Background color of sidebar
+$sidebar-bg-color: #fff;
+//Color of sidebar icon
+$sidebar-item-color: blue  ;
+//Background color of active sidebar item
+$sidebar-item-active: blue;    
+
+//Modify bootstrap variables
+$primary: yellow;
+
+//Exported variables to be used in JS
+:export {
+    mobileLayoutBreakpoint: $mobile-layout-breakpoint-value;
+}

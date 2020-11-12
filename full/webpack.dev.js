@@ -10,11 +10,15 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 const path = require('path');
+const fs = require('fs');
 
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
   watchOptions: {ignored: /node_modules/},
+  devServer: {
+    https: true,
+  },
   optimization: {
     // see https://webpack.js.org/guides/build-performance#avoid-extra-optimization-steps
     removeAvailableModules: false,
@@ -33,6 +37,22 @@ module.exports = merge(common, {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      //SCSS files
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: fs.existsSync('./custom.scss')
+                ? `@use "custom.scss" as *;`
+                : '',
+            },
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
