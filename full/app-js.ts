@@ -32,7 +32,6 @@ export default angular
     'hs.datasource_selector',
     'hs.save-map',
     'hs.addLayers',
-    'gettext',
     'hs.compositions',
     'hs.info',
   ])
@@ -143,6 +142,7 @@ export default angular
     ],
     panelsEnabled: {
       tripPlanner: true,
+      feature_table: false
     },
     inlineLegend: true,
   })
