@@ -19,31 +19,13 @@ for (let i = 0; i < count; ++i) {
 }
 
 export default angular
-  .module('hs', [
-    'hs.sidebar',
-    'hs.toolbar',
-    'hs.draw',
-    'hs.layermanager',
-    'hs.map',
-    'hs.query',
-    'hs.search',
-    'hs.permalink',
-    'hs.core',
-    'hs.datasource_selector',
-    'hs.save-map',
-    'hs.addLayers',
-    'hs.compositions',
-    'hs.info',
-  ])
-  .directive('hs', [
-    'HsConfig',
-    'HsCore',
-    function (config, Core) {
-      return {
-        template: Core.hslayersNgTemplate
-      };
-    },
-  ])
+  .module('hs', ['hs.core'])
+  .directive('hs', (HsCore) => {
+    'ngInject';
+    return {
+      template: HsCore.hslayersNgTemplate,
+    };
+  })
   .value('HsConfig', {
     importCss: true,
     proxyPrefix:
@@ -142,17 +124,10 @@ export default angular
     ],
     panelsEnabled: {
       tripPlanner: true,
-      feature_table: false
+      feature_table: false,
     },
     inlineLegend: true,
+    sidebarPosition: 'right',
   })
 
-  .controller('MainController', [
-    'HsLayoutService',
-    function (
-      layoutService
-    ) {
-      layoutService.sidebarRight = true;
-      //layerAdderService.addService('http://erra.ccss.cz/geoserver/ows', config.box_layers[1]);
-    },
-  ]);
+  .controller('MainController', ['HsLayoutService', function () {}]);
