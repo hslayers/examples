@@ -12,6 +12,7 @@
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const fs = require('fs');
 
 module.exports = {
   entry: {app: 'main.ts'},
@@ -54,6 +55,22 @@ module.exports = {
   ],
   module: {
     rules: [
+      //SCSS files
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: fs.existsSync('./hsl-custom.scss')
+                ? `@use "hsl-custom.scss" as *;`
+                : '',
+            },
+          },
+        ],
+      },
       {
         test: /\.ts$/,
         use: [
