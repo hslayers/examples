@@ -73,31 +73,8 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        use: [
-          {loader: 'ng-annotate-loader'},
-          {loader: 'ts-loader', options: {allowTsInNodeModules: true}},
-        ],
+        use: [{loader: 'ts-loader', options: {allowTsInNodeModules: true}}],
         exclude: /node_modules\/(?!(hslayers-ng)\/).*/,
-      },
-      // Automatically generates $inject array for angularJS components annotated with:
-      // 'ngInject';
-      // or commented with /**@ngInject */
-      {
-        test: /\.js$/,
-        exclude: /node_modules\/(?!(hslayers-ng)\/).*/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              // Babel syntax dynamic import plugin allow babel to correctly parse js files
-              // using webpack dynamic import expression (i.e import('angular').then(...))
-              plugins: [
-                'angularjs-annotate',
-                '@babel/plugin-syntax-dynamic-import',
-              ],
-            },
-          },
-        ],
       },
     ],
   },

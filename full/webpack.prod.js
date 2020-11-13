@@ -37,6 +37,7 @@ module.exports = merge(common, {
     new webpack.HashedModuleIdsPlugin(),
   ],
   optimization: {
+    minimize: true,
     // See https://webpack.js.org/guides/caching
     runtimeChunk: 'single',
     splitChunks: {
