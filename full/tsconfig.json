@@ -5,6 +5,7 @@
         "target": "es5",
         "emitDecoratorMetadata": true,
         "lib": ["esnext", "dom"],
-        "sourceMap": true
+        "sourceMap": true,
+        "esModuleInterop": true
     }
 }
