@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "hslayers-ng": "git+https://github.com/hslayers/hslayers-ng.git#develop",
+    "@angular/localize": "^9.1.12",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {

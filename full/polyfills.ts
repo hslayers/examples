@@ -70,4 +70,4 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /**
  * Angular localization polyfill
  */
-//import '@angular/localize/init';
+import '@angular/localize/init';
