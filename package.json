@@ -8,6 +8,8 @@
   "scripts": {
     "postinstall": "",
     "prestart": "npm install",
+    "serve-full": "ng serve full --aot",
+    "build-full": "ng build full --prod",
     "start": "http-server -a localhost -p 8000",
     "pretest": "npm install",
     "test": "karma start test/karma.conf.js",
