@@ -6,3 +6,4 @@ stats.json
 *.cmd
 olu_spoi/bundle.js
 *.cmd
+dist
