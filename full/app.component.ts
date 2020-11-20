@@ -4,7 +4,7 @@ import VectorLayer from 'ol/layer/Vector';
 import View from 'ol/View';
 import {Component} from '@angular/core';
 import {Group, Tile} from 'ol/layer';
-import {HsConfig} from 'hslayers-ng/config.service';
+import {HsConfig} from 'hslayers-ng';
 import {OSM, TileWMS, XYZ} from 'ol/source';
 import {Vector as VectorSource} from 'ol/source';
 import {transform} from 'ol/proj';

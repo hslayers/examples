@@ -1,10 +1,10 @@
 import {AppComponent} from './app.component';
 import {BrowserModule} from '@angular/platform-browser';
-import {HsAppModule} from 'hslayers-ng/app.module';
+import {HslayersModule} from 'hslayers-ng';
 import {NgModule} from '@angular/core';
 
 @NgModule({
-  imports: [BrowserModule, HsAppModule],
+  imports: [BrowserModule, HslayersModule],
   declarations: [AppComponent],
   exports: [],
   bootstrap: [AppComponent],
