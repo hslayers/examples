@@ -24,6 +24,7 @@ for (let i = 0; i < count; ++i) {
 export class AppComponent {
   constructor(private HsConfig: HsConfig) {
     Object.assign(this.HsConfig, {
+      assetsPath: 'assets/hslayers-ng',
       importCss: true,
       proxyPrefix:
         window.location.hostname.indexOf('ng.hslayers') == -1

@@ -25,7 +25,12 @@
             "aot": true,
             "assets": [
               "full/favicon.ico", 
-              "full/assets"
+              "full/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/hslayers-ng/src/assets",
+                "output": "./assets/hslayers-ng/"
+              }    
             ],
             "preserveSymlinks": true,
             "styles": [
