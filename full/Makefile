@@ -1,14 +1,11 @@
 serve:
-	../node_modules/.bin/webpack serve --config webpack.dev.js --progress --watch
+	npm run serve-full
 
 build:
-	../node_modules/.bin/webpack --config webpack.prod.js --progress
+	npm run build-full
 
 build-dev:
-	../node_modules/.bin/webpack --config webpack.dev.js --progress --watch
+	ng build full
 
 proxy:
-	node ../node_modules/hslayers-ng/lib/proxy.js
-
-bootstrap-isolate:
-	cd ../ && node node_modules/hslayers-ng/scripts/bootstrap-isolate.js
+	node ../node_modules/hslayers-proxy/proxy.js
