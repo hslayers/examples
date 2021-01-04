@@ -10,6 +10,8 @@
     "prestart": "npm install",
     "serve-full": "ng serve full --aot",
     "build-full": "ng build full --prod",
+    "serve-routing": "ng serve routing --aot",
+    "build-routing": "ng build routing --prod",
     "start": "http-server -a localhost -p 8000",
     "pretest": "npm install",
     "test": "karma start test/karma.conf.js",

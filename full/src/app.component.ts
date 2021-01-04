@@ -25,7 +25,6 @@ export class AppComponent {
   constructor(private HsConfig: HsConfig) {
     this.HsConfig.update({
       assetsPath: 'assets/hslayers-ng',
-      importCss: true,
       proxyPrefix: window.location.hostname.includes('localhost')
         ? `${window.location.protocol}//${window.location.hostname}:8085/`
         : '/proxy/',
@@ -102,12 +101,9 @@ export class AppComponent {
       ],
       default_view: new View({
         center: transform([17.474129, 52.574], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
-        zoom: 4,
-        units: 'm',
+        zoom: 4
       }),
       allowAddExternalDatasets: true,
-      compositions_catalogue_url:
-        '/php/catalogue/libs/cswclient/cswClientRun.php',
       status_manager_url: '/wwwlibs/statusmanager2/index.php',
       datasources: [
         {
@@ -120,10 +116,8 @@ export class AppComponent {
         },
       ],
       panelsEnabled: {
-        tripPlanner: true,
-        feature_table: false,
+        tripPlanner: true
       },
-      inlineLegend: true,
       sidebarPosition: 'right',
     });
   }
