@@ -23,16 +23,15 @@ for (let i = 0; i < count; ++i) {
 })
 export class AppComponent {
   constructor(private HsConfig: HsConfig) {
-    Object.assign(this.HsConfig, {
+    this.HsConfig.update({
       assetsPath: 'assets/hslayers-ng',
       importCss: true,
-      proxyPrefix:
-        window.location.hostname.indexOf('ng.hslayers') == -1
-          ? `${window.location.protocol}//${window.location.hostname}:8085/`
-          : '/proxy/',
+      proxyPrefix: window.location.hostname.includes('localhost')
+        ? `${window.location.protocol}//${window.location.hostname}:8085/`
+        : '/proxy/',
       popUpDisplay: 'click',
       open_lm_after_comp_loaded: true,
-      layer_order: '-position',
+      reverseLayerList: false,
       box_layers: [
         new Group({
           title: 'Base layer',
