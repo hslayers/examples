@@ -6,9 +6,10 @@
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@angular-eslint/recommended",
     "openlayers"
   ],
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "@angular-eslint"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
@@ -21,6 +22,14 @@
     "ecmaVersion": 2018
   },
   "rules": {
+    "@angular-eslint/directive-selector": [
+      "error",
+      { "type": "attribute", "prefix": "hs", "style": "camelCase" }
+    ],
+    "@angular-eslint/component-selector": [
+      "error",
+      { "type": "element", "prefix": "hs", "style": "kebab-case" }
+    ],
     "brace-style": "warn",
     "no-console": "warn",
     "object-curly-spacing": "warn",
