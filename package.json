@@ -23,9 +23,26 @@
     "isolate-bootstrap": "node node_modules/hslayers-ng/scripts/bootstrap-isolate.js"
   },
   "dependencies": {
+    "@angular/common": "^9.1.13",
+    "@angular/compiler": "^9.1.13",
+    "@angular/core": "^9.1.13",
+    "@angular/forms": "^9.1.13",
     "@angular/localize": "^9.1.12",
-    "hslayers-ng": "git+https://github.com/hslayers/hslayers-ng.git#develop",
-    "xml-js": "^1.6.11"
+    "@angular/platform-browser": "^9.1.13",
+    "@angular/platform-browser-dynamic": "^9.1.13",
+    "@ng-bootstrap/ng-bootstrap": "^6.2.0",
+    "@ngx-translate/http-loader": "^5.0.0",
+    "bootstrap": "^4.5.3",
+    "deepmerge": "^4.2.2",
+    "hslayers-ng": "^3.0.1-rc.0",
+    "moment": "^2.29.1",
+    "moment-interval": "^0.2.1",
+    "ol": "^6.5.0",
+    "ol-popup": "^4.0.0",
+    "proj4": "^2.6.3",
+    "share-api-polyfill": "^1.0.20",
+    "xml-js": "^1.6.11",
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.12",
