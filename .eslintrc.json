@@ -6,15 +6,13 @@
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "openlayers",
-    "angular"
+    "openlayers"
   ],
   "plugins": ["@typescript-eslint"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
     "define": "readonly",
-    "angular": "readonly",
     "stmPath": "readonly",
     "hslMin": "readonly"
   },
@@ -35,17 +33,7 @@
         "js": "never",
         "ts": "never"
       }
-    ],
-    "angular/di": [
-      "error",
-      "function"
-    ],
-    "angular/typecheck-array": "off",
-    "angular/typecheck-date": "off",
-    "angular/typecheck-function": "off",
-    "angular/typecheck-number": "off",
-    "angular/typecheck-object": "off",
-    "angular/typecheck-string": "off"
+    ]
   },
   "overrides": [
     {
@@ -62,6 +50,5 @@
       ".js",
       ".ts"
     ]
-    //"import/resolver": "webpack"
   }
 }
