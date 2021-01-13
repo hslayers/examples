@@ -4,3 +4,6 @@ stats.json
 /.vs
 *.bat
 *.cmd
+olu_spoi/bundle.js
+*.cmd
+dist

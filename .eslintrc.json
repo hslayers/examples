@@ -3,19 +3,33 @@
     "browser": true,
     "es6": true
   },
-  "extends": ["openlayers", "angular"],
+  "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@angular-eslint/recommended",
+    "openlayers"
+  ],
+  "plugins": ["@typescript-eslint", "@angular-eslint"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
     "define": "readonly",
-    "angular": "readonly",
     "stmPath": "readonly",
     "hslMin": "readonly"
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2018
   },
   "rules": {
+    "@angular-eslint/directive-selector": [
+      "error",
+      { "type": "attribute", "prefix": "hs", "style": "camelCase" }
+    ],
+    "@angular-eslint/component-selector": [
+      "error",
+      { "type": "element", "prefix": "hs", "style": "kebab-case" }
+    ],
     "brace-style": "warn",
     "no-console": "warn",
     "object-curly-spacing": "warn",
@@ -25,24 +39,17 @@
       "error",
       "ignorePackages",
       {
-        "js": "never"
+        "js": "never",
+        "ts": "never"
       }
-    ],
-    "angular/di": [
-      "error",
-      "array",
-      {
-        "matchNames": false
-      }
-    ],
-    "angular/typecheck-array": "off",
-    "angular/typecheck-date": "off",
-    "angular/typecheck-function": "off",
-    "angular/typecheck-number": "off",
-    "angular/typecheck-object": "off",
-    "angular/typecheck-string": "off"
+    ]
+  },
+  "overrides": [
+  ],
+  "settings": {
+    "import/extensions": [
+      ".js",
+      ".ts"
+    ]
   }
-  /*"settings": {
-    "import/resolver": "webpack"
-  }*/
 }

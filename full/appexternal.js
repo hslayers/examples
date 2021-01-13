@@ -17,4 +17,4 @@ function hslayersNgConfig(ol) {
     }),
   };
 }
-window.HSL_PATH = '../node_modules/hslayers-ng/dist/';
+window.HSL_PATH = '../node_modules/hslayers-ng/bundle/';
