@@ -21,7 +21,7 @@
             "index": "full/src/index.html",
             "main": "full/src/main.ts",
             "polyfills": "full/src/polyfills.ts",
-            "tsConfig": "full/tsconfig.app.json",
+            "tsConfig": "full/tsconfig.prod.json",
             "aot": true,
             "assets": [
               "full/src/favicon.ico", 
@@ -39,6 +39,9 @@
             "scripts": []
           },
           "configurations": {
+            "development": {
+              "tsConfig": "full/tsconfig.dev.json"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -73,7 +76,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "full:build"
+            "browserTarget": "full:build:development"
           },
           "configurations": {
             "production": {
@@ -134,7 +137,7 @@
             "index": "routing/src/index.html",
             "main": "routing/src/main.ts",
             "polyfills": "routing/src/polyfills.ts",
-            "tsConfig": "routing/tsconfig.app.json",
+            "tsConfig": "routing/tsconfig.prod.json",
             "aot": true,
             "assets": [
               "routing/src/favicon.ico", 
