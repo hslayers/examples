@@ -155,6 +155,9 @@
             "scripts": []
           },
           "configurations": {
+            "development": {
+              "tsConfig": "routing/tsconfig.dev.json"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -189,7 +192,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "routing:build"
+            "browserTarget": "routing:build:development"
           },
           "configurations": {
             "production": {
