@@ -6,7 +6,8 @@
     "paths": {
       "hslayers-ng": [
         "../node_modules/hslayers-ng/src/public-api.ts"
-      ]
+      ],
+      "@angular/*": [ "../node_modules/@angular/*" ],
     }
   },
   "files": [
