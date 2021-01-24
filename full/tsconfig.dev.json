@@ -5,7 +5,7 @@
     "types": [],
     "paths": {
       "hslayers-ng": ["../node_modules/hslayers-ng/src/public-api.ts"],
-      "ol/*": ["../node_modules/ol/*"],     
+      "ol/*": ["../node_modules/ol/*"],
       "@angular/*": [ "../node_modules/@angular/*" ],
     }
   },
