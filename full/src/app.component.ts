@@ -104,7 +104,7 @@ export class AppComponent {
         zoom: 4
       }),
       allowAddExternalDatasets: true,
-      status_manager_url: '/wwwlibs/statusmanager2/index.php',
+      status_manager_url: '/statusmanager/',
       datasources: [
         {
           title: 'SuperCAT',
