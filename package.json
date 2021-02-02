@@ -20,7 +20,6 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor test/protractor-conf.js",
-    "isolate-bootstrap": "node node_modules/hslayers-ng/scripts/bootstrap-isolate.js"
   },
   "dependencies": {
     "@angular/common": "^9.1.13",
