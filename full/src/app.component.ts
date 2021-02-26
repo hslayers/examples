@@ -8,8 +8,7 @@ import {HsConfig} from 'hslayers-ng';
 import {OSM, TileWMS, XYZ} from 'ol/source';
 import {Vector as VectorSource} from 'ol/source';
 import {transform} from 'ol/proj';
-
-const count = 2000;
+const count = 2;
 const features = new Array(count);
 const e = 4500000;
 for (let i = 0; i < count; ++i) {
@@ -28,6 +27,8 @@ export class AppComponent {
       proxyPrefix: window.location.hostname.includes('localhost')
         ? `${window.location.protocol}//${window.location.hostname}:8085/`
         : '/proxy/',
+      // proxyPrefix: 
+      // '/proxy/',
       popUpDisplay: 'click',
       open_lm_after_comp_loaded: true,
       reverseLayerList: false,
@@ -104,7 +105,7 @@ export class AppComponent {
         zoom: 4
       }),
       allowAddExternalDatasets: true,
-      status_manager_url: '/wwwlibs/statusmanager2/index.php',
+      status_manager_url: '/statusmanager/',
       datasources: [
         {
           title: 'SuperCAT',
@@ -114,11 +115,27 @@ export class AppComponent {
           code_list_url:
             '/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D',
         },
+        {
+            title: "Micka AgriHub",
+            url: "https://www.agrihub.cz/micka/csw",
+            language: 'eng',
+            type: "micka",
+            code_list_url: 'https://www.agrihub.cz/micka/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D'
+        },
+         {
+          title: "Layman",
+          url:  `${window.location.protocol}//${window.location.hostname}/layman/client`,
+          user: 'browser',
+          type: "layman",
+          liferayProtocol: 'https',
+      }
       ],
       panelsEnabled: {
-        tripPlanner: true
+        tripPlanner: true,
+        draw: true
       },
       sidebarPosition: 'right',
+      saveMapStateOnReload: true,
     });
   }
 }
