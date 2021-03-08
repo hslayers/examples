@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "",
     "prestart": "npm install",
-    "serve-full": "ng serve full --aot --disable-host-check",
+    "serve-full": "ng serve full --disable-host-check",
     "build-full": "ng build full --prod",
     "serve-routing": "ng serve routing --aot",
     "build-routing": "ng build routing --prod",
@@ -39,7 +39,7 @@
     "ol": "^6.5.0",
     "ol-popup": "^4.0.0",
     "proj4": "^2.6.3",
-    "rxjs": "^6.6.3",
+    "rxjs": "^6.6.6",
     "share-api-polyfill": "^1.0.20",
     "xml-js": "^1.6.11",
     "zone.js": "^0.10.3"

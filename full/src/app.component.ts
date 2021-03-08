@@ -127,6 +127,7 @@ export class AppComponent {
           url:  `${window.location.protocol}//${window.location.hostname}/layman/client`,
           user: 'browser',
           type: "layman",
+          onError: {compositionLoad: 'ignore'},
           liferayProtocol: 'https',
       }
       ],
