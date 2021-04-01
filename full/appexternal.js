@@ -1,5 +1,6 @@
 function hslayersNgConfig(ol) {
   return {
+    assetsPath: '../node_modules/hslayers-ng-app/assets/',
     default_layers: [
       new ol.layer.Tile({
         source: new ol.source.OSM(),
@@ -17,4 +18,4 @@ function hslayersNgConfig(ol) {
     }),
   };
 }
-window.HSL_PATH = '../node_modules/hslayers-ng/bundle/';
+window.HSL_PATH = '../node_modules/hslayers-ng-app/';
