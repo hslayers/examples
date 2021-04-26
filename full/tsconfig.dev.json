@@ -4,9 +4,22 @@
     "outDir": "./out-tsc/app",
     "types": [],
     "baseUrl": "../",
+    "paths": {
+      "hslayers-ng": ["./node_modules/hslayers-ng/src/public-api.ts"],
+      "ol/*": ["./node_modules/ol/*"],
+      "@angular/*": [ "./node_modules/@angular/*" ],
+    }
   },
   "files": [
     "src/main.ts",
     "src/polyfills.ts"
+  ],
+  "include": [
+    "./**/*.d.ts",
+    "../node_modules/hslayers-ng/src/**/*.ts"
+  ],
+  "exclude": [
+    "../node_modules/hslayers-ng/src/**/*.spec.ts",
+    "../node_modules/hslayers-ng/test/**/*.ts"
   ]
 }
