@@ -1,22 +1,10 @@
-import Feature from 'ol/Feature';
-import Point from 'ol/geom/Point';
-import VectorLayer from 'ol/layer/Vector';
 import View from 'ol/View';
 import {Component, ComponentFactoryResolver} from '@angular/core';
 import {Group, Tile} from 'ol/layer';
 import {HsConfig, HsLayoutService} from 'hslayers-ng';
-import {OSM, TileWMS, XYZ} from 'ol/source';
-import {Vector as VectorSource} from 'ol/source';
+import {TileWMS} from 'ol/source';
 import {transform} from 'ol/proj';
 import {HslayersCesiumComponent} from 'hslayers-cesium';
-
-const count = 200;
-const features = new Array(count);
-const e = 4500000;
-for (let i = 0; i < count; ++i) {
-  const coordinates = [2 * e * Math.random() - e, 2 * e * Math.random() - e];
-  features[i] = new Feature({geometry: new Point(coordinates), name: 'test'});
-}
 
 @Component({
   selector: 'app-component',
@@ -57,24 +45,6 @@ export class AppComponent {
         }),
       ],
       default_layers: [
-        new VectorLayer({
-          title: 'Bookmarks',
-          synchronize: false,
-          cluster: true,
-          inlineLegend: true,
-          popUp: {
-            attributes: ['name'],
-          },
-          editor: {
-            editable: true,
-            defaultAttributes: {
-              name: 'New bookmark',
-              description: 'none',
-            },
-          },
-          path: 'User generated',
-          source: new VectorSource({features}),
-        }),
       ],
       default_view: new View({
         center: transform([17.474129, 52.574], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
