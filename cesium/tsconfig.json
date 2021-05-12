@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "allowJs": false,
+        "target": "es2015",
+        "emitDecoratorMetadata": true,
+        "lib": ["esnext", "dom"],
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "resolveJsonModule":true,
+        "moduleResolution": "node",
+        "types": ["node", "cesium"],
+        "baseUrl": "./",
+    },
+    "angularCompilerOptions": {
+      "enableResourceInlining": true,
+      "fullTemplateTypeCheck": true,
+      "strictInjectionParameters": true
+    }
+}
