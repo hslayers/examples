@@ -13,7 +13,6 @@
         "baseUrl": "./",
     },
     "angularCompilerOptions": {
-      "enableResourceInlining": true,
       "fullTemplateTypeCheck": true,
       "strictInjectionParameters": true
     }
