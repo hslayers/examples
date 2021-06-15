@@ -22,9 +22,9 @@
     "protractor": "protractor test/protractor-conf.js"
   },
   "dependencies": {
+    "@angular/cdk": "^11.2.12",
     "@angular/common": "^11.2.14",
     "@angular/compiler": "^11.2.14",
-    "@angular/cdk": "^11.2.12",
     "@angular/core": "^11.2.14",
     "@angular/forms": "^11.2.14",
     "@angular/localize": "^11.2.14",
@@ -37,19 +37,23 @@
     "cesium": "^1.81.0",
     "dayjs": "^1.10.4",
     "deepmerge": "^4.2.2",
+    "geostyler-openlayers-parser": "^2.3.1",
+    "geostyler-sld-parser": "^2.3.0",
+    "geostyler-style": "^4.0.3",
     "hslayers-cesium": "^4.0.0",
     "hslayers-cesium-app": "^4.0.0-rc1",
     "hslayers-ng": "^4.0.0",
     "hslayers-ng-app": "^4.0.0",
     "moment": "^2.29.1",
     "moment-interval": "^0.2.1",
+    "ngx-color": "^6.2.0",
     "ol": "^6.5.0",
     "ol-popup": "^4.0.0",
     "proj4": "^2.6.3",
     "rxjs": "^6.6.7",
     "share-api-polyfill": "^1.0.20",
     "xml-js": "^1.6.11",
-    "zone.js": "^0.10.3"
+    "zone.js": "^0.11.3"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^11.1.1",
