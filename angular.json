@@ -22,7 +22,6 @@
             "main": "full/src/main.ts",
             "polyfills": "full/src/polyfills.ts",
             "tsConfig": "full/tsconfig.prod.json",
-            "aot": true,
             "assets": [
               "full/src/favicon.ico", 
               "full/src/assets",
@@ -36,7 +35,13 @@
             "styles": [
               
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "development": {
@@ -51,7 +56,6 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": true,
               "namedChunks": false,
               "statsJson": true,
               "extractLicenses": true,
@@ -70,7 +74,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -137,7 +142,6 @@
             "main": "routing/src/main.ts",
             "polyfills": "routing/src/polyfills.ts",
             "tsConfig": "routing/tsconfig.prod.json",
-            "aot": true,
             "assets": [
               "routing/src/favicon.ico", 
               "routing/src/assets",
@@ -151,7 +155,13 @@
             "styles": [
               
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "development": {
@@ -166,7 +176,6 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": true,
               "namedChunks": false,
               "statsJson": true,
               "extractLicenses": true,
@@ -185,7 +194,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
