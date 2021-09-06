@@ -4,7 +4,7 @@ import VectorLayer from 'ol/layer/Vector';
 import View from 'ol/View';
 import {Component} from '@angular/core';
 import {Group, Tile} from 'ol/layer';
-import {HsConfig} from 'hslayers-ng';
+import {HsConfig, HsToastService} from 'hslayers-ng';
 import {OSM, TileWMS, XYZ} from 'ol/source';
 import {Vector as VectorSource} from 'ol/source';
 import {transform} from 'ol/proj';
@@ -22,7 +22,7 @@ for (let i = 0; i < count; ++i) {
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  constructor(private HsConfig: HsConfig) {
+  constructor(private HsConfig: HsConfig, private hsToastService: HsToastService) {
     this.HsConfig.update({
       assetsPath: 'assets/hslayers-ng',
       proxyPrefix: window.location.hostname.includes('localhost')
@@ -120,5 +120,6 @@ export class AppComponent {
       },
       sidebarPosition: 'right',
     });
+    this.hsToastService.createToastPopupMessage('Hello', 'Your map is ready!', {toastStyleClasses: 'bg-info text-white'});
   }
 }
