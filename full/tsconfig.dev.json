@@ -9,19 +9,5 @@
       "ol/*": ["./node_modules/ol/*"],
       "@angular/*": [ "./node_modules/@angular/*" ],
     }
-  },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
-  "include": [
-    "./**/*.d.ts",
-    "../node_modules/hslayers-ng/src/**/*.ts"
-  ],
-  "exclude": [
-    "../node_modules/hslayers-ng/src/testing-utils.ts",
-    "../node_modules/hslayers-ng/src/**/*.mock.ts",
-    "../node_modules/hslayers-ng/src/**/*.spec.ts",
-    "../node_modules/hslayers-ng/test/**/*.ts"
-  ]
+  }
 }

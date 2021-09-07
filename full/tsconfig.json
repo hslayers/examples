@@ -1,19 +1,36 @@
 {
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "allowJs": false,
-        "target": "es2015",
-        "emitDecoratorMetadata": true,
-        "lib": ["es2018", "dom"],
-        "sourceMap": true,
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "resolveJsonModule":true,
-        "moduleResolution": "node",
-    },
-    "angularCompilerOptions": {
-      "enableIvy": true,
-      "fullTemplateTypeCheck": true,
-      "strictInjectionParameters": true
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowJs": false,
+    "target": "es2015",
+    "emitDecoratorMetadata": true,
+    "lib": ["es2018", "dom"],
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule":true,
+    "moduleResolution": "node",
+    "paths": {
+      "hslayers-ng": ["./node_modules/hslayers-ng/src/public-api.ts"],
     }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "./**/*.d.ts",
+    "../node_modules/hslayers-ng/src/**/*.ts"
+  ],
+  "exclude": [
+    "../node_modules/hslayers-ng/src/testing-utils.ts",
+    "../node_modules/hslayers-ng/src/**/*.mock.ts",
+    "../node_modules/hslayers-ng/src/**/*.spec.ts",
+    "../node_modules/hslayers-ng/test/**/*.ts"
+  ]
 }
