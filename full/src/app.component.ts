@@ -33,27 +33,35 @@ export class AppComponent {
       reverseLayerList: false,
       box_layers: [
         new Group({
-          title: 'Base layer',
+          properties: {
+            title: 'Base layer',
+          },
           layers: [
             new Tile({
-              source: new OSM(),
-              title: 'OpenStreetMap',
-              base: true,
+              properties: {
+                title: 'OpenStreetMap',
+                base: true,
+                removable: false,
+              },
               visible: true,
-              removable: false,
+              source: new OSM(),
             }),
             new Tile({
-              title: 'OpenCycleMap',
+              properties: {
+                title: 'OpenCycleMap',
+                base: true,
+              },
               visible: false,
-              base: true,
               source: new OSM({
                 url: 'http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
               }),
             }),
             new Tile({
-              title: 'Satellite',
+              properties: {
+                title: 'Satellite',
+                base: true,
+              },
               visible: false,
-              base: true,
               source: new XYZ({
                 url:
                   'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g',
@@ -62,10 +70,14 @@ export class AppComponent {
           ],
         }),
         new Group({
-          title: 'WMS layers',
+          properties: {
+            title: 'WMS layers',
+          },
           layers: [
             new Tile({
-              title: 'Swiss',
+              properties: {
+                title: 'Swiss',
+              },
               source: new TileWMS({
                 url: 'http://wms.geo.admin.ch/',
                 params: {
@@ -81,21 +93,23 @@ export class AppComponent {
       ],
       default_layers: [
         new VectorLayer({
-          title: 'Bookmarks',
-          synchronize: false,
-          cluster: true,
-          inlineLegend: true,
-          popUp: {
-            attributes: ['name'],
-          },
-          editor: {
-            editable: true,
-            defaultAttributes: {
-              name: 'New bookmark',
-              description: 'none',
+          properties: {
+            title: 'Bookmarks',
+            synchronize: false,
+            cluster: true,
+            inlineLegend: true,
+            popUp: {
+              attributes: ['name'],
             },
+            editor: {
+              editable: true,
+              defaultAttributes: {
+                name: 'New bookmark',
+                description: 'none',
+              },
+            },
+            path: 'User generated',
           },
-          path: 'User generated',
           source: new VectorSource({features}),
         }),
       ],
