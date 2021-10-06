@@ -9,8 +9,16 @@
         "esModuleInterop": true,
         "resolveJsonModule":true,
         "moduleResolution": "node",
+        "skipLibCheck": true,
         "types": ["node", "cesium"],
         "baseUrl": "./",
+        "paths": {
+          "@angular/*": [ "../node_modules/@angular/*" ],
+          "rxjs/*": [ "../node_modules/rxjs/*" ],
+          "ol/*": ["../node_modules/ol/*"],
+          "@ngx-translate/*": ["../node_modules/@ngx-translate/*"],
+          "cesium/*": ["../node_modules/cesium/*"],
+        }
     },
     "angularCompilerOptions": {
       "fullTemplateTypeCheck": true,
