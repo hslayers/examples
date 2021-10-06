@@ -27,10 +27,14 @@ export class AppComponent {
       reverseLayerList: false,
       box_layers: [
         new Group({
-          title: 'WMS layers',
+          properties: {
+            title: 'WMS layers',
+          },
           layers: [
             new Tile({
-              title: 'Swiss',
+              properties: {
+                title: 'Swiss',
+              },
               source: new TileWMS({
                 url: 'http://wms.geo.admin.ch/',
                 params: {
