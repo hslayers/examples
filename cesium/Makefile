@@ -1,11 +1,11 @@
 serve:
-	npm run serve-full
+	npm run serve-cesium
 
 build:
-	npm run build-full
+	npm run build-cesium
 
 build-dev:
-	ng build full
+	ng build cesium
 
 proxy:
 	node ../node_modules/hslayers-proxy/proxy.js
