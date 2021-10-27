@@ -1,7 +1,6 @@
 function hslayersNgConfig(ol) {
   return {
     assetsPath: '../node_modules/hslayers-cesium-app/assets/',
-    cesiumBase: '../node_modules/hslayers-cesium-app/assets/cesium/',
     default_layers: [],
 
     default_view: new ol.View({
@@ -11,4 +10,10 @@ function hslayersNgConfig(ol) {
     }),
   };
 }
+
+function hslayersCesiumConfig() {
+        return {
+          cesiumBase: 'node_modules/hslayers-cesium-app/assets/cesium/',
+        };
+      }
 
