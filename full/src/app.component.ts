@@ -14,7 +14,7 @@ const features = new Array(count);
 const e = 4500000;
 for (let i = 0; i < count; ++i) {
   const coordinates = [2 * e * Math.random() - e, 2 * e * Math.random() - e];
-  features[i] = new Feature({geometry: new Point(coordinates), name: 'test'});
+  features[i] = new Feature({ geometry: new Point(coordinates), name: 'test' });
 }
 
 @Component({
@@ -110,23 +110,19 @@ export class AppComponent {
             },
             path: 'User generated',
           },
-          source: new VectorSource({features}),
+          source: new VectorSource({ features }),
         }),
       ],
       default_view: new View({
         center: transform([17.474129, 52.574], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
         zoom: 4
       }),
-      allowAddExternalDatasets: true,
-      status_manager_url: '/statusmanager/',
       datasources: [
         {
-          title: 'SuperCAT',
-          url: 'http://cat.ccss.cz/csw/',
+          title: 'Micka',
+          url: 'https://hub.lesprojekt.cz/micka/csw/',
           language: 'eng',
-          type: 'micka',
-          code_list_url:
-            '/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D',
+          type: 'micka'
         },
       ],
       panelsEnabled: {
@@ -134,6 +130,6 @@ export class AppComponent {
       },
       sidebarPosition: 'right',
     });
-    this.hsToastService.createToastPopupMessage('Hello', 'Your map is ready!', {toastStyleClasses: 'bg-info text-white'});
+    this.hsToastService.createToastPopupMessage('Hello', 'Your map is ready!', { toastStyleClasses: 'bg-info text-white' });
   }
 }

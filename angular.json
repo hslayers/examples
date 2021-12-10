@@ -33,7 +33,7 @@
             ],
             "preserveSymlinks": true,
             "styles": [
-              
+              "./node_modules/hslayers-ng/css/hslayers-ng.css"
             ],
             "scripts": [],
             "vendorChunk": true,
