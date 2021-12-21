@@ -4,7 +4,7 @@ import {Group, Tile} from 'ol/layer';
 import {HsConfig, HsLayoutService} from 'hslayers-ng';
 import {TileWMS} from 'ol/source';
 import {transform} from 'ol/proj';
-import {HslayersCesiumComponent} from 'hslayers-cesium';
+import {HsCesiumConfig, HslayersCesiumComponent} from 'hslayers-cesium';
 
 @Component({
   selector: 'app-component',
@@ -13,11 +13,14 @@ import {HslayersCesiumComponent} from 'hslayers-cesium';
 export class AppComponent {
   constructor(
     private HsConfig: HsConfig,
+    private HsCesiumConfig: HsCesiumConfig,
     private HsLayoutService: HsLayoutService,
     private componentFactoryResolver: ComponentFactoryResolver
     ) {
+      this.HsCesiumConfig.update({
+        cesiumBase: 'assets/cesium/',
+      });
     this.HsConfig.update({
-      cesiumBase: 'assets/cesium/',
       assetsPath: 'assets/hslayers-ng',
       proxyPrefix: window.location.hostname.includes('localhost')
         ? `${window.location.protocol}//${window.location.hostname}:8085/`
@@ -54,7 +57,6 @@ export class AppComponent {
         center: transform([17.474129, 52.574], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
         zoom: 4
       }),
-      allowAddExternalDatasets: true,
       status_manager_url: '/statusmanager/',
       datasources: [
         {
