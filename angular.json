@@ -153,7 +153,7 @@
             ],
             "preserveSymlinks": true,
             "styles": [
-              
+              "./node_modules/hslayers-ng/css/hslayers-ng.css"
             ],
             "scripts": [],
             "vendorChunk": true,
@@ -295,7 +295,8 @@
             ],
             "styles": [
               "node_modules/ol/ol.css",
-              "node_modules/cesium/Build/Cesium/Widgets/widgets.css"
+              "node_modules/cesium/Build/Cesium/Widgets/widgets.css",
+              "./node_modules/hslayers-ng/css/hslayers-ng.css"
             ],
             "scripts": [],
             "customWebpackConfig": {
