@@ -11,20 +11,19 @@
     // See https://github.com/hslayers/hslayers-ng/wiki/Config-parameters
 
     function hslayersNgConfig(ol) {
-      var ortho = new ol.layer.Tile({
-        source: new ol.source.TileArcGISRest({
-          url: "https://ags.cuzk.cz/arcgis/rest/services/ortofoto_wm/MapServer"
-        }),
-        title: "Ortophoto",
-        visible: true,
-        removable: false
-      })
-
       return {
         assetsPath: "../node_modules/hslayers-ng-app/assets",
         proxyPrefix: "http://localhost:8085/",
         default_layers: [
-          ortho,
+          new ol.layer.Tile({
+            source: new ol.source.TileArcGISRest({
+              url: "https://ags.cuzk.cz/arcgis/rest/services/ortofoto_wm/MapServer"
+            }),
+            title: "Ortophoto",
+            visible: true,
+            removable: false,
+            swipeSide: 2
+          }),
           new ol.layer.Tile({
             source: new ol.source.OSM(),
             title: "OpenStreetMap",
@@ -32,7 +31,6 @@
             removable: false
           })
         ],
-        initialSwipeRight: [ortho],
         default_view: new ol.View({
           center: ol.proj.fromLonLat([13.3773528, 49.7467487]),
           zoom: 18,
@@ -52,6 +50,9 @@
           language: false,
           permalink: false
         },
+        componentsEnabled: {
+          mapSwipe: true
+        }
         //sidebarPosition: 'invisible',
       }
     }
