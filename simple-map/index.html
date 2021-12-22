@@ -1,14 +1,12 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="../node_modules/hslayers-ng-app/styles.css" />
+
   <script>
-    // Required if the path to HSLayers bundles differ from default,
-    // where default is 'node_modules/hslayers-ng/dist/'
-    window.HSL_PATH = '../node_modules/hslayers-ng/dist/';
-    // Actual configuration object
-    // See https://github.com/hslayers/hslayers-ng/wiki/Config-parameters
     function hslayersNgConfig(ol) {
       return {
+        assetsPath: "../node_modules/hslayers-ng-app/assets/",
         default_layers: [
           new ol.layer.Tile({
             source: new ol.source.OSM(),
@@ -26,9 +24,13 @@
       }
     }
   </script>
+
+  <script src="../node_modules/hslayers-ng-app/runtime.js"></script>
+  <script src="../node_modules/hslayers-ng-app/polyfills.js"></script>
+  <script src="../node_modules/hslayers-ng-app/vendor.js"></script><!-- Must be included since 4.x -->
+  <script src="../node_modules/hslayers-ng-app/main.js"></script>
 </head>
 <body>
-  <hs ng-controller="Main" id="hs-app" style="position: relative;"></hs>
-  <script src="../node_modules/hslayers-ng/dist/hslayers-ng.main.js"></script>
+  <hslayers-app></hslayers-app>
 </body>
 </html>
