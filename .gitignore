@@ -8,3 +8,4 @@ stats.json
 olu_spoi/bundle.js
 *.cmd
 dist
+.env
