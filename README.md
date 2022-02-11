@@ -8,7 +8,10 @@ Examples listed in index.html can be viewed online at http://ng.hslayers.org/exa
 Examples for HSLayers-NG version 1 are in branch 'hsl1':
 `git checkout hsl1`
 
-Examples for HSLayers-NG version >2 are in branch 'master':
+Examples for HSLayers-NG version 2 are in branch 'angular9':
+`git checkout angular9`
+
+Examples for the latest stable version of HSLayers-NG (>=3) are in branch 'master':
 `git checkout master`
 
 The current development version which is not yet published is in 'develop':
