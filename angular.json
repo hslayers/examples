@@ -264,6 +264,9 @@
             "polyfills": "cesium/src/polyfills.ts",
             "tsConfig": "cesium/tsconfig.json",
             "aot": true,
+            "optimization": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
             "assets": [
               {
                 "glob": "**/*",
