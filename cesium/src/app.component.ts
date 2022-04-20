@@ -79,9 +79,9 @@ export class AppComponent {
       this.componentFactoryResolver.resolveComponentFactory(
         HslayersCesiumComponent
       );
-    this.HsLayoutService.mapSpaceRef.subscribe(({viewContainerRef, app}) => {
-      if (viewContainerRef) {
-        viewContainerRef.createComponent(componentFactory);
+    this.HsLayoutService.mapSpaceRef.subscribe((params) => {
+      if (params?.viewContainerRef) {
+        params.viewContainerRef.createComponent(componentFactory);
       }
     });
   }
