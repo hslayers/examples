@@ -1,10 +1,10 @@
 import View from 'ol/View';
 import {Component, ComponentFactoryResolver} from '@angular/core';
 import {Group, Tile} from 'ol/layer';
+import {HsCesiumConfig, HslayersCesiumComponent} from 'hslayers-cesium';
 import {HsConfig, HsLayoutService} from 'hslayers-ng';
 import {TileWMS} from 'ol/source';
 import {transform} from 'ol/proj';
-import {HsCesiumConfig, HslayersCesiumComponent} from 'hslayers-cesium';
 
 @Component({
   selector: 'app-component',
@@ -16,10 +16,10 @@ export class AppComponent {
     private HsCesiumConfig: HsCesiumConfig,
     private HsLayoutService: HsLayoutService,
     private componentFactoryResolver: ComponentFactoryResolver
-    ) {
-      this.HsCesiumConfig.update({
-        cesiumBase: 'assets/cesium/',
-      });
+  ) {
+    this.HsCesiumConfig.update({
+      cesiumBase: 'assets/cesium/',
+    });
     this.HsConfig.update({
       assetsPath: 'assets/hslayers-ng',
       proxyPrefix: window.location.hostname.includes('localhost')
@@ -51,11 +51,10 @@ export class AppComponent {
           ],
         }),
       ],
-      default_layers: [
-      ],
+      default_layers: [],
       default_view: new View({
         center: transform([17.474129, 52.574], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
-        zoom: 4
+        zoom: 4,
       }),
       status_manager_url: '/statusmanager/',
       datasources: [
@@ -69,21 +68,21 @@ export class AppComponent {
         },
       ],
       panelsEnabled: {
-        tripPlanner: true
+        tripPlanner: true,
       },
       sidebarPosition: 'right',
     });
   }
 
   ngOnInit(): void {
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-      HslayersCesiumComponent
-    );
-    this.HsLayoutService.mapSpaceRef.subscribe((mapSpace) => {
-      if (mapSpace) {
-        mapSpace.createComponent(componentFactory);
+    const componentFactory =
+      this.componentFactoryResolver.resolveComponentFactory(
+        HslayersCesiumComponent
+      );
+    this.HsLayoutService.mapSpaceRef.subscribe(({viewContainerRef, app}) => {
+      if (viewContainerRef) {
+        viewContainerRef.createComponent(componentFactory);
       }
     });
-    
   }
 }
