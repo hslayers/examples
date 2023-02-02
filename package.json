@@ -54,7 +54,7 @@
     "hslayers-ng-app": "^8.0.0",
     "hslayers-server": "^1.5.0",
     "jszip": "^3.8.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "moment-interval": "^0.2.1",
     "ngx-color": "^7.0.0",
     "ol": "^6.14.1",
