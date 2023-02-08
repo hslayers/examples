@@ -18,7 +18,7 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -57,8 +57,8 @@ module.exports = merge(common, {
         terserOptions: {output: {comments: false}},
       }),
       // CSS minifier
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorPluginOptions: {
+      new CssMinimizerPlugin({
+        minimizerOptions: {
           preset: ['default', {discardComments: {removeAll: true}}],
         },
       }),

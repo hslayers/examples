@@ -29,7 +29,7 @@
                 "glob": "**/*",
                 "input": "./node_modules/hslayers-ng/src/assets",
                 "output": "./assets/hslayers-ng/"
-              }    
+              }
             ],
             "preserveSymlinks": true,
             "styles": [
@@ -55,11 +55,10 @@
                 }
               ],
               "optimization": true,
-              "outputHashing": "all",
               "namedChunks": false,
               "statsJson": true,
               "extractLicenses": true,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "budgets": [
                 {

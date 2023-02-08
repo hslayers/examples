@@ -1,19 +1,27 @@
 {
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "allowJs": false,
-        "target": "es2015",
-        "emitDecoratorMetadata": true,
-        "lib": ["es2018", "dom"],
-        "sourceMap": true,
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "resolveJsonModule":true,
-        "moduleResolution": "node",
-    },
-    "angularCompilerOptions": {
-      "enableIvy": true,
-      "fullTemplateTypeCheck": true,
-      "strictInjectionParameters": true
-    }
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": [
+      "es2019",
+      "dom"
+    ],
+    "module": "es2020",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "ES2020",
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }
