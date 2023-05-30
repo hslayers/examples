@@ -1,5 +1,5 @@
 import View from 'ol/View';
-import {Component, ComponentFactoryResolver} from '@angular/core';
+import {Component} from '@angular/core';
 import {Group, Tile} from 'ol/layer';
 import {HsCesiumConfig, HslayersCesiumComponent} from 'hslayers-cesium';
 import {HsConfig, HsLayoutService} from 'hslayers-ng';
@@ -14,8 +14,7 @@ export class AppComponent {
   constructor(
     private HsConfig: HsConfig,
     private HsCesiumConfig: HsCesiumConfig,
-    private HsLayoutService: HsLayoutService,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private HsLayoutService: HsLayoutService
   ) {
     this.HsCesiumConfig.update({
       cesiumBase: 'assets/cesium/',
@@ -75,13 +74,9 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    const componentFactory =
-      this.componentFactoryResolver.resolveComponentFactory(
-        HslayersCesiumComponent
-      );
     this.HsLayoutService.mapSpaceRef.subscribe((params) => {
       if (params?.viewContainerRef) {
-        params.viewContainerRef.createComponent(componentFactory);
+        params.viewContainerRef.createComponent(HslayersCesiumComponent);
       }
     });
   }
