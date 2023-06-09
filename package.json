@@ -51,7 +51,7 @@
     "hslayers-cesium-app": "^11.0.0",
     "hslayers-ng": "^11.0.0",
     "hslayers-ng-app": "^11.0.0",
-    "hslayers-server": "^1.5.0",
+    "hslayers-server": "^1.5.2",
     "jszip": "^3.8.0",
     "moment": "^2.29.4",
     "moment-interval": "^0.2.1",
