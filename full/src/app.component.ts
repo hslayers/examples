@@ -14,7 +14,7 @@ const features = new Array(count);
 const e = 4500000;
 for (let i = 0; i < count; ++i) {
   const coordinates = [2 * e * Math.random() - e, 2 * e * Math.random() - e];
-  features[i] = new Feature({ geometry: new Point(coordinates), name: 'test' });
+  features[i] = new Feature({geometry: new Point(coordinates), name: 'test'});
 }
 
 @Component({
@@ -22,7 +22,10 @@ for (let i = 0; i < count; ++i) {
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  constructor(private HsConfig: HsConfig, private hsToastService: HsToastService) {
+  constructor(
+    private HsConfig: HsConfig,
+    private hsToastService: HsToastService
+  ) {
     this.HsConfig.update({
       assetsPath: 'assets/hslayers-ng',
       proxyPrefix: window.location.hostname.includes('localhost')
@@ -63,8 +66,7 @@ export class AppComponent {
               },
               visible: false,
               source: new XYZ({
-                url:
-                  'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g',
+                url: 'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g',
               }),
             }),
           ],
@@ -110,26 +112,28 @@ export class AppComponent {
             },
             path: 'User generated',
           },
-          source: new VectorSource({ features }),
+          source: new VectorSource({features}),
         }),
       ],
       default_view: new View({
         center: transform([17.474129, 52.574], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
-        zoom: 4
+        zoom: 4,
       }),
       datasources: [
         {
           title: 'Micka',
           url: 'https://watlas.lesprojekt.cz/micka/csw/',
           language: 'eng',
-          type: 'micka'
+          type: 'micka',
         },
       ],
       panelsEnabled: {
-        tripPlanner: true
+        tripPlanner: true,
       },
       sidebarPosition: 'right',
     });
-    this.hsToastService.createToastPopupMessage('Hello', 'Your map is ready!', { toastStyleClasses: 'bg-info text-white' });
+    this.hsToastService.createToastPopupMessage('Hello', 'Your map is ready!', {
+      toastStyleClasses: 'bg-info text-white',
+    });
   }
 }
