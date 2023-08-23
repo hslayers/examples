@@ -30,14 +30,14 @@ export class AppComponent {
                 base: true,
                 removable: false,
               },
-              visible: true,             
+              visible: true,
             }),
             new Tile({
               properties: {
                 title: 'OpenCycleMap',
                 base: true,
               },
-              visible: false,             
+              visible: false,
               source: new OSM({
                 url: 'http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
               }),
@@ -49,8 +49,7 @@ export class AppComponent {
               },
               visible: false,
               source: new XYZ({
-                url:
-                  'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g',
+                url: 'http://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicmFpdGlzYmUiLCJhIjoiY2lrNzRtbGZnMDA2bXZya3Nsb2Z4ZGZ2MiJ9.g1T5zK-bukSbJsOypONL9g',
               }),
             }),
           ],
