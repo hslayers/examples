@@ -111,6 +111,10 @@
   },
   "browser": {
     "fs": false,
-    "path": false
+    "http": false,
+    "https": false,
+    "path": false,
+    "url": false,
+    "zlib": false
   }
 }
