@@ -1,53 +1,50 @@
 ﻿<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="example_list.css">
-    <script
-      src="https://code.jquery.com/jquery-3.7.0.min.js"
-      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-      crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="example_list.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
 </head>
 
 <script type="text/javascript">
 
-  $( document ).ready(function()
-  {
+  $(document).ready(function () {
     var links = {
-                "simple-map": { name: "Simple map", description: "Simple map application demonstration with hslayersNgConfig function" },
-                //"3d-fatima":{name:"Soil visualization", description: "3D visualization of soil data for Fatima project"},
-                //"3d-olu":{name:"Open land use in 3D", description: "3D visualization land use parcels"},
-                "datasources":{name:"Data sources", description: "Datatank integration and GetCapabilities request demo"},
-                //"compositions":{name:"Thematic maps", description: "Thematic maps and loading of map compositions"},
-                //"eurostat":{name:"Eurostat", description: "Eurostat data visualization for NUTS2 regions."},
-                "full":{name:"Full functionality", description: "Multiple HSLayers-NG features combined in one example"},
-                "clustering-decluttering":{name:"Feature clustering, decluttering functionality", description: "Feature clustering and decluttering for vector layer"},
-                "feature-pop-ups": {name: "Feature pop-ups", description: "Showcase of clickable feature pop-up cards"},
-                "wmts-vector-tiles": { name: "WMTS Raster & Vector Tiles", description: "Adding of WMTS raster and vector tiles to the map" },
-                "map-swipe": { name: "Map Swipe", description: "Splitted map with drag&drop setting of left and right window content" },
-                //"geosparql":{name:"Smart Tourist Data", description: "Integration with Virtuoso SPARQL endpoint which contains points of interest linked open data in europe + Panoramio images and Czech forest roads"},
-                //"forestry":{name:"Forest statistics", description: "Integration with Virtuoso SPARQL endpoint which contains statistics about forestry"},
-                //"wfs_crossfilter":{name:"Feature crossfiltering", description: "Demonstration of dynamic feature filtering using Crossfilter and D3 libraries"},
-                //"routing":{name:"SDI4Apps OpenAPI routing", description: "Calculate shortest routes, optimize multi destination routes as well as calculate reachable areas on road networks"},
-                //"tracking":{name:"SDI4Apps OpenAPI tracking", description: "Demonstrate how SensLog may be used to track mobile sensors"},
-                //"split_map":{name:"Split map", description: "Demonstrate how the map can be split in two parts using a draggable cursor."},
-                //"senslog":{name:"Senslog integration", description: "UNDER DEVELOPMENT. Map showing sensor observations from Senslog database and demo of feature drawing component"},
-                //"socketio":{name:"Collaborative map", description: "UNDER DEVELOPMENT. Realtime collaboration platform which synchronizes feature drawing and layers between multiple computers using Node + Socket.io"},
-                };
+      "simple-map": { name: "Simple map", description: "Simple map application demonstration with hslayersNgConfig function" },
+      //"3d-fatima":{name:"Soil visualization", description: "3D visualization of soil data for Fatima project"},
+      //"3d-olu":{name:"Open land use in 3D", description: "3D visualization land use parcels"},
+      "datasources": { name: "Data sources", description: "Datatank integration and GetCapabilities request demo" },
+      //"compositions":{name:"Thematic maps", description: "Thematic maps and loading of map compositions"},
+      //"eurostat":{name:"Eurostat", description: "Eurostat data visualization for NUTS2 regions."},
+      "full": { name: "Full functionality", description: "Multiple HSLayers-NG features combined in one example" },
+      "clustering-decluttering": { name: "Feature clustering, decluttering functionality", description: "Feature clustering and decluttering for vector layer" },
+      "feature-pop-ups": { name: "Feature pop-ups", description: "Showcase of clickable feature pop-up cards" },
+      "wmts-vector-tiles": { name: "WMTS Raster & Vector Tiles", description: "Adding of WMTS raster and vector tiles to the map" },
+      "map-swipe": { name: "Map Swipe", description: "Splitted map with drag&drop setting of left and right window content" },
+      //"geosparql":{name:"Smart Tourist Data", description: "Integration with Virtuoso SPARQL endpoint which contains points of interest linked open data in europe + Panoramio images and Czech forest roads"},
+      //"forestry":{name:"Forest statistics", description: "Integration with Virtuoso SPARQL endpoint which contains statistics about forestry"},
+      //"wfs_crossfilter":{name:"Feature crossfiltering", description: "Demonstration of dynamic feature filtering using Crossfilter and D3 libraries"},
+      //"routing":{name:"SDI4Apps OpenAPI routing", description: "Calculate shortest routes, optimize multi destination routes as well as calculate reachable areas on road networks"},
+      //"tracking":{name:"SDI4Apps OpenAPI tracking", description: "Demonstrate how SensLog may be used to track mobile sensors"},
+      //"split_map":{name:"Split map", description: "Demonstrate how the map can be split in two parts using a draggable cursor."},
+      //"senslog":{name:"Senslog integration", description: "UNDER DEVELOPMENT. Map showing sensor observations from Senslog database and demo of feature drawing component"},
+      //"socketio":{name:"Collaborative map", description: "UNDER DEVELOPMENT. Realtime collaboration platform which synchronizes feature drawing and layers between multiple computers using Node + Socket.io"},
+    };
 
     var exampleCount = Object.keys(links).length;
-    $( ".container h2").append(" ("+exampleCount+")");
+    $(".container h2").append(" (" + exampleCount + ")");
 
-    for (var key in links)
-    {
-      $( "#examples" ).append('<div class="example">'+
-              '<a class="mainlink" href="'+key+'">'+
-                '<strong>'+links[key].name.charAt(0).toUpperCase() + links[key].name.substring(1)+'</strong><br>'+
-                '<small>('+key.toLowerCase()+'/)</small>'+
-              '</a>'+
-              '<p></p><div>'+links[key].description+'</div><p></p>'+
-          '</div>');
+    for (const [key, value] of Object.entries(links)) {
+      $("#examples").append('<div class="example">' +
+        '<a class="mainlink" href="' + key + '">' +
+        '<strong>' + value.name.charAt(0).toUpperCase() + value.name.substring(1) + '</strong><br>' +
+        '<small>(' + key.toLowerCase() + '/)</small>' +
+        '</a>' +
+        '<p></p><div>' + value.description + '</div><p></p>' +
+        '</div>');
     };
   });
 
@@ -59,11 +56,13 @@
     <h2>HSLayers-NG examples</h2>
   </div>
 
-	<div class="container-fluid">
-      <div id="examples"><div>
+  <div class="container-fluid">
+    <div id="examples">
+      <div>
       </div>
     </div>
   </div>
 
 </body>
+
 </html>
