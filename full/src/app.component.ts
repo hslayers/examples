@@ -1,12 +1,9 @@
-import Feature from 'ol/Feature';
-import Point from 'ol/geom/Point';
-import VectorLayer from 'ol/layer/Vector';
-import View from 'ol/View';
 import {Component} from '@angular/core';
-import {Group, Tile} from 'ol/layer';
+import {Feature, View} from 'ol';
+import {Group, Tile, Vector as VectorLayer} from 'ol/layer';
 import {HsConfig, HsToastService} from 'hslayers-ng';
-import {OSM, TileWMS, XYZ} from 'ol/source';
-import {Vector as VectorSource} from 'ol/source';
+import {OSM, TileWMS, Vector as VectorSource, XYZ} from 'ol/source';
+import {Point} from 'ol/geom';
 import {transform} from 'ol/proj';
 
 const count = 2000;
@@ -23,10 +20,10 @@ for (let i = 0; i < count; ++i) {
 })
 export class AppComponent {
   constructor(
-    private HsConfig: HsConfig,
+    private hsConfig: HsConfig,
     private hsToastService: HsToastService
   ) {
-    this.HsConfig.update({
+    this.hsConfig.update({
       assetsPath: 'assets/hslayers-ng',
       proxyPrefix: window.location.hostname.includes('localhost')
         ? `${window.location.protocol}//${window.location.hostname}:8085/`

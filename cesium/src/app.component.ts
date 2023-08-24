@@ -1,16 +1,16 @@
-import View from 'ol/View';
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Group, Tile} from 'ol/layer';
 import {HsCesiumConfig, HslayersCesiumComponent} from 'hslayers-cesium';
 import {HsConfig, HsLayoutService} from 'hslayers-ng';
 import {TileWMS} from 'ol/source';
+import {View} from 'ol';
 import {transform} from 'ol/proj';
 
 @Component({
   selector: 'app-component',
   templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     private HsConfig: HsConfig,
     private HsCesiumConfig: HsCesiumConfig,
@@ -55,15 +55,13 @@ export class AppComponent {
         center: transform([17.474129, 52.574], 'EPSG:4326', 'EPSG:3857'), //Latitude longitude    to Spherical Mercator
         zoom: 4,
       }),
-      status_manager_url: '/statusmanager/',
+      shareServiceUrl: '/statusmanager/',
       datasources: [
         {
-          title: 'SuperCAT',
-          url: 'http://cat.ccss.cz/csw/',
+          title: 'Hub4Everybody',
+          url: 'https://hub4everybody.com/micka/csw/',
           language: 'eng',
           type: 'micka',
-          code_list_url:
-            '/php/metadata/util/codelists.php?_dc=1440156028103&language=eng&page=1&start=0&limit=25&filter=%5B%7B%22property%22%3A%22label%22%7D%5D',
         },
       ],
       panelsEnabled: {
@@ -74,9 +72,9 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.HsLayoutService.mapSpaceRef.subscribe((params) => {
-      if (params?.viewContainerRef) {
-        params.viewContainerRef.createComponent(HslayersCesiumComponent);
+    this.HsLayoutService.mapSpaceRef.subscribe((viewContainerRef) => {
+      if (viewContainerRef) {
+        viewContainerRef.createComponent(HslayersCesiumComponent);
       }
     });
   }
