@@ -12,8 +12,8 @@ import {
 } from 'ol/layer';
 import {
   OSM,
+  TileImage,
   TileJSON,
-  Tile as TileSource,
   UTFGrid,
   VectorTile as VectorTileSource,
   WMTS,
@@ -47,13 +47,19 @@ export class AppComponent {
       properties: {
         title: 'Raster Tiles',
       },
-      source: new TileSource({}), // just a 'placeholder', will be set after loading WMTS capabilities
+      visible: false,
+      source: new TileImage({
+        url: 'https://gis.lesprojekt.cz/geoserver/gwc/service/wmts',
+      }), // just a 'placeholder', will be set after loading WMTS capabilities
     });
     const vectorTiles = new VectorTileLayer({
       properties: {
         title: 'Vector Tiles',
       },
-      source: new VectorTileSource({}), // just a 'placeholder', will be set after loading WMTS capabilities
+      visible: false,
+      source: new VectorTileSource({
+        url: 'http://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/S-JTSK:Rostenice_2020/pozemky_Rostenice/EPSG:5514_OGC/S-JTSK:{z}/{x}/{y}?format=application/json;type=topojson',
+      }), // just a 'placeholder', will be set after loading WMTS capabilities
       renderMode: 'hybrid',
       // set symbology for the vector data
       style: new Style({
@@ -146,33 +152,37 @@ export class AppComponent {
           projection: sjtskProjection,
           tileGrid: wmtsSource.getTileGrid(),
           tileSize: 256,
-          tileUrlFunction: this.tileUrlFunction, // overwrites the default url for fetching single vector tile
+          tileUrlFunction: (tileCoord) => this.tileUrlFunction(tileCoord), // overwrites the default url for fetching single vector tile
           zDirection: 0,
-          url:
-            this.hsConfig.proxyPrefix +
-            'http://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/S-JTSK:Rostenice_2020/polygon/EPSG:5514_OGC/S-JTSK:{z}/{x}/{y}?format=application/json;type=topojson',
         });
 
-        // set the data source for raster and vector tile layers
+        // set the data source for raster and vector tile layers and make them visible
         vectorTiles.setSource(vtSource);
         rasterTiles.setSource(wmtsSource);
+        vectorTiles.setVisible(true);
+        rasterTiles.setVisible(true);
+        console.log('LAYERS ADDED');
       });
   }
 
   /**
    * Builds the URL to fetch single vector tile from the server based on the tile coordinates.
+   * The returned URL must conform to
+   * "https://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/S-JTSK:Rostenice_2020/{style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}?format=application/json;type=topojson"
    * @param {any} tileCoord Vector tile coordinates
    * @returns {string} URL
    */
   tileUrlFunction(tileCoord) {
     return (
       this.hsConfig.proxyPrefix +
-      'http://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/{layer}/polygon/EPSG:5514_OGC/{z}/{x}/{y}?format={format}'
+      'http://gis.lesprojekt.cz/geoserver/gwc/service/wmts/rest/{layer}/{style}/{tileMatrixSet}/{z}/{y}/{x}?format={format}'
     )
       .replace('{layer}', 'S-JTSK:Rostenice_2020')
+      .replace('{style}', 'pozemky_Rostenice')
+      .replace('{tileMatrixSet}', 'EPSG:5514_OGC')
       .replace('{format}', 'application/json;type=geojson')
       .replace('{z}', 'S-JTSK:' + String(tileCoord[0]))
-      .replace('{y}', String(tileCoord[1]))
-      .replace('{x}', String(tileCoord[2]));
+      .replace('{x}', String(tileCoord[1]))
+      .replace('{y}', String(tileCoord[2]));
   }
 }
