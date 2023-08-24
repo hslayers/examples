@@ -16,6 +16,8 @@
     "build-routing": "ng build routing --configuration production",
     "serve-clustering": "ng serve clustering",
     "build-clustering": "ng build clustering --configuration production",
+    "serve-vector-tiles": "ng serve vector-tiles",
+    "build-vector-tiles": "ng build vector-tiles --configuration production",
     "start": "live-server",
     "pretest": "npm install",
     "start-server": "npm explore hslayers-server -- npm start",
