@@ -61,6 +61,17 @@ export class AppComponent {
       }),
       panelsEnabled: {
         tripPlanner: true,
+        info: false,
+        draw: false,
+        print: false,
+        permalink: false,
+        saveMap: false,
+        legend: false,
+        language: false,
+        composition_browser: false,
+        compositionLoadingProgress: false,
+        addData: false,
+        measure: false,
       },
     });
   }
