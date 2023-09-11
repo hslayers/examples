@@ -14,25 +14,19 @@
   $(document).ready(function () {
     const links = [
       { dir: "simple-map", index: "simple-map/index.html", name: "Simple map", description: "Simple map application demonstration with hslayersNgConfig function" },
-      //"3d-fatima":{name:"Soil visualization", description: "3D visualization of soil data for Fatima project"},
-      //"3d-olu":{name:"Open land use in 3D", description: "3D visualization land use parcels"},
-      //{ dir: "datasources", name: "Data sources", description: "Datatank integration and GetCapabilities request demo" },
-      { dir: "cesium", index: "dist/cesium/index.html", name: "Cesium integration", description: "3D map created with hslayers-cesium"},
+      { dir: "datasources", index: "dist/datasources/index.html", name: "Data sources", description: "Integration of various geodata silos" },
+      { dir: "cesium", index: "dist/cesium/index.html", name: "Cesium integration", description: "3D map created with hslayers-cesium" },
       //"compositions":{name:"Thematic maps", description: "Thematic maps and loading of map compositions"},
-      //"eurostat":{name:"Eurostat", description: "Eurostat data visualization for NUTS2 regions."},
       { dir: "full", index: "dist/full/index.html", name: "Full functionality", description: "Multiple HSLayers-NG features combined in one example" },
       { dir: "clustering-decluttering", index: "dist/clustering-decluttering/index.html", name: "Feature clustering and decluttering functionality", description: "Feature clustering and decluttering for vector layer" },
       //{ dir: "feature-pop-ups", name: "Feature pop-ups", description: "Showcase of clickable feature pop-up cards" },
       { dir: "wmts-vector-tiles", index: "dist/wmts-vector-tiles/index.html", name: "WMTS Raster & Vector Tiles", description: "Adding of WMTS raster and vector tiles to the map" },
       { dir: "map-swipe", index: "map-swipe/index.html", name: "Map Swipe", description: "Splitted map with drag&drop setting of left and right window content" },
       //"geosparql":{name:"Smart Tourist Data", description: "Integration with Virtuoso SPARQL endpoint which contains points of interest linked open data in europe + Panoramio images and Czech forest roads"},
-      //"forestry":{name:"Forest statistics", description: "Integration with Virtuoso SPARQL endpoint which contains statistics about forestry"},
       //"wfs_crossfilter":{name:"Feature crossfiltering", description: "Demonstration of dynamic feature filtering using Crossfilter and D3 libraries"},
       { dir: "routing", index: "dist/routing/index.html", name:"Trip planner", description: "Calculate shortest routes"},
       //"tracking":{name:"SDI4Apps OpenAPI tracking", description: "Demonstrate how SensLog may be used to track mobile sensors"},
-      //"split_map":{name:"Split map", description: "Demonstrate how the map can be split in two parts using a draggable cursor."},
       //"senslog":{name:"Senslog integration", description: "UNDER DEVELOPMENT. Map showing sensor observations from Senslog database and demo of feature drawing component"},
-      //"socketio":{name:"Collaborative map", description: "UNDER DEVELOPMENT. Realtime collaboration platform which synchronizes feature drawing and layers between multiple computers using Node + Socket.io"},
     ];
 
     const exampleCount = links.length;
