@@ -12,6 +12,8 @@
     "build-full": "ng build full --configuration production",
     "serve-cesium": "ng serve cesium --disable-host-check",
     "build-cesium": "ng build cesium --configuration production",
+    "serve-datasources": "ng serve datasources --disable-host-check",
+    "build-datasources": "ng build datasources --configuration production",
     "serve-routing": "ng serve routing",
     "build-routing": "ng build routing --configuration production",
     "serve-clustering": "ng serve clustering",
