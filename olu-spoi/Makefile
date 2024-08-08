@@ -8,4 +8,4 @@ build-dev:
 	ng build olu-spoi
 
 proxy:
-	node ../node_modules/hslayers-proxy/proxy.js
+	node ../node_modules/hslayers-server/server.js
