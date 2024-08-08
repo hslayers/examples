@@ -1,6 +1,6 @@
+import {BehaviorSubject, lastValueFrom} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Subject, lastValueFrom} from 'rxjs';
 
 export type PoiAttribute = {
   short_name: string;
@@ -23,7 +23,7 @@ export type ParcelData = {
 
 @Injectable({providedIn: 'root'})
 export class InfoService {
-  parcelDataUpdate$ = new Subject<ParcelData>();
+  parcelDataUpdate$ = new BehaviorSubject<ParcelData>({parcel: {}});
 
   constructor(private httpClient: HttpClient) {}
 

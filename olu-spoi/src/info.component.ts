@@ -1,36 +1,30 @@
 /* eslint-disable @angular-eslint/component-selector */
-import {BehaviorSubject} from 'rxjs';
-import {Component, ViewRef} from '@angular/core';
+import {AsyncPipe} from '@angular/common';
+import {Component} from '@angular/core';
 
-import {HsPanelComponent} from 'hslayers-ng'; //'hslayers-ng/common/panels';
 import {HsQueryPopupWidgetBaseComponent} from 'hslayers-ng'; //'hslayers-ng/common/query-popup';
 import {TranslateCustomPipe} from 'hslayers-ng';
 
 import {DescriptionComponent} from './description.component';
-import {InfoService, ParcelData} from './info.service';
+import {InfoService} from './info.service';
 
 @Component({
   standalone: true,
-  imports: [TranslateCustomPipe, DescriptionComponent],
+  imports: [AsyncPipe, TranslateCustomPipe, DescriptionComponent],
   selector: 'info-widget',
   templateUrl: 'info.component.html',
 })
-export class InfoWidgetComponent
-  extends HsQueryPopupWidgetBaseComponent
-  implements HsPanelComponent
-{
+export class InfoWidgetComponent extends HsQueryPopupWidgetBaseComponent {
   name = 'olu+spoi-info-widget';
-  data: ParcelData = {
+  /*data: ParcelData = {
     parcel: {},
-  };
-  viewRef: ViewRef;
-  isVisible$ = new BehaviorSubject(false);
+  };*/
 
   constructor(public infoService: InfoService) {
     super();
-    this.infoService.parcelDataUpdate$.subscribe((data) => {
-      this.data = data;
-    });
+    /*this.infoService.parcelDataUpdate$.subscribe((data) => {
+      this.data = new Observable(()data);
+    });*/
   }
 
   /*handleKeyUp(e: KeyboardEvent) {
@@ -38,8 +32,4 @@ export class InfoWidgetComponent
       this.close();
     }
   }*/
-
-  isVisible() {
-    return true;
-  }
 }

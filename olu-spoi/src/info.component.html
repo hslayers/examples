@@ -6,24 +6,28 @@
     <div class="modal-body" style="overflow-y: auto">
       <div id="info-offline">
         <table class="table table-striped">
-          <description [object]="data.parcel"></description>
+          @if(infoService.parcelDataUpdate$ | async; as data) {
+            <description [object]="data.parcel"></description>
+          }
         </table>
         <h4>Points of interest in this parcel</h4>
         <table class="table">
           <tbody>
-            @for (poi of data.parcel.pois; track $index) {
-            <tr>
-              <td>
-                <a
-                  (click)="$event.preventDefault(); infoService.describePoi(poi)"
-                  href="#"
-                  >{{ poi.url }}</a
-                >
-                @if (poi.expanded) {
-                <description [object]="poi"></description>
-                }
-              </td>
-            </tr>
+            @if(infoService.parcelDataUpdate$ | async; as data) {
+              @for (poi of data.parcel.pois; track $index) {
+              <tr>
+                <td>
+                  <a
+                    (click)="$event.preventDefault(); infoService.describePoi(poi)"
+                    href="#"
+                    >{{ poi.url }}</a
+                  >
+                  @if (poi.expanded) {
+                  <description [object]="poi"></description>
+                  }
+                </td>
+              </tr>
+              }
             }
           </tbody>
         </table>
