@@ -1,0 +1,21 @@
+<table class="table table-striped" description object="poi">
+  <tbody>
+    @for(attribute of object.attributes; track $index) {
+    <tr>
+      <!-- ng-repeat="attribute in object.attributes | orderBy : 'name'"-->
+      <th>{{ attribute.short_name }}:</th>
+      @if (!attribute.value.includes('http')) {
+      <td>{{ attribute.value }}</td>
+      } @else {
+      <td>
+        <a (click)="describe(attribute)" href="#">{{ attribute.value }}</a>
+        @if (selectedAttr) {
+          <description [object]="" [url]="selectedAttr.value"></description>
+          <!--description [object]="selectedAttr + Math.abs(attribute.value.hashCode())" [url]="selectedAttr.value"></description-->
+        }
+      </td>
+      }
+    </tr>
+    }
+  </tbody>
+</table>
