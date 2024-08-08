@@ -3,15 +3,17 @@ import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {lastValueFrom} from 'rxjs';
 
+import {Poi, PoiAttribute} from './info.service';
+
 @Component({
   standalone: true,
   selector: 'description',
   templateUrl: 'description.component.html',
 })
 export class DescriptionComponent implements OnInit {
-  @Input() object;
-  @Input() url?;
-  selectedAttr;
+  @Input() object: Poi;
+  @Input() url?: string;
+  selectedAttr: PoiAttribute;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -33,7 +35,7 @@ export class DescriptionComponent implements OnInit {
       }
       for (const b of response.results.bindings) {
         let short_name = b.p.value;
-        if (short_name.indexOf('#') > -1) {
+        if (short_name.includes('#')) {
           short_name = short_name.split('#')[1];
         }
         this.object.attributes.push({
@@ -44,7 +46,11 @@ export class DescriptionComponent implements OnInit {
     }
   }
 
-  describe(attribute) {
-    this.selectedAttr = attribute;
+  describe(attribute: PoiAttribute) {
+    if (this.selectedAttr == attribute) {
+      this.selectedAttr = undefined;
+    } else {
+      this.selectedAttr = attribute;
+    }
   }
 }

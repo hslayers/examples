@@ -1,4 +1,4 @@
-<table class="table table-striped" description object="poi">
+<table class="table table-striped">
   <tbody>
     @for(attribute of object.attributes; track $index) {
     <tr>
@@ -9,9 +9,9 @@
       } @else {
       <td>
         <a (click)="describe(attribute)" href="#">{{ attribute.value }}</a>
-        @if (selectedAttr) {
-          <description [object]="" [url]="selectedAttr.value"></description>
-          <!--description [object]="selectedAttr + Math.abs(attribute.value.hashCode())" [url]="selectedAttr.value"></description-->
+        @if (selectedAttr == attribute) {
+            <description [object]="" [url]="selectedAttr.value"></description>
+            <!--description [object]="selectedAttr + Math.abs(attribute.value.hashCode())" [url]="selectedAttr.value"></description-->
         }
       </td>
       }
