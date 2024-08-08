@@ -8,7 +8,7 @@ export type PoiAttribute = {
 };
 
 export type Poi = {
-  url: string;
+  url?: string;
   attributes?: PoiAttribute[];
   expanded?: boolean;
 };
@@ -44,7 +44,7 @@ export class InfoService {
       poi.attributes = [];
       for (const b of response.results.bindings) {
         let short_name = b.p.value;
-        if (short_name.indexOf('#') > -1) {
+        if (short_name.includes('#')) {
           short_name = short_name.split('#')[1];
         }
         poi.attributes.push({short_name: short_name, value: b.o.value});
