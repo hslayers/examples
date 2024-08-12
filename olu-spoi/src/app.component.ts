@@ -10,12 +10,14 @@ import {Tile, Vector as VectorLayer} from 'ol/layer';
 import {WKT} from 'ol/format';
 import {transform, transformExtent} from 'ol/proj';
 
+import {HsConfig} from 'hslayers-ng/config';
+import {HsEventBusService} from 'hslayers-ng/services/event-bus';
+import {HsLayoutService} from 'hslayers-ng/services/layout';
+import {HsMapService} from 'hslayers-ng/services/map';
 import {
-  HsConfig,
-  HsEventBusService,
-  HsLayoutService,
-  HsMapService,
-} from 'hslayers-ng';
+  HsOverlayConstructorService,
+  HsPanelConstructorService,
+} from 'hslayers-ng/services/panel-constructor';
 
 import {InfoService, ParcelData} from './info.service';
 import {InfoWidgetComponent} from './info.component';
@@ -40,6 +42,8 @@ export class AppComponent {
     private hsEventBusService: HsEventBusService,
     private hsLayoutService: HsLayoutService,
     private hsMapService: HsMapService,
+    private hsOverlayConstructorService: HsOverlayConstructorService,
+    private hsPanelConstructorService: HsPanelConstructorService,
     private httpClient: HttpClient,
     private infoService: InfoService
   ) {
@@ -104,20 +108,27 @@ export class AppComponent {
       }),
       panelsEnabled: {
         tripPlanner: true,
-        info: false,
+        query: false,
         draw: false,
         print: false,
-        permalink: false,
+        share: false,
         saveMap: false,
         legend: false,
         language: false,
-        composition_browser: false,
-        compositionLoadingProgress: false,
+        compositions: false,
         addData: false,
         measure: false,
       },
+      componentsEnabled: {
+        info: false,
+      },
       sidebarClosed: true,
     });
+    /* Panels in sidebar and other GUI components like toolbar
+     * must be initialized programmatically since HSL 14
+     */
+    this.hsPanelConstructorService.createActivePanels();
+    this.hsOverlayConstructorService.createGuiOverlay();
     this.hsLayoutService.setMainPanel('info');
     // ** EVENTS **
     this.hsEventBusService.mapExtentChanges.subscribe(({map}) => {

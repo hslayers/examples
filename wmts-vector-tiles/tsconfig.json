@@ -8,11 +8,11 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "lib": [
-      "es2019",
-      "dom"
+      "ES2020",
+      "DOM"
     ],
-    "module": "es2020",
-    "moduleResolution": "node",
+    "module": "ES2020",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,

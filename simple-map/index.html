@@ -10,10 +10,12 @@
         default_layers: [
           new ol.layer.Tile({
             source: new ol.source.OSM(),
-            title: "OpenStreetMap",
-            base: true,
+            properties: {
+              title: "OpenStreetMap",
+              base: true,
+              removable: false,
+            },
             visible: true,
-            removable: false
           })
         ],
         default_view: new ol.View({

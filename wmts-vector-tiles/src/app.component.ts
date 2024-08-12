@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import {Component} from '@angular/core';
 
+import RenderFeature from 'ol/render/Feature';
 import proj4 from 'proj4';
 import {Fill, Stroke, Style} from 'ol/style';
 import {GeoJSON, MVT, WMTSCapabilities} from 'ol/format';
@@ -23,7 +24,12 @@ import {get as getProjection, transform} from 'ol/proj';
 import {optionsFromCapabilities} from 'ol/source/WMTS';
 import {register} from 'ol/proj/proj4';
 
-import {HsConfig, HsLanguageService} from 'hslayers-ng';
+import {HsConfig} from 'hslayers-ng/config';
+import {HsLanguageService} from 'hslayers-ng/services/language';
+import {
+  HsOverlayConstructorService,
+  HsPanelConstructorService,
+} from 'hslayers-ng/services/panel-constructor';
 
 /* Define Czech coordinate system S-JTSK which will be used for the map as the raster tiles are optimized for it */
 proj4.defs(
@@ -40,7 +46,9 @@ const sjtskProjection = getProjection('EPSG:5514');
 export class AppComponent {
   constructor(
     private hsConfig: HsConfig,
-    private hsLanguageService: HsLanguageService
+    private hsLanguageService: HsLanguageService,
+    private hsOverlayConstructorService: HsOverlayConstructorService,
+    private hsPanelConstructorService: HsPanelConstructorService
   ) {
     // Define the tile layers so it can be added to the map, data source will be set after the request for GetCapabilities ends
     const rasterTiles = new TileLayer({
@@ -104,19 +112,26 @@ export class AppComponent {
       }),
       panelsEnabled: {
         tripPlanner: false,
-        info: false,
+        query: false,
         draw: false,
         print: false,
-        permalink: false,
+        share: false,
         saveMap: false,
         legend: false,
         language: true,
-        composition_browser: false,
-        compositionLoadingProgress: false,
-        datasource_selector: false,
+        compositions: false,
+        addData: false,
         measure: false,
       },
+      componentsEnabled: {
+        info: false,
+      },
     });
+    /* Panels in sidebar and other GUI components like toolbar
+     * must be initialized programmatically since HSL 14
+     */
+    this.hsPanelConstructorService.createActivePanels();
+    this.hsOverlayConstructorService.createGuiOverlay();
     this.hsLanguageService.setLanguage('cs');
     // Get WMTS Capabilities and create WMTS source base on it
     fetch(
@@ -146,6 +161,7 @@ export class AppComponent {
           format: new GeoJSON({
             dataProjection: sjtskProjection,
             featureProjection: sjtskProjection,
+            featureClass: RenderFeature,
           }),
           //layer: 'S-JTSK:Rostenice_2020',
           //matrixSet: 'EPSG:5514_OGC',
