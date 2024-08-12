@@ -1,7 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Group, Tile} from 'ol/layer';
 import {HsCesiumConfig, HslayersCesiumComponent} from 'hslayers-cesium';
-import {HsConfig, HsLayoutService} from 'hslayers-ng';
+import {HsConfig} from 'hslayers-ng/config'
+import {HsLayoutService} from 'hslayers-ng/services/layout';
+import {
+  HsOverlayConstructorService,
+  HsPanelConstructorService,
+} from 'hslayers-ng/services/panel-constructor';
 import {TileWMS} from 'ol/source';
 import {View} from 'ol';
 import {transform} from 'ol/proj';
@@ -12,14 +17,16 @@ import {transform} from 'ol/proj';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private HsConfig: HsConfig,
-    private HsCesiumConfig: HsCesiumConfig,
-    private HsLayoutService: HsLayoutService
+    private hsConfig: HsConfig,
+    private hsCesiumConfig: HsCesiumConfig,
+    private hsLayoutService: HsLayoutService,
+    private hsOverlayConstructorService: HsOverlayConstructorService,
+    private hsPanelConstructorService: HsPanelConstructorService
   ) {
-    this.HsCesiumConfig.update({
+    this.hsCesiumConfig.update({
       cesiumBase: 'assets/cesium/',
     });
-    this.HsConfig.update({
+    this.hsConfig.update({
       assetsPath: 'assets/hslayers-ng',
       proxyPrefix: window.location.hostname.includes('localhost')
         ? `${window.location.protocol}//${window.location.hostname}:8085/`
@@ -69,10 +76,12 @@ export class AppComponent implements OnInit {
       },
       sidebarPosition: 'right',
     });
+    this.hsPanelConstructorService.createActivePanels();
+    this.hsOverlayConstructorService.createGuiOverlay();
   }
 
   ngOnInit(): void {
-    this.HsLayoutService.mapSpaceRef.subscribe((viewContainerRef) => {
+    this.hsLayoutService.mapSpaceRef.subscribe((viewContainerRef) => {
       if (viewContainerRef) {
         viewContainerRef.createComponent(HslayersCesiumComponent);
       }

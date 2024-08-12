@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {HslayersModule} from 'hslayers-ng';
+import {HslayersModule} from 'hslayers-ng/core';
 
 import {AppComponent} from './app.component';
 import {InfoWidgetComponent} from './info.component';

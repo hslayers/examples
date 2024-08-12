@@ -1,7 +1,7 @@
 import {AppComponent} from './app.component';
 import {BrowserModule} from '@angular/platform-browser';
-import {HslayersModule} from 'hslayers-ng';
 import {HsCesiumModule} from 'hslayers-cesium';
+import {HslayersModule} from 'hslayers-ng/core';
 import {NgModule} from '@angular/core';
 
 @NgModule({

@@ -12,8 +12,7 @@ function hslayersNgConfig(ol) {
 }
 
 function hslayersCesiumConfig() {
-        return {
-          cesiumBase: 'node_modules/hslayers-cesium-app/assets/cesium/',
-        };
-      }
-
+  return {
+    cesiumBase: 'node_modules/hslayers-cesium-app/assets/cesium/',
+  };
+}

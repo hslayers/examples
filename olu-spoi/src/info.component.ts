@@ -2,8 +2,8 @@
 import {AsyncPipe} from '@angular/common';
 import {Component} from '@angular/core';
 
-import {HsQueryPopupWidgetBaseComponent} from 'hslayers-ng'; //'hslayers-ng/common/query-popup';
-import {TranslateCustomPipe} from 'hslayers-ng';
+import {HsQueryPopupWidgetBaseComponent} from 'hslayers-ng/common/query-popup';
+import {TranslateCustomPipe} from 'hslayers-ng/services/language';
 
 import {DescriptionComponent} from './description.component';
 import {InfoService} from './info.service';

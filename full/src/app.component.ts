@@ -1,7 +1,12 @@
 import {Component} from '@angular/core';
 import {Feature, View} from 'ol';
 import {Group, Tile, Vector as VectorLayer} from 'ol/layer';
-import {HsConfig, HsToastService} from 'hslayers-ng';
+import {HsConfig} from 'hslayers-ng/config';
+import {
+  HsOverlayConstructorService,
+  HsPanelConstructorService,
+} from 'hslayers-ng/services/panel-constructor';
+import {HsToastService} from 'hslayers-ng/common/toast';
 import {OSM, TileWMS, Vector as VectorSource, XYZ} from 'ol/source';
 import {Point} from 'ol/geom';
 import {transform} from 'ol/proj';
@@ -21,6 +26,8 @@ for (let i = 0; i < count; ++i) {
 export class AppComponent {
   constructor(
     private hsConfig: HsConfig,
+    private hsOverlayConstructorService: HsOverlayConstructorService,
+    private hsPanelConstructorService: HsPanelConstructorService,
     private hsToastService: HsToastService
   ) {
     this.hsConfig.update({
@@ -129,6 +136,11 @@ export class AppComponent {
       },
       sidebarPosition: 'right',
     });
+    /* Panels in sidebar and other GUI components like toolbar
+     * must be initialized programmatically since HSL 14
+     */
+    this.hsPanelConstructorService.createActivePanels();
+    this.hsOverlayConstructorService.createGuiOverlay();
     this.hsToastService.createToastPopupMessage('Hello', 'Your map is ready!', {
       toastStyleClasses: 'bg-info text-white',
     });

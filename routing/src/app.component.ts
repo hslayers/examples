@@ -1,8 +1,12 @@
-import View from 'ol/View';
 import {Component} from '@angular/core';
 import {Group, Tile} from 'ol/layer';
-import {HsConfig} from 'hslayers-ng';
+import {HsConfig} from 'hslayers-ng/config';
+import {
+  HsOverlayConstructorService,
+  HsPanelConstructorService,
+} from 'hslayers-ng/services/panel-constructor';
 import {OSM, XYZ} from 'ol/source';
+import {View} from 'ol';
 import {transform} from 'ol/proj';
 
 @Component({
@@ -10,7 +14,11 @@ import {transform} from 'ol/proj';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  constructor(private HsConfig: HsConfig) {
+  constructor(
+    private HsConfig: HsConfig,
+    private hsOverlayConstructorService: HsOverlayConstructorService,
+    private hsPanelConstructorService: HsPanelConstructorService
+  ) {
     this.HsConfig.update({
       assetsPath: 'assets/hslayers-ng',
       proxyPrefix: window.location.hostname.includes('localhost')
@@ -61,18 +69,25 @@ export class AppComponent {
       }),
       panelsEnabled: {
         tripPlanner: true,
-        info: false,
+        query: false,
         draw: false,
         print: false,
-        permalink: false,
+        share: false,
         saveMap: false,
         legend: false,
         language: false,
-        composition_browser: false,
-        compositionLoadingProgress: false,
+        compositions: false,
         addData: false,
         measure: false,
       },
+      componentsEnabled: {
+        info: false,
+      },
     });
+    /* Panels in sidebar and other GUI components like toolbar
+     * must be initialized programmatically since HSL 14
+     */
+    this.hsPanelConstructorService.createActivePanels();
+    this.hsOverlayConstructorService.createGuiOverlay();
   }
 }

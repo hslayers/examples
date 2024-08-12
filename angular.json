@@ -27,7 +27,7 @@
               "full/src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/hslayers-ng/src/assets",
+                "input": "./node_modules/hslayers-ng/assets",
                 "output": "./assets/hslayers-ng/"
               }
             ],
@@ -79,18 +79,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "full:build:development"
+            "buildTarget": "full:build:development"
           },
           "configurations": {
             "production": {
-              "browserTarget": "full:build:production"
+              "buildTarget": "full:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "full:build"
+            "buildTarget": "full:build"
           }
         },
         "test": {
@@ -146,7 +146,7 @@
               "routing/src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/hslayers-ng/src/assets",
+                "input": "./node_modules/hslayers-ng/assets",
                 "output": "./assets/hslayers-ng/"
               }
             ],
@@ -199,18 +199,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "routing:build:development"
+            "buildTarget": "routing:build:development"
           },
           "configurations": {
             "production": {
-              "browserTarget": "routing:build:production"
+              "buildTarget": "routing:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "routing:build"
+            "buildTarget": "routing:build"
           }
         },
         "test": {
@@ -276,7 +276,7 @@
               "cesium/src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/hslayers-ng/src/assets",
+                "input": "./node_modules/hslayers-ng/assets",
                 "output": "./assets/hslayers-ng/"
               },
               {
@@ -349,7 +349,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cesium:build"
+            "buildTarget": "cesium:build"
           }
         },
         "test": {
@@ -407,7 +407,7 @@
               "clustering-decluttering/src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/hslayers-ng/src/assets",
+                "input": "./node_modules/hslayers-ng/assets",
                 "output": "./assets/hslayers-ng/"
               }
             ],
@@ -459,18 +459,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "clustering:build:development"
+            "buildTarget": "clustering:build:development"
           },
           "configurations": {
             "production": {
-              "browserTarget": "clustering:build:production"
+              "buildTarget": "clustering:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "clustering:build"
+            "buildTarget": "clustering:build"
           }
         },
         "test": {
@@ -526,7 +526,7 @@
               "wmts-vector-tiles/src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/hslayers-ng/src/assets",
+                "input": "./node_modules/hslayers-ng/assets",
                 "output": "./assets/hslayers-ng/"
               }
             ],
@@ -578,18 +578,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "vector-tiles:build:development"
+            "buildTarget": "vector-tiles:build:development"
           },
           "configurations": {
             "production": {
-              "browserTarget": "vector-tiles:build:production"
+              "buildTarget": "vector-tiles:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vector-tiles:build"
+            "buildTarget": "vector-tiles:build"
           }
         },
         "test": {
@@ -645,7 +645,7 @@
               "datasources/src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/hslayers-ng/src/assets",
+                "input": "./node_modules/hslayers-ng/assets",
                 "output": "./assets/hslayers-ng/"
               }
             ],
@@ -697,18 +697,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "datasources:build:development"
+            "buildTarget": "datasources:build:development"
           },
           "configurations": {
             "production": {
-              "browserTarget": "datasources:build:production"
+              "buildTarget": "datasources:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "datasources:build"
+            "buildTarget": "datasources:build"
           }
         },
         "test": {
@@ -764,7 +764,7 @@
               "olu-spoi/src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/hslayers-ng/src/assets",
+                "input": "./node_modules/hslayers-ng/assets",
                 "output": "./assets/hslayers-ng/"
               }
             ],
@@ -816,18 +816,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "olu-spoi:build:development"
+            "buildTarget": "olu-spoi:build:development"
           },
           "configurations": {
             "production": {
-              "browserTarget": "olu-spoi:build:production"
+              "buildTarget": "olu-spoi:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "olu-spoi:build"
+            "buildTarget": "olu-spoi:build"
           }
         },
         "test": {
