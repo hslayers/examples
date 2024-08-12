@@ -67,6 +67,7 @@ export class AppComponent {
         title: 'Parcels with POIs near main roads (color by land use class)',
         editable: false,
         editor: {editable: false},
+        popUp: true,
       },
       source: this.highway_spois_source,
       style: (feature, resolution) =>
