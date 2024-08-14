@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>HS Layers</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" href="../node_modules/hslayers-ng-app/styles.css" />
   
-    <style>
-      #hs-app {
-        position: relative; 
-        height: 100vh
-      }
-      @media only screen and (max-width: 600px) {
-      #hs-app {
-        height: calc(100vh - 96px)
-      }
-    }
-    </style>
+  <script src="./app.js"></script>
+
+  <script src="../node_modules/hslayers-ng-app/runtime.js" type="module"></script>
+  <script src="../node_modules/hslayers-ng-app/polyfills.js" type="module"></script>
+  <script src="../node_modules/hslayers-ng-app/vendor.js" type="module"></script><!-- Must be included since 4.x -->
+  <script src="../node_modules/hslayers-ng-app/main.js" type="module"></script>
 </head>
-<body >
-    <div hs ng-app="hs" ng-controller="MainController" id="hs-app"></div>
-    
-      <script type="application/javascript" src="static/app.bundle.js"></script>
-    
+
+<body>
+  <hslayers-app></hslayers-app>
 </body>
+
 </html>
