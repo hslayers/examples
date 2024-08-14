@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>HS Layers</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" href="../node_modules/hslayers-ng-app/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.12.0/proj4.min.js" integrity="sha512-Vy83a/i6zjWMdQRWHVKLCvWQa2VV3bz0BjCoG+Nx9mScQsIU/lYVqJWxcU6FkmidYttGV5IanendgG5vNO2jew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="./app.js"></script>
+
+  <script src="../node_modules/hslayers-ng-app/runtime.js" type="module"></script>
+  <script src="../node_modules/hslayers-ng-app/polyfills.js" type="module"></script>
+  <script src="../node_modules/hslayers-ng-app/vendor.js" type="module"></script><!-- Must be included since 4.x -->
+  <script src="../node_modules/hslayers-ng-app/main.js" type="module"></script>
 </head>
-<body >
-    <div hs ng-app="hs" ng-controller="Main" style="position: relative;"></div>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/requirejs/require.js"></script>    
-    <script src="hslayers.js"></script> 
+
+<body>
+  <hslayers-app></hslayers-app>
 </body>
+
 </html>

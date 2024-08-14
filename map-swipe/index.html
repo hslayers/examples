@@ -19,16 +19,20 @@
             source: new ol.source.TileArcGISRest({
               url: "https://ags.cuzk.cz/arcgis/rest/services/ortofoto_wm/MapServer"
             }),
-            title: "Ortophoto",
+            properties: {
+              title: "Ortophoto",
+              removable: false,
+              swipeSide: 2
+            },
             visible: true,
-            removable: false,
-            swipeSide: 2
           }),
           new ol.layer.Tile({
             source: new ol.source.OSM(),
-            title: "OpenStreetMap",
+            properties: {
+              title: "OpenStreetMap",
+              removable: false
+            },
             visible: true,
-            removable: false
           })
         ],
         default_view: new ol.View({
@@ -48,7 +52,7 @@
           print: false,
           saveMap: false,
           language: false,
-          permalink: false
+          share: false
         },
         componentsEnabled: {
           mapSwipe: true
