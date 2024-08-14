@@ -7,6 +7,7 @@ function hslayersNgConfig(ol) {
   ol.projRegister(proj4);
   const sjtskProjection = ol.proj.get('EPSG:5514');
   return {
+    useProxy: false,
     assetsPath: '../node_modules/hslayers-ng-app/assets/',
     default_layers: [
       new ol.layer.Image({
