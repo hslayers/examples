@@ -13,22 +13,20 @@
 
   $(document).ready(function () {
     const links = [
-      { dir: "add-projection", index: "add-projection/index.html", name: "Add projection", description: "Map in different than default Mercator projection (S-JTSK/Krovak EastNorth, EPSG:5514)" },
       { dir: "simple-map", index: "simple-map/index.html", name: "Simple map", description: "Simple map application demonstration with hslayersNgConfig function" },
+      { dir: "full", index: "dist/full/index.html", name: "Full functionality", description: "Multiple HSLayers-NG features combined in one example" },
+      { dir: "components-visible", index: "components-visible/index.html", name: "Enabling/disabling components", description: "Enabling and disabling of GUI components and panels in sidebar" },
       { dir: "datasources", index: "dist/datasources/index.html", name: "Data sources", description: "Integration of various geodata silos" },
+      { dir: "add-projection", index: "add-projection/index.html", name: "Add projection", description: "Map in different than default Mercator projection (S-JTSK/Krovak EastNorth, EPSG:5514)" },
+      //"compositions":{name:"Thematic maps", description: "Thematic maps and loading of map compositions"},
+      { dir: "wmts-vector-tiles", index: "dist/wmts-vector-tiles/index.html", name: "WMTS Raster & Vector Tiles", description: "Adding of WMTS raster and vector tiles to the map" },
+      //{ dir: "feature-pop-ups", name: "Feature pop-ups", description: "Showcase of clickable feature pop-up cards" },
+      { dir: "map-swipe", index: "map-swipe/index.html", name: "Map Swipe", description: "Splitted map with drag&drop setting of left and right window content" },
+      { dir: "clustering-decluttering", index: "dist/clustering-decluttering/index.html", name: "Feature clustering and decluttering functionality", description: "Feature clustering and decluttering for vector layer" },
+      { dir: "routing", index: "dist/routing/index.html", name:"Trip planner", description: "Calculate shortest routes"},
       { dir: "cesium", index: "dist/cesium/index.html", name: "Cesium integration", description: "3D map created with hslayers-cesium" },
       { dir: "olu-spoi", index: "dist/olu-spoi/index.html", name: "OLU + SPOI data integration", description: "Example of integration of two external semantic datasets in one map view" },
-      //"compositions":{name:"Thematic maps", description: "Thematic maps and loading of map compositions"},
-      { dir: "full", index: "dist/full/index.html", name: "Full functionality", description: "Multiple HSLayers-NG features combined in one example" },
-      { dir: "clustering-decluttering", index: "dist/clustering-decluttering/index.html", name: "Feature clustering and decluttering functionality", description: "Feature clustering and decluttering for vector layer" },
-      //{ dir: "feature-pop-ups", name: "Feature pop-ups", description: "Showcase of clickable feature pop-up cards" },
-      { dir: "wmts-vector-tiles", index: "dist/wmts-vector-tiles/index.html", name: "WMTS Raster & Vector Tiles", description: "Adding of WMTS raster and vector tiles to the map" },
-      { dir: "map-swipe", index: "map-swipe/index.html", name: "Map Swipe", description: "Splitted map with drag&drop setting of left and right window content" },
-      //"geosparql":{name:"Smart Tourist Data", description: "Integration with Virtuoso SPARQL endpoint which contains points of interest linked open data in europe + Panoramio images and Czech forest roads"},
       //"wfs_crossfilter":{name:"Feature crossfiltering", description: "Demonstration of dynamic feature filtering using Crossfilter and D3 libraries"},
-      { dir: "routing", index: "dist/routing/index.html", name:"Trip planner", description: "Calculate shortest routes"},
-      //"tracking":{name:"SDI4Apps OpenAPI tracking", description: "Demonstrate how SensLog may be used to track mobile sensors"},
-      //"senslog":{name:"Senslog integration", description: "UNDER DEVELOPMENT. Map showing sensor observations from Senslog database and demo of feature drawing component"},
     ];
 
     const exampleCount = links.length;
