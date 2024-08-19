@@ -8,6 +8,7 @@
   "scripts": {
     "postinstall": "",
     "prestart": "npm install",
+    "build-all": "npm run build-full && npm run build-cesium && npm run build-datasources && npm run build-routing && npm run build-clustering && npm run build-vector-tiles && npm run build-olu-spoi",
     "serve-full": "ng serve full --disable-host-check",
     "build-full": "ng build full --configuration production",
     "serve-cesium": "ng serve cesium --disable-host-check",
