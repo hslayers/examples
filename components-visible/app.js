@@ -46,7 +46,6 @@ function hslayersNgConfig(ol) {
       saveMap: true,
       language: true,
       share: false,
-      feature_crossfilter: true,
       featureTable: true,
       tracking: false,
       tripPlanner: true,
