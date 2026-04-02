@@ -95,7 +95,7 @@
     "css-loader": "^5.0.0",
     "css-minimizer-webpack-plugin": "^4.0.0",
     "eslint": "^8.57.0",
-    "eslint-config-openlayers": "14.0.0",
+    "eslint-config-openlayers": "20.0.0",
     "eslint-plugin-import": "^2.20.2",
     "extract-loader": "^5.0.1",
     "file-loader": "^6.0.0",
