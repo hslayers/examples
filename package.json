@@ -80,8 +80,8 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^18.0.0",
-    "@angular-devkit/build-angular": "^18.1.4",
+    "@angular-builders/custom-webpack": "^21.0.3",
+    "@angular-devkit/build-angular": "^21.2.8",
     "@angular-eslint/eslint-plugin": "^18.1.0",
     "@angular/cli": "^18.1.0",
     "@angular/compiler-cli": "~18.1.0",
@@ -93,7 +93,7 @@
     "babel-plugin-angularjs-annotate": "^0.10.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.0",
-    "css-minimizer-webpack-plugin": "^4.0.0",
+    "css-minimizer-webpack-plugin": "^8.0.0",
     "eslint": "^8.57.0",
     "eslint-config-openlayers": "14.0.0",
     "eslint-plugin-import": "^2.20.2",
