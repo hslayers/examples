@@ -61,7 +61,7 @@
     "hslayers-cesium-app": "^14.1.0",
     "hslayers-ng": "^14.1.0",
     "hslayers-ng-app": "^14.1.0",
-    "hslayers-server": "^2.0.0",
+    "hslayers-server": "^3.1.0",
     "jszip": "^3.10.0",
     "moment": "^2.29.4",
     "moment-interval": "^0.2.1",
@@ -80,8 +80,8 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^18.0.0",
-    "@angular-devkit/build-angular": "^18.1.4",
+    "@angular-builders/custom-webpack": "^22.0.1",
+    "@angular-devkit/build-angular": "^21.2.19",
     "@angular-eslint/eslint-plugin": "^18.1.0",
     "@angular/cli": "^18.1.0",
     "@angular/compiler-cli": "~18.1.0",
@@ -114,7 +114,7 @@
     "url-loader": "^4.0.0",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^5.2.4",
+    "webpack-dev-server": "^6.0.0",
     "webpack-merge": "^5.8.0"
   },
   "browser": {
